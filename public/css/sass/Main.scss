@@ -1,0 +1,269 @@
+/*
+Main configuration
+---
+Copyright: 2018
+Site built and designed by Sitelyft Studios (https://sitelyftstudios.com)
+*/
+
+// Configuration
+@import 'includes/config';
+@import 'includes/Reset';
+
+// Plugins
+//@import 'includes/materialize';
+@import 'includes/bootstrap';
+@import 'includes/Animate';
+
+/*
+Table of contents
+---
+
+1. Header
+ - Links
+ - Headings
+ - Responsiveness
+ - Positioning
+ - Logged in header
+ - Logged out header
+2. Sidebar
+3. Footer
+*/
+
+.header{
+  height: 50px;
+  background: white;
+  z-index: 10001;
+
+  .inner-header{
+
+    .left-branding{
+      float: left;
+
+      h3{
+        font-size: 1.2em;
+        font-weight: 600;
+
+        margin-top: 14px;
+
+        a {
+          color: white;
+        }
+      }
+    }
+
+    .right-navigation{
+      float: right;
+
+      .inner-navigation{
+        padding-top: 13px;
+
+        @media screen and (max-width: 840px)
+        {
+          padding-top: 0px;
+        }
+
+        .inner-navigation-list{
+
+          .mobileHide{
+            display: inline-block;
+
+            @media screen and (max-width: 840px)
+            {
+              display: none;
+            }
+
+            li{
+              display: inline-block;
+              margin-left: 18px;
+
+
+              a{
+                color: $hrefFontLight;
+              }
+
+              a:hover{
+                color: $hrefFontDark;
+              }
+            }
+
+            li.special{
+              font-weight: 600;
+
+              a {
+                color: $hrefFontDark !important;
+              }
+            }
+          }
+
+          li.mobileRegister{
+            display: none;
+
+            @media screen and (max-width: 840px)
+            {
+              display: inline;
+            }
+            padding: 5px;
+            margin-right: 2px;
+            border: 2px solid $primaryColor;
+            border-radius: 3px;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-left: 10px;
+
+            background: $primaryColor;
+
+            a{
+              color: #fff;
+            }
+          }
+
+          li.mobileSidebarOpen{
+            display: none;
+
+            @media screen and (max-width: 840px)
+            {
+              display: inline-block;
+            }
+
+            font-size: 1.9em;
+
+            color: #333;
+
+            padding-left: 13px;
+
+            position: relative;
+            top: 5px;
+
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.header.absolute-top{
+  position: absolute;
+  top: 0px;
+}
+
+.header.transparent{
+  background: transparent !important;
+}
+
+.header.logged-header{
+  height: 80px;
+  border-bottom: 1px solid #eee;
+
+  .inner-header {
+
+    .left-branding {
+      float: left;
+
+      h3 {
+        font-size: 1.2em;
+        font-weight: 600;
+
+        margin-top: 14px;
+
+        a {
+          color: $darkPrimaryFont;
+        }
+      }
+    }
+  }
+}
+
+// Sidebar
+.sidebarMain{
+  width: 300px;
+
+  @media screen and (max-width: 340px)
+  {
+    width: 260px;
+  }
+
+  background: $primaryColor;
+
+  height: 100vh;
+
+  position: fixed;
+
+  top: 0px;
+  right: 0px;
+
+  z-index: 10001;
+
+  .innerSidebar{
+    width: 100%;
+
+    padding: 50px;
+    padding-top: 0px;
+
+    margin: 0% auto;
+
+    background: $primaryColor;
+    height: 100%;
+
+    .topHead{
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      img{
+        height: 55px;
+      }
+
+      h3{
+        padding-top: 20px;
+        font-weight: 500;
+        font-size: 1.2em;
+
+        color: #333;
+
+        text-decoration: none;
+      }
+    }
+
+    .bottomMenu{
+      padding-top: 25px;
+
+      ul{
+
+        li{
+          padding-bottom: 25px;
+
+          a{
+            color: #fff;
+            font-size: 1.2em;
+          }
+
+          a:hover{
+            color: #333;
+          }
+        }
+
+        li.special{
+          padding: 13px;
+
+          display: inline-block;
+          margin-right: 2px;
+
+          border: 2px solid #fff;
+          border-radius: 3px;
+
+          padding-right: 15px;
+          padding-left: 15px;
+
+          width: 100%;
+          text-align: center;
+
+          a {
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

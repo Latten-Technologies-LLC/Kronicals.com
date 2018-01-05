@@ -1,0 +1,188 @@
+@import 'main';
+
+// Mobile resets
+@media screen and (max-width: 767px)
+{
+  .mobileSidebarOpen{
+    color: white !important;
+  }
+}
+.website{
+  background: url(https://images.unsplash.com/photo-1501533123-e62013cabb4f?auto=format&fit=crop&w=1534&q=80);
+  background-size: cover;
+  background-position: bottom;
+
+  .full-height{
+    margin-bottom: 0px;
+
+    .full-height-container{
+      height: 100vh;
+    }
+
+    .full-height-container.main-message{
+      background: white;
+
+      @media screen and (max-width: 767px)
+      {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      .topBanner{
+        height: 300px;
+
+        background: url(https://images.unsplash.com/photo-1501533123-e62013cabb4f?auto=format&fit=crop&w=1534&q=80);
+        background-size: cover;
+        background-position: bottom;
+
+        margin-left: -15px;
+        margin-right: -15px;
+
+        display: none;
+
+        @media screen and (max-width: 767px)
+        {
+          display: block;
+        }
+
+        .cover{
+          background: rgba(0,0,0,.5);
+
+          width: 100%;
+          height: 300px;
+        }
+      }
+
+      .topMainMessage{
+        @media screen and (min-width: 768px)
+        {
+          @include vertical-align();
+          margin-top: -50px;
+        }
+
+        @media screen and (max-width: 767px)
+        {
+          padding-top: 40px;
+        }
+
+        .topBrand{
+
+          .topWelcome{
+
+            h3{
+              font-size: 1.4em;
+              font-weight: 300;
+
+              margin-bottom: 4px;
+            }
+          }
+
+          .bottomName{
+
+            h3{
+              font-size: 3.8em;
+              font-weight: 600;
+
+              margin-top: 0px;
+            }
+          }
+        }
+
+        .middleArea{
+
+          .topMessage{
+            margin-bottom: 10px;
+
+            p{
+              color: $darkPrimaryFont;
+            }
+          }
+
+          .divider{
+            width: 100px;
+          }
+
+          .bottomLoginArea{
+            margin-top: 20px;
+
+            .innerForm{
+
+              h4{
+                color: $defaultPrimaryFont;
+                font-weight: 300;
+
+                margin-bottom: 30px;
+              }
+
+              form{
+
+                .form-group{
+
+                  .col-md-12, .col-md-6{
+                    padding-left: 0px;
+
+                    .checkbox{
+
+                      label{
+
+                        span{
+                          color: $defaultPrimaryFont;
+                        }
+                      }
+                    }
+
+                    button{
+                      background: $primaryColor;
+                      border-color: $primaryColor;
+                    }
+
+                    a{
+                      color: $defaultPrimaryFont;
+                    }
+
+                    a:hover{
+                      color: $primaryColor;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .bottomArea{
+        position: absolute;
+        bottom: 0px;
+
+        border-top: 1px solid #eee;
+
+        padding-top: 0px;
+
+        h3{
+          font-size: 1.2em;
+          font-weight: 100;
+
+          margin-top: 15px;
+          margin-bottom: 5px;
+        }
+
+        h4{
+          font-size: .8em;
+          font-weight: 400;
+
+          margin-top: 0px;
+        }
+      }
+    }
+
+    .full-height-container.left-preview{
+      background: rgba(0,0,0,.6);
+
+      @media screen and (max-width: 767px)
+      {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+// Vars and initial configs
+@import 'fonts/opensans/font-opensans';
+
+// Colors
+$primaryDarkColor: #003249;
+$primaryColor: #007EA7;
+$primaryLightColor: #80CED7;
+
+// Vars
+$font: 'Open Sans';
+
+$hrefFontDark: $primaryColor;
+$hrefFontLight: #acacad;
+
+$darkPrimaryFont: #333;
+$defaultPrimaryFont: #acacad;
+$primaryColor: $primaryColor;
+
+// All
+*{
+  transition: all 0.5s ease;
+}
+
+// Body
+body{
+
+}
+
+// Responsive container
+.responsive-container{
+  max-width: 85rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Mixins
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// Resets
+a, a:hover{
+  text-decoration: none !important;
+}
+
+a:hover{
+  color: $primaryDarkColor;
+}
+
+.divider{
+  height: 1px;
+  background: #eee;
+  margin-bottom: 5px;
+}
+
+// Buttons
+.primaryBtn{
+  background: $primaryColor !important;
+  border-color: $primaryColor !important;
+}
+
+// Font color
+.defaultFontColor{
+  color: $defaultPrimaryFont;
+}
+
+.primaryFontColor{
+  color: $primaryColor;
+}
+
+// Links
+.hrefPrimaryColor{
+  color: $hrefFontDark;
+}
+
+.hrefPrimaryColor:hover{
+  color: $primaryDarkColor;
+}
+
+.hrefDefaultColor{
+  color: $defaultPrimaryFont !important;
+}
+
+.hrefDefaultColor:hover{
+  color: $hrefFontDark !important;
+}
+
+// Main Website
+.main-website{
+
+}
+
+// Website
+.website{
+  width: 100%;
+  min-height: 100vh;
+
+  position: relative;
+  z-index: 1000001;
+
+  background: white;
+}
