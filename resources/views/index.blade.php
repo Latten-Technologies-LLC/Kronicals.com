@@ -15,9 +15,13 @@ $stylesheet = "index";
     <div class="full-height-container col-md-8 col-sm-12 col-xs-12 main-message">
         <div class="topBanner">
             <div class="cover"></div>
+
         </div>
         <div class="topMainMessage">
             <div class="topBrand">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                 <div class="topWelcome">
                     <h3 class="defaultFontColor">Welcome to</h3>
                 </div>

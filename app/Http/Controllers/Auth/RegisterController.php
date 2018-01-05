@@ -27,7 +27,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/timeline';
+
+    protected $newUserID = "";
+    protected $newUserSalt = "";
 
     /**
      * Create a new controller instance.
@@ -63,11 +66,52 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // Now create a unique id
+        $unique_id = md5($data['username']);
+
+        // Put user model in var
+        $user = User::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'unique_salt_id' => $unique_id,
+            'profile_picture' => 'default_pic.jpg',
+            'banner_picture' => 'default_banner.jpg'
         ]);
+
+        // See if it works
+        if($user->save())
+        {
+            // Now since thats all good we can get the users id
+            $this->_newUserID = $user->id;
+            $this->_newUserSalt = $unique_id;
+
+            // Now create directories
+            mkdir(storage_path() . '/data/user_data/' . $this->_newUserSalt, 0777, true);
+            mkdir(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/profile_pictures', 0777, true); // Profile pictures
+            mkdir(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/banners', 0777, true); // Banners
+            mkdir(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/photos', 0777, true); // Photos
+            mkdir(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/videos', 0777, true); // Videos
+            mkdir(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/data', 0777, true); // Data
+
+            copy(storage_path() . '/data/user_data/default_pic.jpg', storage_path() . '/data/user_data/' . $this->_newUserSalt . '/profile_pictures/default_pic.jpg'); // Default profile pic
+            copy(storage_path() . '/data/user_data/default_banner.jpg', storage_path() . '/data/user_data/' . $this->_newUserSalt . '/banners/default_banner.jpg'); // Default banner pic
+
+            // Permissions
+            chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/profile_pictures/default_pic.jpg', 0777);
+            chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/banners/default_banner.jpg', 0777);
+            chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt, 0777);
+            chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/profile_pictures', 0777);
+            chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/banners', 0777);
+            chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/photos', 0777);
+            chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/videos', 0777);
+            chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/data', 0777);
+
+            return $user;
+        }
+        else{
+            echo "Nope";
+        }
     }
 }

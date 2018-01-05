@@ -16,6 +16,7 @@ class AddUsernameFieldToUsersTable extends Migration
         Schema::table('users', function(Blueprint $table)
         {
             $table->string('username');
+            $table->string('unique_salt_id');
         });
     }
 
