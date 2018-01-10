@@ -108,6 +108,9 @@ class RegisterController extends Controller
             chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/videos', 0777);
             chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/data', 0777);
 
+            // User info
+            
+
             return $user;
         }
         else{
