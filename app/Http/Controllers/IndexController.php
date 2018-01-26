@@ -9,6 +9,6 @@ class IndexController extends Controller
     //
     public function index()
     {
-        return view('index')->with('no_footer', false);
+        return view('index')->with('no_footer', true);
     }
 }

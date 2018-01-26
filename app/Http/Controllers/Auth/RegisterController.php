@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -109,7 +110,10 @@ class RegisterController extends Controller
             chmod(storage_path() . '/data/user_data/' . $this->_newUserSalt . '/data', 0777);
 
             // User info
-            
+            $insertUserInfo = DB::table("user_info")->insert([
+                'unique_salt_id' => $this->_newUserSalt,
+                'user_bio' => 'Hi! Welcome to my profile'
+            ]);
 
             return $user;
         }

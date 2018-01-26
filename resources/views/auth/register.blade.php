@@ -5,7 +5,7 @@
     <div class="container main-container">
         <div class="topArea">
             <h3>Register</h3>
-            <p>Register now to enjoy all the features we offer</p>
+            <p>Register now to enjoy all the fun</p>
         </div><div class="divider"></div>
         <div class="row">
             <div class="mainLoginCont">
@@ -32,7 +32,7 @@
                                 <label for="username" class="col-md-12 control-label">Username</label>
 
                                 <div class="col-md-12">
-                                    <input id="name" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+                                    <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
 
                                     @if ($errors->has('username'))
                                         <span class="help-block">

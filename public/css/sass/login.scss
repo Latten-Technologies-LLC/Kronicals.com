@@ -1,11 +1,20 @@
 @import 'main';
 
+.innerWebsite{
+  height: 100vh;
+}
+
 // Header reset
 .left-branding h3 a{
   color: $primaryDarkColor !important;
 }
 
 .main-container{
+  @media screen and (max-width: 767px)
+  {
+    padding-top: 100px;
+  }
+
   margin: 0% auto;
   padding-top: 200px;
 

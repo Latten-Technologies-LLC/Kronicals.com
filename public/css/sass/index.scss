@@ -15,7 +15,23 @@
   .full-height{
     margin-bottom: 0px;
 
+    @media screen and (max-width: 767px)
+    {
+      display: block;
+
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+
+    margin-right: 0px;
+    margin-left: 0px;
+
     .full-height-container{
+      @media screen and (max-width: 767px)
+      {
+        height: auto;
+      }
+
       height: 100vh;
     }
 
@@ -24,11 +40,15 @@
 
       @media screen and (max-width: 767px)
       {
-        padding-left: 30px;
-        padding-right: 30px;
+
       }
 
       .topBanner{
+        @media screen and (max-width: 767px)
+        {
+          height: 200px;
+        }
+
         height: 300px;
 
         background: url(https://images.unsplash.com/photo-1501533123-e62013cabb4f?auto=format&fit=crop&w=1534&q=80);
@@ -49,6 +69,11 @@
           background: rgba(0,0,0,.5);
 
           width: 100%;
+
+          @media screen and (max-width: 767px)
+          {
+            height: 200px;
+          }
           height: 300px;
         }
       }
@@ -151,12 +176,19 @@
         }
       }
 
-      .bottomArea{
-        position: absolute;
-        bottom: 0px;
+      .bottomArea {
+        @media screen and (min-width: 768px) {
+          position: absolute;
+          bottom: 0px;
+
+          padding-bottom: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+          padding-bottom: 15px;
+        }
 
         border-top: 1px solid #eee;
-
         padding-top: 0px;
 
         h3{
@@ -168,6 +200,9 @@
         }
 
         h4{
+          @media screen and (max-width: 768px) {
+            margin-bottom: 0px;
+          }
           font-size: .8em;
           font-weight: 400;
 

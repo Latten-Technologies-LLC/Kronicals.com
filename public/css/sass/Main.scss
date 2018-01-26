@@ -267,3 +267,92 @@ Table of contents
     }
   }
 }
+
+// Footer
+.footer{
+  background: $primaryDarkColor;
+
+  position: relative;
+  z-index: 100000001;
+
+  .topFooter{
+
+    background: lighten($primaryDarkColor, 3%);
+    padding: 7px;
+
+    height: 50px;
+
+    .container{
+
+      h3{
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 100;
+
+        margin: 0px;
+        padding-top: 5px;
+
+        a{
+          color: white;
+        }
+      }
+    }
+  }
+
+  .bottomFooter{
+    padding: 20px;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    .topBottomFooter{
+      margin: 0% auto;
+
+      h3{
+        text-align: center;
+        color: white;
+
+      }
+    }
+
+    .middleNavigation{
+      padding-top: 20px;
+
+      ul{
+        text-align: center;
+
+        li{
+          margin-right: 15px;
+          display: inline-block;
+
+          a{
+            color: white;
+          }
+        }
+
+        li:last-child{
+          margin-right: 0px;
+        }
+      }
+    }
+
+    .bottomBottomFooter{
+      border-top: 1px solid rgba(0,0,0,.1);
+      padding-top: 20px;
+
+      text-align: center;
+
+      .copyright{
+        font-size: 1.2em;
+
+        color: white;
+      }
+
+      .builtBy{
+
+        color: white;
+        font-size: .9em;
+      }
+    }
+  }
+}
