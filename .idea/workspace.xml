@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/IncogController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/IncogController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/incog/index-not-logged.blade.php" afterPath="$PROJECT_DIR$/resources/views/incog/index-not-logged.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/incog/templates/base.blade.php" afterPath="$PROJECT_DIR$/resources/views/incog/templates/base.blade.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,18 +44,18 @@
               <file leaf-file-name="index-logged.blade.php" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/resources/views/incog/index-logged.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="64">
-                      <caret line="4" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="11" />
+                    <state relative-caret-position="96">
+                      <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="index-not-logged.blade.php" pinned="false" current-in-tab="true">
+              <file leaf-file-name="index-not-logged.blade.php" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/resources/views/incog/index-not-logged.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="291">
-                      <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+                    <state relative-caret-position="704">
+                      <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
                       <folding>
                         <element signature="e#30#64#0#PHP" expanded="true" />
                       </folding>
@@ -63,11 +63,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="base.blade.php" pinned="false" current-in-tab="false">
+              <file leaf-file-name="base.blade.php" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/resources/views/incog/templates/base.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="0">
-                      <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <state relative-caret-position="96">
+                      <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
                       <folding />
                     </state>
                   </provider>
@@ -300,9 +300,9 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/incog/index-logged.blade.php" />
         <option value="$PROJECT_DIR$/public/css/sass/incog.scss" />
-        <option value="$PROJECT_DIR$/resources/views/incog/templates/base.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/IncogController.php" />
         <option value="$PROJECT_DIR$/resources/views/incog/index-not-logged.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/incog/templates/base.blade.php" />
       </list>
     </option>
   </component>
@@ -994,12 +994,12 @@
       <updated>1514844574557</updated>
       <workItem from="1514844575918" duration="41932000" />
       <workItem from="1515451351236" duration="1957000" />
-      <workItem from="1516083741021" duration="33826000" />
+      <workItem from="1516083741021" duration="34810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77715000" />
+    <option name="totallyTimeSpent" value="78699000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="177" width="1920" height="1080" extended-state="0" />
@@ -1388,14 +1388,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/incog/templates/base.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="512">
@@ -1416,14 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="9" column="23" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/incog/index-logged.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1454,13 +1438,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/incog/index-logged.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/incog/index-not-logged.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+        <state relative-caret-position="704">
+          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
           <folding>
             <element signature="e#30#64#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/incog/templates/base.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

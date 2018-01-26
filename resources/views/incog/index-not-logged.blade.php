@@ -40,7 +40,7 @@ if(count($exists) == 1)
                 </div>
                 <div class="rightInfo">
                     <h3><?php echo $profile->name; ?></h3>
-                    <h4><?php echo $profile->username; ?></h4>
+                    <h4>@<?php echo $profile->username; ?></h4>
                 </div>
             </div>
         </div>
