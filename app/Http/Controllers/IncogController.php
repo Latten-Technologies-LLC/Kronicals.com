@@ -16,7 +16,7 @@ class IncogController extends Controller
 
         if(count($user) == 1)
         {
-            // See if their logged in
+            // See if they're logged in
             if (Auth::check())
             {
                 return view('incog/index-logged', ['user' => $user]);
