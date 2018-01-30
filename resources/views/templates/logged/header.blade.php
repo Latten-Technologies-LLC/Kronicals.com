@@ -7,7 +7,7 @@
             <div class="inner-navigation">
                 <ul class="inner-navigation-list">
                     <div class="mobileHide">
-                        <li><a href="<?php echo url("/"); ?>/my_anons">My Anons</a></li>
+                        <li><a href="<?php echo url("/"); ?>/incogs">Incogs</a></li>
                         <li><a href="<?php echo url("/"); ?>/messages">Messages</a></li>
                         <li ><a href="<?php echo url("/"); ?>/settings">Settings</a></li>
                     </div>

@@ -20,6 +20,23 @@ class IncogMessages
         $this->notifications = new Notifications();
     }
 
+    public function getMessages($user_salt)
+    {
+        if(!empty($user_salt))
+        {
+            $messages = DB::table('incog_messages')->where('user_id', $user_salt)->get();
+
+            if(count($messages) > 0)
+            {
+                return json_encode($messages);
+            }else{
+                return json_encode(['code' => 0, 'You don\'t have any messages yet']);
+            }
+        }else{
+            return json_encode(['code' => 0, 'You don\'t have any messages yet']);
+        }
+    }
+
     public function sendIncogMessage($data)
     {
         if(!empty($data['usi']) && !empty($data['message']))

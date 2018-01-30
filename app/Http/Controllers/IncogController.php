@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use App\Libraries\IncogMessages as IncogMessages;
 
 class IncogController extends Controller
@@ -55,7 +56,7 @@ class IncogController extends Controller
             ]);
 
             // Now we're good, call the method
-            $send = $this->incog->sendIncogMessage(['usi' => $request->usi, 'message' => $request->message]);
+            $send = $this->incog->sendIncogMessage(['usi' => $request->usi, 'message' => Crypt::encryptString($request->message)]);
             echo $send;
         }else{
             $this->response = array('code' => 0, 'Invalid Request');
