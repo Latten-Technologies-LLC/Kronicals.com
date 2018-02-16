@@ -19,6 +19,15 @@ class IncogMessages
         $this->user = new User();
         $this->notifications = new Notifications();
     }
+    
+    public function hideMessage($id)
+    {
+        // Just update
+        DB::table('incog_messages')->where('id', $id)->update(['hide' => '1']);
+
+        // Response
+        return json_encode(['code' => 1, 'status' => 'Message has been hidden']);
+    }
 
     public function getMessages($user_salt)
     {
@@ -28,12 +37,13 @@ class IncogMessages
 
             if(count($messages) > 0)
             {
-                return json_encode($messages);
+                $response = ['code' => 1, 'messages' => $messages];
+                return json_encode($response);
             }else{
-                return json_encode(['code' => 0, 'You don\'t have any messages yet']);
+                return json_encode(['code' => 0, 'status' => 'You don\'t have any messages yet']);
             }
         }else{
-            return json_encode(['code' => 0, 'You don\'t have any messages yet']);
+            return json_encode(['code' => 0, 'status' => 'You don\'t have any messages yet']);
         }
     }
 
@@ -55,10 +65,11 @@ class IncogMessages
                         'user_id' => $data['usi'],
                         'from_id' => auth()->user()->unique_salt_id,
                         'message' => $data['message'],
-                        'date' => date('y-m-d H:i:s')
+                        'date' => date('y-m-d H:i:s'),
+                        'anonymous' => $data['anonymous']
                     ]);
 
-                    $notify = $this->notifications->make(['user_to' => $data['usi'], 'from' => auth()->user()->unique_salt_id, 'type' => 'incog', 'message' => 'You have a new anonymous message!']);
+                    $notify = $this->notifications->make(['user_to' => $data['usi'], 'from' => auth()->user()->unique_salt_id, 'type' => 'incog', 'message' => 'New anonymous message!']);
 
                 }else{
                     // Now insert the message (Not logged)
@@ -66,11 +77,11 @@ class IncogMessages
                         'user_id' => $data['usi'],
                         'from_id' => '',
                         'message' => $data['message'],
-                        'date' => date('y-m-d H:i:s')
+                        'date' => date('y-m-d H:i:s'),
                     ]);
 
                     // Notify
-                    $notify = $this->notifications->make(['user_to' => $data['usi'], 'from' => 'null', 'type' => 'incog', 'message' => 'You have a new anonymous message!']);
+                    $notify = $this->notifications->make(['user_to' => $data['usi'], 'from' => 'null', 'type' => 'incog', 'message' => 'New anonymous message!']);
 
                 }
 

@@ -153,21 +153,85 @@ Table of contents
 
 .header.logged-header{
   height: 80px;
-  border-bottom: 1px solid #eee;
+  //border-bottom: 1px solid rgba(0,0,0, .1);
 
   .inner-header {
+    padding-top: 10px;
 
     .left-branding {
       float: left;
 
       h3 {
-        font-size: 1.2em;
+        font-size: 1.5em;
         font-weight: 600;
 
         margin-top: 14px;
 
         a {
           color: $darkPrimaryFont;
+        }
+      }
+    }
+
+    .right-navigation{
+
+      .inner-navigation{
+
+        .inner-navigation-list{
+
+          li{
+            display: inline;
+            margin-right: 15px;
+
+            a.nav-icon{
+              font-size: 1.2em;
+              color: $darkPrimaryFont;
+            }
+
+            a{
+
+              .logged-pp{
+                height: 40px;
+                width: 40px;
+
+                border-radius: 3px;
+                background-size: cover;
+
+                display: inline-block;
+              }
+            }
+          }
+
+          li:not(.logged-pp-hold){
+            position: relative;
+            top: -15px;
+          }
+
+          li.logged-pp-hold{
+            position: relative;
+            top: -3px;
+
+            margin-right: 0px;
+          }
+
+          li.mobileSidebarOpen {
+            top: -8px;
+
+            @media screen and (min-width: 1000px)
+            {
+              display: none;
+            }
+          }
+
+          .mobileHide{
+
+            li{
+
+              a{
+                color: $darkPrimaryFont;
+              }
+            }
+          }
         }
       }
     }

@@ -45,6 +45,19 @@ class IncogController extends Controller
         }
     }
 
+    public function hide(Request $request)
+    {
+        if(isset($_POST))
+        {
+            // Now we're good, call the method
+            $send = $this->incog->hideMessage($request->incogid);
+            echo $send;
+        }else{
+            $this->response = array('code' => 0, 'Invalid Request');
+            echo json_encode($this->response);
+        }
+    }
+    
     public function send(Request $request)
     {
         if(isset($_POST))
@@ -52,11 +65,20 @@ class IncogController extends Controller
             // Validate
             $validate = $request->validate([
                 'usi' => 'required',
-                'message' => 'required|max:1000',
+                'message' => 'required|max:1000'
             ]);
 
+            // See if its anonymous
+            if(isset($request->anonymous))
+            {
+                $anonymous = '1';
+            }else{
+                $anonymous = '0';
+            }
+            
             // Now we're good, call the method
-            $send = $this->incog->sendIncogMessage(['usi' => $request->usi, 'message' => Crypt::encryptString($request->message)]);
+            //$send = $this->incog->sendIncogMessage(['usi' => $request->usi, 'message' => Crypt::encryptString($request->message), 'anonymous' => $anonymous]);
+            $send = $this->incog->sendIncogMessage(['usi' => $request->usi, 'message' => $request->message, 'anonymous' => $anonymous]);
             echo $send;
         }else{
             $this->response = array('code' => 0, 'Invalid Request');

@@ -1,1 +1,70 @@
 @import 'main';
+
+.profile{
+
+  .userProfileTop{
+    background: white;
+    border-radius: 2px;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+
+    .cover{
+
+      .bannerMain{
+        width: 100%;
+        height: 400px;
+
+        background-size: cover;
+
+        border-top-right-radius: 2px;
+        border-top-left-radius: 2px;
+
+      }
+
+      .mainProfileHold{
+        margin-top: -100px;
+
+        .profileImage{
+          text-align: center;
+
+          img{
+            width: 150px;
+            height: 150px;
+
+            border-radius: 2px;
+          }
+        }
+
+        .rightInfo{
+          padding-top: 20px;
+          padding-bottom: 40px;
+
+          h3{
+            text-align: center;
+
+            font-weight: 500;
+            font-size: 1.8em;
+
+            color: $primaryColor;
+          }
+
+          h4{
+            text-align: center;
+
+            font-weight: 300;
+            font-size: 1.2em;
+
+            color: $hrefFontLight;
+          }
+
+          text-align: center;
+
+          a{
+            margin-top: 15px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

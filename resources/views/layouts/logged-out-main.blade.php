@@ -16,6 +16,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href=""/>
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
     <!-- Specific page stylesheet -->

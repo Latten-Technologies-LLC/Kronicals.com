@@ -40,6 +40,7 @@ Route::post('/settings/change_profile_banner', 'AccountSettingsController@change
 // Incog
 Route::get('/incog/{username}', 'IncogController@index');
 Route::post('/incog/message/send', 'IncogController@send')->name('incog.message_send');
+Route::post('/incog/message/hide', 'IncogController@hide')->name('incog.hide');
 
 // Profiles
 Route::get('/p/{username}', 'ProfileController@index');

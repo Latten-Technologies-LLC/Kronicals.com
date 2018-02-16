@@ -7,7 +7,8 @@ $primaryColor: #007EA7;
 $primaryLightColor: #80CED7;
 
 // Vars
-$font: 'Open Sans';
+//$font: 'Open Sans';
+$font: 'Montserrat', sans-serif;
 
 $hrefFontDark: $primaryColor;
 $hrefFontLight: #acacad;
@@ -23,7 +24,7 @@ $primaryColor: $primaryColor;
 
 // Body
 body{
-
+  background: #F2F1F3;
 }
 
 // Responsive container
@@ -102,5 +103,50 @@ a:hover{
   position: relative;
   z-index: 1000001;
 
-  background: white;
+  background: #efefef;
 }
+
+// Notes
+.note{
+  width: 100%;
+
+  .leftProfile{
+    float: left;
+
+    img{
+      width: 40px;
+      height: 40px;
+
+      border-radius: 2px;
+    }
+
+    .pp{
+      height: 40px;
+      width: 40px;
+
+      border-radius: 2px;
+
+      background-size: cover;
+    }
+  }
+
+  .rightBody{
+    margin-left: 50px;
+
+    h3{
+      font-size: 1.1em;
+      font-weight: 400;
+
+      margin-bottom: 3px;
+
+      a{
+        color: $primaryColor;
+      }
+    }
+
+    p{
+      font-size: 1em;
+    }
+  }
+}
+

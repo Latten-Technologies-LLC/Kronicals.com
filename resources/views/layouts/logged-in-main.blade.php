@@ -10,12 +10,15 @@
     <meta name="keywords" content="<?php echo config('app.keywords'); ?>">
     <meta name="author" content="<?php echo config('app.author'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <link rel="alternate" hreflang="en" href="https://anonuss.com/" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href=""/>
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
     <!-- Specific page stylesheet -->
@@ -37,6 +40,14 @@
 </div>
 <!-- Javascript -->
 <script src="{{ asset('js/jquery.js') }}" type="application/javascript" language="JavaScript"></script>
+
+<script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+</script>
 <script src="{{ asset('js/materialize.js') }}" type="application/javascript" language="JavaScript"></script>
 <script src="{{ asset('js/bootstrap.js') }}" type="application/javascript" language="JavaScript"></script>
 <script src="{{ asset('js/logged-main.js') }}" type="application/javascript" language="JavaScript"></script>

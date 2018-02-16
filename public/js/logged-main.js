@@ -32,9 +32,39 @@ $(document).ready(function()
             });
         }
     });
-});
 
-// Right off
-$(function(){
+    var busy = false;
 
+    // Hide anon
+    $(document).on('click', '.hideAnon', function()
+    {
+        if(busy == false)
+        {
+            busy = true;
+
+            //e.preventDefault();
+
+            var id = $(this).data('id');
+            var token = $(this).data('token');
+
+            var href = $(this).attr('href');
+
+            if (id != "" && token != "")
+            {
+                $.post(href, {incogid: id}, function (data) {
+                    var obj = jQuery.parseJSON(data);
+
+                    if (obj.code == 1) {
+                        $("#message" + id).fadeOut('slow');
+                    } else {
+                        alert(obj.status);
+                    }
+
+                    busy = false;
+                });
+            }
+
+            return false;
+        }
+    });
 });

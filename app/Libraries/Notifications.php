@@ -31,4 +31,9 @@ class Notifications
 
         return $insert;
     }
+
+    public function get($unique_id)
+    {
+        return DB::table('notifications')->where('user_to', $unique_id)->get();
+    }
 }
