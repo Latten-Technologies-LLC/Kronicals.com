@@ -10,7 +10,7 @@
             <?php if(Auth::check()){ ?>
                 <div class="form-group a-check">
                     <input type="submit" class="btn btn-success" value="Send" />
-                    <input type="checkbox" name="anonymous" value="Anonymous" checked> Share anonymously?
+                    <input type="checkbox" name="anonymous" id="anonymous" value="Anonymous" checked> Share anonymously?
                 </div>
             <?php } ?>
             <input type="hidden" id="usi" name="usi" value="<?php echo $profile->unique_salt_id; ?>" />

@@ -35,6 +35,50 @@ $(document).ready(function()
 
     var busy = false;
 
+    // Send anon
+    $(document).on('submit', '#incogMessageMaker', function(e){
+        if(busy == false)
+        {
+            // Prevent
+            e.preventDefault();
+
+            busy = true;
+
+            // Vars
+            var t = $(this);
+
+            var action = t.attr('action');
+
+            var token = $("#token");
+            var message = $("#message");
+            var checkbox = $("#anonymous");
+            var usi = $("#usi");
+
+            // Check
+            if(message.val() != "")
+            {
+                $.post(action, {_token: token.val(), message: message.val(), anonymous: checkbox.val(), usi: usi.val()}, function(data)
+                {
+                    var obj = jQuery.parseJSON(data);
+
+                    if(obj.code == 1)
+                    {
+                        alert(obj.message);
+                        busy = false;
+                    }else{
+                        alert(obj.message);
+                        busy = false;
+                    }
+                });
+            }else{
+                message.css('border', '2px solid #d63031');
+                busy = false;
+            }
+        }
+
+        return false;
+    });
+
     // Hide anon
     $(document).on('click', '.hideAnon', function()
     {
@@ -65,6 +109,31 @@ $(document).ready(function()
             }
 
             return false;
+        }
+    });
+
+    // Reply to anon
+    $(document).on('click', '.anonActionBtn', function(e){
+        e.preventDefault();
+
+        var t = $(this);
+
+        // Vars
+        var action = t.data('action');
+        var anonId = t.data('anonid');
+        var message = $("#message" + anonId);
+        var replyBox = $("#replyBox" + anonId);
+
+        if(action === "showReplyBox")
+        {
+            if(message.hasClass('replyActive'))
+            {
+                message.removeClass('replyActive');
+                replyBox.css('display', 'none');
+            }else{
+                message.addClass('replyActive');
+                replyBox.css('display', 'block');
+            }
         }
     });
 });

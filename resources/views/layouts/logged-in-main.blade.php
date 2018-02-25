@@ -51,5 +51,8 @@ $.ajaxSetup({
 <script src="{{ asset('js/materialize.js') }}" type="application/javascript" language="JavaScript"></script>
 <script src="{{ asset('js/bootstrap.js') }}" type="application/javascript" language="JavaScript"></script>
 <script src="{{ asset('js/logged-main.js') }}" type="application/javascript" language="JavaScript"></script>
+
+@yield('scripts')
+
 </body>
 </html>

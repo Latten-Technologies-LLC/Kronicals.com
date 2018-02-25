@@ -2,6 +2,7 @@
 namespace App\Libraries;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use App\Libraries\User;
 use App\Libraries\Notifications;
 
@@ -40,10 +41,28 @@ class IncogMessages
                 $response = ['code' => 1, 'messages' => $messages];
                 return json_encode($response);
             }else{
-                return json_encode(['code' => 0, 'status' => 'You don\'t have any messages yet']);
+                return json_encode(['code' => 0, 'message' => 'You don\'t have any messages yet']);
             }
         }else{
-            return json_encode(['code' => 0, 'status' => 'You don\'t have any messages yet']);
+            return json_encode(['code' => 0, 'message' => 'You don\'t have any messages yet']);
+        }
+    }
+
+    public function getSentMessages($user_salt)
+    {
+        if(!empty($user_salt))
+        {
+            $messages = DB::table('incog_messages')->where('from_id', $user_salt)->get();
+
+            if(count($messages) > 0)
+            {
+                $response = ['code' => 1, 'messages' => $messages];
+                return json_encode($response);
+            }else{
+                return json_encode(['code' => 0, 'message' => 'You don\'t have any sent messages yet']);
+            }
+        }else{
+            return json_encode(['code' => 0, 'message' => 'You don\'t have any sent messages yet']);
         }
     }
 
@@ -64,7 +83,7 @@ class IncogMessages
                     $insert = DB::table('incog_messages')->insert([
                         'user_id' => $data['usi'],
                         'from_id' => auth()->user()->unique_salt_id,
-                        'message' => $data['message'],
+                        'message' => Crypt::encrypt($data['message']),
                         'date' => date('y-m-d H:i:s'),
                         'anonymous' => $data['anonymous']
                     ]);
@@ -76,7 +95,7 @@ class IncogMessages
                     $insert = DB::table('incog_messages')->insert([
                         'user_id' => $data['usi'],
                         'from_id' => '',
-                        'message' => $data['message'],
+                        'message' => Crypt::encrypt($data['message']),
                         'date' => date('y-m-d H:i:s'),
                     ]);
 
@@ -95,5 +114,10 @@ class IncogMessages
         }else{
             return json_encode(['code' => 0, 'message' => 'Please enter a message!']);
         }
+    }
+    
+    public function reply($data)
+    {
+        
     }
 }

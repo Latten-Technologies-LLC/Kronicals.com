@@ -22,6 +22,7 @@ Route::get('/about_us', 'AboutController@index')->name('about_us.index');
 
 // Timeline
 Route::get('/timeline', 'TimelineController@index')->name('timeline.index');
+Route::get('/timeline/sent', 'TimelineController@sent')->name('timeline.sent');
 
 // User Image Finder
 Route::get('/user/{unique_salt_id}/{file_type}', 'FileHandlerController@find');
@@ -41,7 +42,10 @@ Route::post('/settings/change_profile_banner', 'AccountSettingsController@change
 Route::get('/incog/{username}', 'IncogController@index');
 Route::post('/incog/message/send', 'IncogController@send')->name('incog.message_send');
 Route::post('/incog/message/hide', 'IncogController@hide')->name('incog.hide');
+Route::post('/incog/message/reply', 'IncogController@reply')->name('incog.reply');
 
 // Profiles
 Route::get('/p/{username}', 'ProfileController@index');
 
+// Braintree
+Route::get('/generate/token', 'BraintreeController@token')->name('braintree.token');

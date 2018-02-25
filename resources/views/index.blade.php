@@ -28,7 +28,7 @@ $stylesheet = "index";
             </div>
             <div class="middleArea">
                 <div class="topMessage">
-                    <p>Share your thoughts secretly, while staying connected to the people you care about.</p>
+                    <p>Share your thoughts secretly, and provide valuable feedback to your friends</p>
                 </div>
                 <div class="divider"></div>
                 <div class="bottomLoginArea">
