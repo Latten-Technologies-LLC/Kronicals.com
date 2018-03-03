@@ -57,6 +57,25 @@ class IncogController extends Controller
             echo json_encode($this->response);
         }
     }
+
+    public function reply(Request $request)
+    {
+        // Validate
+        $validation = $request->validate([
+            'id' => 'required',
+            'message' => 'required|max:1000'
+        ]);
+
+        // Call method
+        if(isset($_POST))
+        {
+            $reply = $this->incog->replyIncogMessage(['message' => $request->message, 'id' => $request->id]);
+            echo $reply;
+        }else{
+            $this->response = array('code' => 0, 'Invalid Request');
+            echo json_encode($this->response);
+        }
+    }
     
     public function send(Request $request)
     {

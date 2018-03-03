@@ -1,10 +1,14 @@
 <?php
 namespace App\Libraries;
+
+use App\Mail\incogReceived;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use App\Libraries\User;
 use App\Libraries\Notifications;
+
 
 class IncogMessages
 {
@@ -105,6 +109,7 @@ class IncogMessages
                 }
 
                 // Email
+                //Mail::to($check[0]->email)->send(new incogReceived(['fullname' => $check[0]->name]));
 
                 // Return
                 return json_encode(['code' => 1, 'message' => 'Your message has been sent!']);
@@ -116,8 +121,48 @@ class IncogMessages
         }
     }
     
-    public function reply($data)
+    public function replyIncogMessage($data)
     {
-        
+        if(!empty($data['id']) && !empty($data['message']))
+        {
+            // Make sure they're logged in
+            if(Auth::check())
+            {
+                // Make sure the message exists
+                $check = DB::table('incog_messages')->where('id', $data['id'])->get();
+
+                if(count($check) == 1)
+                {
+                    // Now insert the reply
+                    $insert = DB::table('incog_reply')->insert([
+                        'incog_id' => $data['id'],
+                        'user_id' => auth()->user()->unique_salt_id,
+                        'message' => Crypt::encrypt($data['message']),
+                        'date' => date('y-m-d H:i:s'),
+                        'hide' => '0'
+                    ]);
+
+                    // Notify
+                    $notify = $this->notifications->make(['user_to' => $check[0]->from_id, 'from' => auth()->user()->unique_salt_id, 'type' => 'incog-reply', 'message' => 'New reply to your <a href="'.url('/').'/timeline/sent/?m='.$data['id'].'">message!</a>']);
+
+                    // Email
+                    
+
+                    // Reply
+                    return json_encode(['code' => 1, 'message' => 'Your reply has been sent!', 'data' => ['name' => ucwords(auth()->user()->name), 'username' => auth()->user()->username, 'usi' => auth()->user()->unique_salt_id, 'message' => $data['message'], 'url' => url('/')]]);
+                }else{
+                    return json_encode(['code' => 0, 'message' => 'This message does not exist!']);
+                }
+            }else{
+                return json_encode(['code' => 0, 'message' => 'You must be logged in!']);
+            }
+        }else{
+            return json_encode(['code' => 0, 'message' => 'Please enter a message!']);
+        }
+    }
+
+    public function displayIncogMessageReplies($data)
+    {
+        return DB::table('incog_reply')->where('incog_id', $data['id'])->get();
     }
 }

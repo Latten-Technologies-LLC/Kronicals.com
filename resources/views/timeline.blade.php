@@ -61,6 +61,9 @@ function time_elapsed_string($datetime, $full = false) {
                             {
                                 if($message['hide'] == null or $message['hide'] != 1)
                                 {
+                                    // Replies
+                                    $replies = $incog->displayIncogMessageReplies(['id' => $message['id']]);
+
                                     if($message['from_id'] != "")
                                     {
                                         $from = DB::table('users')->where('unique_salt_id', $message['from_id'])->get()[0];
@@ -101,24 +104,45 @@ function time_elapsed_string($datetime, $full = false) {
                                                     <div class="bottomText">
                                                         <ul>
                                                             <?php if($message['from_id'] != ""){ ?>
-                                                                <li><a data-anonid="<?php echo $message['id']; ?>" data-action="showReplyBox" class="anonActionBtn" href=""><i class="fas fa-reply"></i> Reply</a></li>
+                                                                <li><a data-anonid="<?php echo $message['id']; ?>" data-action="showReplyBox" class="anonActionBtn" href=""><i class="fas fa-reply"></i> Reply (<?php echo count($replies); ?>)</a></li>
                                                             <?php } ?>
                                                             <li><a class="hideAnon" href="{{ route('incog.hide') }}" data-id="<?php echo $message['id']; ?>" data-t="{{ csrf_token() }}"><i class="far fa-eye-slash"></i> Hide</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                                 <div class="replyBox" id="replyBox<?php echo $message['id']; ?>">
-                                                    <div class="replyMainHold">
-
+                                                    <div class="replyMainHold" id="replyBoxHold<?php echo $message['id']; ?>">
+                                                        <div class="row">
+                                                            <?php
+                                                            foreach($replies as $reply)
+                                                            {
+                                                            // Get user info
+                                                            $user = DB::table('users')->where('unique_salt_id', $reply->user_id)->get();
+                                                            ?>
+                                                            <div class="reply">
+                                                                <div class="leftProfile">
+                                                                    <div class="innerPP" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo $user[0]->unique_salt_id; ?>/profile_picture);"></div>
+                                                                </div>
+                                                                <div class="rightProfile">
+                                                                    <h3><a href="<?php echo url('/'); ?>/p/<?php echo $user[0]->username; ?>"><?php echo ucwords($user[0]->name); ?></a> &middot; <span><?php echo time_elapsed_string($reply->date); ?></span></h3>
+                                                                    <p><?php echo Crypt::decrypt($reply->message); ?></p>
+                                                                </div>
+                                                            </div>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </div>
                                                     </div>
                                                     <div class="replyMaker">
-                                                        <form action="" method="post" class="replyMakerForm">
+                                                        <form action="{{ route('incog.reply') }}" method="post" class="replyMakerForm" data-id="<?php echo $message['id']; ?>">
                                                             <div class="row">
                                                                 <div class="pp">
                                                                     <div class="mainpphold" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo auth()->user()->unique_salt_id; ?>/profile_picture);"></div>
                                                                 </div>
                                                                 <div class="input">
-                                                                    <input type="text" id="replyInput" placeholder="Press enter or return to reply" />
+                                                                    <input type="text" class="replyInput" data-id="<?php echo $message['id']; ?>" id="replyInput<?php echo $message['id']; ?>" placeholder="Press enter or return to reply" />
+                                                                    <input type="hidden" class="replyId" id="replyId" value="<?php echo $message['id']; ?>" />
+                                                                    <input type="hidden" class="replyToken" value="{{ csrf_token() }}" />
                                                                 </div>
                                                             </div>
                                                         </form>

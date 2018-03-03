@@ -298,6 +298,57 @@
               margin-top: 10px;
               display: none;
 
+              .replyMainHold{
+
+                .row{
+
+                  .reply{
+                    width: 100%;
+                    border-top: 1px solid rgba(0,0,0,.2);
+
+                    .leftProfile{
+                      width: 60px;
+                      height: 60px;
+
+                      float: left;
+
+                      padding-right: 10px;
+
+                      .innerPP{
+                        width: 100%;
+                        height: 50px;
+
+                        background-size: cover;
+                      }
+                    }
+
+                    .rightProfile{
+                      margin-left: 50px;
+
+                      padding: 10px;
+
+                      h3{
+                        font-size: .8em;
+                        font-weight: bold;
+
+                        span{
+                          color: $hrefFontLight;
+                          font-weight: 400;
+                        }
+
+                        a{
+                          color: $hrefFontDark;
+                        }
+                      }
+
+                      p{
+                        margin-bottom: 0px;
+                      }
+                    }
+                  }
+                }
+              }
+
               .replyMaker{
                 background: #F9F9F9;
 

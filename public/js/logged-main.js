@@ -133,7 +133,73 @@ $(document).ready(function()
             }else{
                 message.addClass('replyActive');
                 replyBox.css('display', 'block');
+
+                // Focus
+                $("#replyInput" + anonId).focus();
             }
         }
+    });
+
+    $(document).on('submit', '.replyMakerForm', function(e){
+       e.preventDefault();
+
+       if(busy == false)
+       {
+           busy = true;
+
+           // Vars
+           var form = $(this);
+           var mid = form.data('id');
+           var action = form.attr('action');
+
+           var replyInput = form.find('.replyInput');
+           replyInput.css('border', 'none');
+
+           var replyId = form.find('.replyId');
+
+           var replyBoxHold = $("#replyBoxHold" + mid);
+
+           var token = form.find('.replyToken');
+
+           // Validation
+           if(replyInput.val() != "" && replyId.val() != "")
+           {
+                $.post(action, {_token: token.val(), id: replyId.val(), message: replyInput.val()}, function(data){
+                    var obj = jQuery.parseJSON(data);
+
+                    if(obj.code == 1)
+                    {
+                        // Init temp
+                        var temp = "";
+
+                        // Create temp
+                        temp += "<div class='reply'>";
+                            temp += "<div class='leftProfile'>";
+                                temp += "<div class='innerPP' style='background-image: url("+ obj.data.url +"/user/"+obj.data.usi+"/profile_picture);'></div>";
+                            temp += "</div>";
+                            temp += "<div class='rightProfile'>";
+                                temp += "<h3><a href='" + obj.data.url + "/p/"+ obj.data.username +"'>" + obj.data.name + "</a> &middot; <span>Just now</span></h3>";
+                                temp += "<p>" + obj.data.message + "</p>";
+                            temp += "</div>";
+                        temp += "</div>";
+
+                        // Append
+                        replyBoxHold.children('.row').append(temp);
+                        replyBoxHold.children('.row').last().focus();
+
+                        // Empty box
+                        replyInput.val("");
+
+                        busy = false;
+                    }else{
+                        alert(obj.message);
+                        busy = false;
+                    }
+                });
+           }else{
+               replyInput.css('border', '2px solid #d63031');
+               busy = false;
+           }
+       }
     });
 });

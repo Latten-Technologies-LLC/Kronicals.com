@@ -29,7 +29,7 @@ class TimelineController extends Controller
     
     public function index()
     {
-        return view('timeline', ['no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'messages' => $this->incog->getMessages(auth()->user()->unique_salt_id)]);
+        return view('timeline', ['no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'messages' => $this->incog->getMessages(auth()->user()->unique_salt_id), 'incog' => $this->incog]);
     }
 
     public function sent()
