@@ -34,6 +34,6 @@ class TimelineController extends Controller
 
     public function sent()
     {
-        return view('timeline.sent', ['no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'sentmessages' => $this->incog->getSentMessages(auth()->user()->unique_salt_id)]);
+        return view('timeline.sent', ['no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'sentmessages' => $this->incog->getSentMessages(auth()->user()->unique_salt_id), 'incog' => $this->incog]);
     }
 }
