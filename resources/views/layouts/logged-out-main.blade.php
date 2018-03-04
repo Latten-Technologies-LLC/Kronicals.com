@@ -13,6 +13,9 @@
 
     <link rel="alternate" hreflang="en" href="https://anonuss.com/" />
 
+    <!-- Google -->
+    <meta name="google-site-verification" content="aU_QFdj-SFMcmIHGZH0u_aZinHgR91AUY4p0YQbivgo" />
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href=""/>
 
