@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templates/emails/IncogReceived.blade.php" afterPath="$PROJECT_DIR$/resources/views/templates/emails/IncogReceived.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templates/emails/IncogReply.blade.php" afterPath="$PROJECT_DIR$/resources/views/templates/emails/IncogReply.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Mail/IncogReceived.php" afterPath="$PROJECT_DIR$/app/Mail/IncogReceived.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Mail/IncogReply.php" afterPath="$PROJECT_DIR$/app/Mail/IncogReply.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,11 +106,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="IncogReceived.php" pinned="false" current-in-tab="false">
+              <file leaf-file-name="IncogReceived.php" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/app/Mail/IncogReceived.php">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="379">
-                      <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+                      <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
                       <folding />
                     </state>
                   </provider>
@@ -119,14 +119,14 @@
               <file leaf-file-name="IncogReply.php" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/app/Mail/IncogReply.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="379">
-                      <caret line="34" column="17" selection-start-line="34" selection-start-column="8" selection-end-line="37" selection-end-column="11" />
+                    <state relative-caret-position="267">
+                      <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="IncogReply.blade.php" pinned="false" current-in-tab="true">
+              <file leaf-file-name="IncogReply.blade.php" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/resources/views/templates/emails/IncogReply.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="32">
@@ -419,10 +419,10 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/config/mail.php" />
         <option value="$PROJECT_DIR$/app/Libraries/IncogMessages.php" />
-        <option value="$PROJECT_DIR$/app/Mail/IncogReply.php" />
-        <option value="$PROJECT_DIR$/app/Mail/IncogReceived.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/emails/IncogReceived.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/emails/IncogReply.blade.php" />
+        <option value="$PROJECT_DIR$/app/Mail/IncogReply.php" />
+        <option value="$PROJECT_DIR$/app/Mail/IncogReceived.php" />
       </list>
     </option>
   </component>
@@ -1226,12 +1226,12 @@
       <workItem from="1517003696657" duration="6242000" />
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="26990000" />
-      <workItem from="1520044021841" duration="8232000" />
+      <workItem from="1520044021841" duration="8301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131935000" />
+    <option name="totallyTimeSpent" value="132004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="177" width="1920" height="1080" extended-state="0" />
@@ -1678,22 +1678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/IncogReply.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="8" selection-end-line="37" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/IncogReceived.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/templates/emails/IncogReceived.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -1706,6 +1690,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Mail/IncogReply.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Mail/IncogReceived.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
           <folding />
         </state>
       </provider>
