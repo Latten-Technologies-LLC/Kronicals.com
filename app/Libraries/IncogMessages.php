@@ -1,8 +1,8 @@
 <?php
 namespace App\Libraries;
 
-use App\Mail\incogReceived;
-use App\Mail\incogReply;
+use App\Mail\IncogReceived;
+use App\Mail\IncogReply;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;

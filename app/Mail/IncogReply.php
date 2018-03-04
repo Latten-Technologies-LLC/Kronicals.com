@@ -16,9 +16,13 @@ class IncogReply extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        // User info
+        $this->user = $data['fullname'];
+
+        // Url
+        $this->url = $data['url'];
     }
 
     /**
