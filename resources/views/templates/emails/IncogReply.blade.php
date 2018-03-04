@@ -1,6 +1,6 @@
 @component('mail::message')
 
-Hello, {{ ucwords($fullName) }}
+Hello, {{ ucwords($name) }}
 
 Someone replied to your message!
 
