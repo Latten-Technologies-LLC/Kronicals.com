@@ -2,6 +2,7 @@
 namespace App\Libraries;
 
 use App\Mail\incogReceived;
+use App\Mail\incogReply;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -109,7 +110,7 @@ class IncogMessages
                 }
 
                 // Email
-                //Mail::to($check[0]->email)->send(new incogReceived(['fullname' => $check[0]->name]));
+                Mail::to($check[0]->email)->send(new incogReceived(['fullname' => $check[0]->name]));
 
                 // Return
                 return json_encode(['code' => 1, 'message' => 'Your message has been sent!']);
@@ -143,10 +144,22 @@ class IncogMessages
                     ]);
 
                     // Notify
-                    $notify = $this->notifications->make(['user_to' => $check[0]->from_id, 'from' => auth()->user()->unique_salt_id, 'type' => 'incog-reply', 'message' => 'New reply to your <a href="'.url('/').'/timeline/sent/?m='.$data['id'].'">message!</a>']);
+                    if (auth()->user()->unique_salt_id == $check[0]->user_id)
+                    {
+                        // Means we need to send a notification to the person it was sent by
+                        $notify = $this->notifications->make(['user_to' => $check[0]->from_id, 'from' => auth()->user()->unique_salt_id, 'type' => 'incog-reply', 'message' => 'New reply to your <a href="' . url('/') . '/timeline/sent/?m=' . $data['id'] . '">message!</a>']);
 
-                    // Email
-                    
+                        // Email
+                        $email = DB::table('users')->where('unique_salt_id', $check[0]->from_id)->get();
+                        Mail::to($email[0]->email)->send(new incogReply(['fullname' => $email[0]->name, 'url' => url('/') . '/timeline/sent?m=' . $data['id']]));
+                    }else {
+                        // Means we need to send a notification to the person it was sent to
+                        $notify = $this->notifications->make(['user_to' => $check[0]->user_id, 'from' => auth()->user()->unique_salt_id, 'type' => 'incog-reply', 'message' => 'New reply to your <a href="' . url('/') . '/timeline/?m=' . $data['id'] . '">message!</a>']);
+
+                        // Email
+                        $email = DB::table('users')->where('unique_salt_id', $check[0]->user_id)->get();
+                        Mail::to($email[0]->email)->send(new incogReply(['fullname' => $email[0]->name, 'url' => url('/') . '/timeline?m=' . $data['id']]));
+                    }
 
                     // Reply
                     return json_encode(['code' => 1, 'message' => 'Your reply has been sent!', 'data' => ['name' => ucwords(auth()->user()->name), 'username' => auth()->user()->username, 'usi' => auth()->user()->unique_salt_id, 'message' => $data['message'], 'url' => url('/')]]);

@@ -75,7 +75,7 @@ function time_elapsed_string($datetime, $full = false) {
                                                 <div class="topMessage">
                                                     <div class="leftProfile">
                                                         <?php if($message['from_id'] != ""){ ?>
-                                                            <?php if($message['anonymous'] != 0){ ?>
+                                                            <?php if($message['anonymous'] == 0){ ?>
                                                                 <div class="pp" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo $from->unique_salt_id; ?>/profile_picture);"></div>
                                                             <?php } else { ?>
                                                                 <img src="<?php echo url('/images'); ?>/default_pic.jpg" />
@@ -86,7 +86,7 @@ function time_elapsed_string($datetime, $full = false) {
                                                     </div>
                                                     <div class="rightProfile">
                                                         <?php if($message['from_id'] != ""){ ?>
-                                                            <?php if($message['anonymous'] != 0){ ?>
+                                                            <?php if($message['anonymous'] == 0){ ?>
                                                                 <h3><a href="<?php echo url('/'); ?>/p/<?php echo $from->username; ?>"><?php echo $from->name; ?></a></h3>
                                                             <?php } else { ?>
                                                                 <h3>Anonymous</h3>
@@ -281,18 +281,32 @@ function time_elapsed_string($datetime, $full = false) {
             </form>
         </div>
     </div>
-@endsection
+    @endsection
     @section('scripts')
     <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
     <script type="text/javascript">
         $(function () {
             // Get token
-            $.get('{{ route('braintree.token') }}', function(data){
+            $.get("{{ route('braintree.token') }}", function(data){
                 var obj = jQuery.parseJSON(data);
                 braintree.setup(obj.token, 'dropin', {
                     container: 'payment'
                 });
             });
+
+            <?php
+            if(isset($_GET['m'])){
+            ?>
+                // Scroll to message
+                $('html, body').animate({
+                    scrollTop: $("#message<?php echo $_GET['m']; ?>").offset().top
+                }, 2000, function(){
+                    alert("ok");
+                });
+
+            <?php
+            }
+            ?>
         });
     </script>
     @endsection

@@ -155,8 +155,19 @@ Table of contents
   height: 80px;
   //border-bottom: 1px solid rgba(0,0,0, .1);
 
+  @media screen and (max-width: 500px)
+  {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
   .inner-header {
     padding-top: 10px;
+
+    @media screen and (max-width: 500px)
+    {
+      padding-right: 0px;
+    }
 
     .left-branding {
       float: left;
@@ -174,6 +185,10 @@ Table of contents
     }
 
     .right-navigation{
+      @media screen and (max-width: 500px)
+      {
+        padding-top: 10px;
+      }
 
       .inner-navigation{
 

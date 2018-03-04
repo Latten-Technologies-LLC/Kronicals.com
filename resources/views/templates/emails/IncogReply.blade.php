@@ -1,5 +1,4 @@
 @component('mail::message')
-# Order Shipped
 
 Hello, {{ ucwords($fullName) }}
 

@@ -1,5 +1,4 @@
 @component('mail::message')
-# Order Confirmation
 
 Hello, {{ ucwords($fullName) }}
 

@@ -23,6 +23,11 @@
 .timelineMiddle{
   padding-top: 100px;
 
+  @media screen and (max-width: 500px)
+  {
+    padding-top: 80px;
+  }
+
   .inner{
 
     .rightSidebar{

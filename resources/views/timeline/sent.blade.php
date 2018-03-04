@@ -143,7 +143,15 @@ function time_elapsed_string($datetime, $full = false) {
 
             <!-- Right sidebar -->
             <div class="rightSidebar col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12">
-                <div class="card userMod d-xl-block d-lg-block d-md-block d-sm-none d-xs-none">
+                <div class="card profileLink d-none d-sm-block">
+                    <div class="cardTop" style="padding: 10px;">
+                        <h3><i class="fas fa-link"></i> Profile Link</h3>
+                    </div>
+                    <div class="cardBottom">
+                        <a href="<?php url('/'); ?>/p/<?php echo auth()->user()->username; ?>"><span>anonuss.com/p/<?php echo auth()->user()->username; ?></span></a>
+                    </div>
+                </div><br />
+                <div class="card userMod d-none d-sm-block">
                     <div class="leftProfile pull-left">
                         <img src="<?php echo url('/'); ?>/user/<?php echo auth()->user()->unique_salt_id; ?>/profile_picture" />
                     </div>
@@ -152,7 +160,7 @@ function time_elapsed_string($datetime, $full = false) {
                         <h4>@<?php echo auth()->user()->username; ?></h4>
                     </div>
                 </div><br />
-                <div class="card notifications d-xl-block d-lg-block d-md-block d-sm-none d-xs-none">
+                <div class="card notifications d-none d-sm-block">
                     <div class="cardTop">
                         <h3>Notifications</h3>
                     </div>
@@ -261,6 +269,20 @@ function time_elapsed_string($datetime, $full = false) {
                     container: 'payment'
                 });
             });
+
+            <?php
+            if(isset($_GET['m'])){
+            ?>
+            // Scroll to message
+            $('html, body').animate({
+                scrollTop: $("#message<?php echo $_GET['m']; ?>").offset().top
+            }, 2000, function(){
+                $("#message<?php echo $_GET['m']; ?>").addClass('replyActive');
+                $("#replyBox<?php echo $_GET['m']; ?>").fadeIn('fast');
+            });
+            <?php
+            }
+            ?>
         });
     </script>
     @endsection
