@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" />
-    </list>
+    <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="" />
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -1223,12 +1221,12 @@
       <workItem from="1517003696657" duration="6242000" />
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="26990000" />
-      <workItem from="1520044021841" duration="19000000" />
+      <workItem from="1520044021841" duration="19077000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142703000" />
+    <option name="totallyTimeSpent" value="142780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="177" width="1920" height="1080" extended-state="0" />

@@ -63,6 +63,7 @@ $.ajaxSetup({
 </script>
 
 
+
 @yield('scripts')
 
 </body>
