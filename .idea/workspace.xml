@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/incog.css" afterPath="$PROJECT_DIR$/public/css/incog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/sass/incog.scss" afterPath="$PROJECT_DIR$/public/css/sass/incog.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/logged-main.js" afterPath="$PROJECT_DIR$/public/js/logged-main.js" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +28,7 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.4946757">
+        <splitter split-orientation="vertical" split-proportion="0.48886737">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
@@ -45,13 +44,13 @@
               <file leaf-file-name="logged-main.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="432">
-                      <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+                    <state relative-caret-position="336">
+                      <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
                       <folding>
-                        <marker date="1520136735000" expanded="true" signature="2314:2394" placeholder="..." />
-                        <marker date="1520136735000" expanded="true" signature="2346:2353" placeholder="..." />
-                        <marker date="1520136735000" expanded="true" signature="2346:2393" placeholder="..." />
-                        <marker date="1520136735000" expanded="true" signature="8073:8153" placeholder="..." />
+                        <marker date="1520137321000" expanded="true" signature="2358:2438" placeholder="..." />
+                        <marker date="1520137321000" expanded="true" signature="2390:2397" placeholder="..." />
+                        <marker date="1520137321000" expanded="true" signature="2390:2437" placeholder="..." />
+                        <marker date="1520137321000" expanded="true" signature="8117:8197" placeholder="..." />
                       </folding>
                     </state>
                   </provider>
@@ -339,11 +338,11 @@
         <option value="$PROJECT_DIR$/public/css/sass/Main.scss" />
         <option value="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" />
-        <option value="$PROJECT_DIR$/public/js/logged-main.js" />
         <option value="$PROJECT_DIR$/app/Mail/IncogReceived.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/emails/IncogReceived.blade.php" />
         <option value="$PROJECT_DIR$/public/css/sass/profile.scss" />
         <option value="$PROJECT_DIR$/public/css/sass/incog.scss" />
+        <option value="$PROJECT_DIR$/public/js/logged-main.js" />
       </list>
     </option>
   </component>
@@ -1169,12 +1168,12 @@
       <workItem from="1517003696657" duration="6242000" />
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="26990000" />
-      <workItem from="1520044021841" duration="16576000" />
+      <workItem from="1520044021841" duration="16677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140279000" />
+    <option name="totallyTimeSpent" value="140380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="177" width="1920" height="1080" extended-state="0" />
@@ -1586,19 +1585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
-          <folding>
-            <marker date="1520136735000" expanded="true" signature="2314:2394" placeholder="..." />
-            <marker date="1520136735000" expanded="true" signature="2346:2353" placeholder="..." />
-            <marker date="1520136735000" expanded="true" signature="2346:2393" placeholder="..." />
-            <marker date="1520136735000" expanded="true" signature="8073:8153" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Libraries/IncogMessages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1668,6 +1654,19 @@
         <state relative-caret-position="176">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+          <folding>
+            <marker date="1520137321000" expanded="true" signature="2358:2438" placeholder="..." />
+            <marker date="1520137321000" expanded="true" signature="2390:2397" placeholder="..." />
+            <marker date="1520137321000" expanded="true" signature="2390:2437" placeholder="..." />
+            <marker date="1520137321000" expanded="true" signature="8117:8197" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -2,7 +2,7 @@
 $(document).ready(function()
 {
     // Mobile : Notifications box (Close)
-    $(document).on('click', '.closeNoteBoxMobile', function(){
+    $(document).on('click touchstart', '.closeNoteBoxMobile', function(){
         var noteBox = $(".mobileNotificationHold");
         noteBox.fadeOut('fast');
         $(".boxOverlay").fadeOut('fast');
@@ -10,7 +10,7 @@ $(document).ready(function()
     });
 
     // Mobile : Notifications box (Open)
-    $(document).on('click', '.notificationOpen', function(e){
+    $(document).on('click touchstart', '.notificationOpen', function(e){
         e.preventDefault();
         var noteBox = $(".mobileNotificationHold");
         noteBox.fadeIn('fast');
@@ -19,7 +19,7 @@ $(document).ready(function()
     });
 
     // Mobile : Search box (Close)
-    $(document).on('click', '.closeSearchBoxMobile', function(){
+    $(document).on('click touchstart', '.closeSearchBoxMobile', function(){
         var searchBox = $(".mobileSearchHold");
         searchBox.fadeOut('fast');
         $(".boxOverlay").fadeOut('fast');
@@ -27,7 +27,7 @@ $(document).ready(function()
     });
 
     // Mobile : Search box (Open)
-    $(document).on('click', '.searchOpen', function(e){
+    $(document).on('click touchstart', '.searchOpen', function(e){
         e.preventDefault();
         var searchBox = $(".mobileSearchHold");
         searchBox.fadeIn('fast');
