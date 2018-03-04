@@ -32,6 +32,9 @@ class IncogReply extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('templates.emails.IncogReply')->with([
+            'name' => $this->name,
+            'url' => $this->url
+        ]);
     }
 }

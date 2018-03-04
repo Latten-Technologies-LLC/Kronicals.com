@@ -35,6 +35,9 @@ class IncogReceived extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('templates.emails.IncogReceived')->with([
+            'name' => $this->name,
+            'url' => $this->url
+        ]);
     }
 }
