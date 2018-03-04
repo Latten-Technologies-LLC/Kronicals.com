@@ -21,7 +21,11 @@ class IncogReceived extends Mailable
      */
     public function __construct($data)
     {
-        //
+        // User info
+        $this->name = $data['fullname'];
+
+        // Url
+        $this->url = $data['url'];
     }
 
     /**
