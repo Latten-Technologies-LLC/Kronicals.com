@@ -4,6 +4,7 @@ namespace App\Libraries;
 use App\Mail\incogReceived;
 use App\Mail\incogReply;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
