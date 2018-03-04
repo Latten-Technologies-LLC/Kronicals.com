@@ -220,9 +220,9 @@ function time_elapsed_string($datetime, $full = false) {
                 ?>
                 <div class="no_footer">
                     <ul>
-                        <li><a href="<?php //echo route(''); ?>">About</a></li>
-                        <li><a href="<?php //echo route(''); ?>">Settings</a></li>
-                        <li><a href="<?php //echo route(''); ?>">Logout</a></li>
+                        <li><a href="<?php echo route('about_us.index'); ?>">About</a></li>
+                        <li><a href="<?php echo route('settings.index'); ?>">Settings</a></li>
+                        <!-- <li><a href="<?php //echo route(''); ?>">Logout</a></li> -->
                     </ul>
                     <span>&copy; 2018 Annonuss <br />Built by <a href="https://sitelyftstudios.com/">Sitelyft Studios</a></span>
                 </div>
