@@ -24,8 +24,6 @@ class IncogReceived extends Mailable
         // User info
         $this->name = $data['fullname'];
 
-        // Url
-        $this->url = $data['url'];
     }
 
     /**
@@ -37,7 +35,7 @@ class IncogReceived extends Mailable
     {
         return $this->markdown('templates.emails.IncogReceived')->with([
             'name' => $this->name,
-            'url' => $this->url
+            'url' => url('/')
         ]);
     }
 }
