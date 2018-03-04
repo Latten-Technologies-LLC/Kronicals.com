@@ -4,7 +4,7 @@ Hello, {{ ucwords($name) }}
 
 You have a new message!
 
-@component('mail::button', ['url' => $url)])
+@component('mail::button', ['url' => $url])
 View messages
 @endcomponent
 
