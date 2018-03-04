@@ -26,6 +26,17 @@
 
     <!-- Script -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+
+    <!-- Ads -->
+    <?php if(env('APP_ENV') === 'production'){ ?>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1374725956270952",
+            enable_page_level_ads: true
+        });
+    </script>
+    <?php } ?>
 </head>
 <body>
 <div class="main-website">
