@@ -1,1 +1,113 @@
 @import 'main';
+
+.settings{
+  margin: 0% auto;
+
+  padding-top: 100px;
+
+  .innerContainer{
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+
+    padding: 30px;
+
+    h1{
+      font-size: 1.8em;
+      text-align: left;
+
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      padding-left: 0px;
+    }
+
+    .firstUserInfo{
+      padding: 20px;
+      padding-left: 0px;
+
+      .topName{
+
+        h3{
+          font-size: 1em;
+          color: $hrefFontLight;
+        }
+      }
+    }
+
+    .secondUserInfo{
+      padding: 20px;
+      padding-left: 0px;
+
+      .topName{
+
+        h3{
+          font-size: 1em;
+          color: $hrefFontLight;
+        }
+      }
+    }
+
+    .thirdUserInfo{
+      padding: 20px;
+      padding-left: 0px;
+
+      .topName{
+
+        h3{
+          font-size: 1em;
+          color: $hrefFontLight;
+        }
+      }
+    }
+
+    .fourthUserInfo{
+      padding: 20px;
+      padding-left: 0px;
+
+      .topName{
+
+        h3{
+          font-size: 1em;
+          color: $hrefFontLight;
+        }
+      }
+
+      .bottomContent{
+
+        form{
+
+          img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+
+    .fifthUserInfo{
+      padding: 20px;
+      padding-left: 0px;
+
+      .topName{
+
+        h3{
+          font-size: 1em;
+          color: $hrefFontLight;
+        }
+      }
+
+      .bottomContent{
+
+        form{
+
+          img{
+            margin-bottom: 20px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

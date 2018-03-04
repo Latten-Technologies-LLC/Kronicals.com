@@ -49,3 +49,6 @@ Route::get('/p/{username}', 'ProfileController@index');
 
 // Braintree
 Route::get('/generate/token', 'BraintreeController@token')->name('braintree.token');
+
+// Search
+Route::post('/search/live', 'SearchController@live')->name('search.live');

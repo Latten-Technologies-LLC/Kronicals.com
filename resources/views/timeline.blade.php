@@ -214,7 +214,7 @@ function time_elapsed_string($datetime, $full = false) {
                                                 <?php if($notification->type == "incog"){ ?>
                                                     <h3><b>Anonymous User</b></h3>
                                                 <?php } else { ?>
-                                                    <h3><a href=""></a></h3>
+                                                    <h3><a href="<?php echo url('/'); ?>/p/<?php echo $from->username; ?>"><?php echo ucwords($from->name); ?></a></h3>
                                                 <?php } ?>
                                             <?php } else { ?>
                                                 <h3><b>Anonymous User</b></h3>

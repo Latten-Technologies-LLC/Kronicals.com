@@ -1,6 +1,93 @@
 // Onload
 $(document).ready(function()
 {
+    // Mobile : Notifications box (Close)
+    $(document).on('click', '.closeNoteBoxMobile', function(){
+        var noteBox = $(".mobileNotificationHold");
+        noteBox.fadeOut('fast');
+        $(".boxOverlay").fadeOut('fast');
+        $("html, body").css('overflow-y', 'auto');
+    });
+
+    // Mobile : Notifications box (Open)
+    $(document).on('click', '.notificationOpen', function(e){
+        e.preventDefault();
+        var noteBox = $(".mobileNotificationHold");
+        noteBox.fadeIn('fast');
+        $(".boxOverlay").fadeIn('fast');
+        $("html, body").css('overflow-y', 'hidden');
+    });
+
+    // Mobile : Search box (Close)
+    $(document).on('click', '.closeSearchBoxMobile', function(){
+        var searchBox = $(".mobileSearchHold");
+        searchBox.fadeOut('fast');
+        $(".boxOverlay").fadeOut('fast');
+        $("html, body").css('overflow-y', 'auto');
+    });
+
+    // Mobile : Search box (Open)
+    $(document).on('click', '.searchOpen', function(e){
+        e.preventDefault();
+        var searchBox = $(".mobileSearchHold");
+        searchBox.fadeIn('fast');
+        $(".boxOverlay").fadeIn('fast');
+        $("html, body").css('overflow-y', 'hidden');
+    });
+
+    // Mobile : Search live
+    $(document).on('keyup', '.searchMainInput', function() {
+        if (busy == false)
+        {
+            busy = true;
+
+            // Var
+            var action = $("#searchMain").attr('action');
+            var token = $(this).data('token');
+            var input = $(this);
+
+            // Empty
+            var results = $(".bottomSearchResults");
+            results.html("");
+
+            if(input.val() != "")
+            {
+                $.post(action, {_token: token, searchMainInput: input.val()}, function(data){
+                    var obj = jQuery.parseJSON(data);
+
+                    if(obj.code == 1)
+                    {
+                        // Iterate
+                        $.each(obj.data, function(key, value)
+                        {
+                            //value.name
+                            var temp = "";
+
+                            temp += "<div class='note'>";
+                                temp += "<div class='leftProfile'>";
+                                    temp += "<div class='pp' style='background-image: url("+obj.url+"/user/"+value.unique_salt_id+"/profile_picture)'></div>";
+                                temp += "</div>";
+                                temp += "<div class='rightBody'>";
+                                    temp += "<h3><a href='"+obj.url+"/p/"+value.username+"'>"+value.name+"</a></h3>";
+                                    temp += "<p>@"+value.username+"</p>";
+                                temp += "</div>";
+                            temp += "</div>";
+
+                            // Append
+                            results.append(temp);
+                        });
+
+                        busy = false;
+                    }else{
+                        busy = false;
+                    }
+                });
+            }else{
+                busy = false;
+            }
+        }
+    });
+
     // Mobile : Sidebar show
     $(".mobileSidebarOpen").on('click', function(e)
     {
