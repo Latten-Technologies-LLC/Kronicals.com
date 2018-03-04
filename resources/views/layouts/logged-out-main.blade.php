@@ -46,6 +46,7 @@
 <script src="{{ asset('js/bootstrap.js') }}" type="application/javascript" language="JavaScript"></script>
 <script src="{{ asset('js/main.js') }}" type="application/javascript" language="JavaScript"></script>
 
+<?php if(env('APP_ENV') === 'production'){ ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115069808-1"></script>
 <script>
@@ -55,5 +56,6 @@
 
     gtag('config', 'UA-115069808-1');
 </script>
+<?php } ?>
 </body>
 </html>

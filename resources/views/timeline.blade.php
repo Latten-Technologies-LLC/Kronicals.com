@@ -233,10 +233,18 @@ function time_elapsed_string($datetime, $full = false) {
                 ?>
                 <div class="card ads">
                     <div class="cardTop">
-                        <h3>Ad <a data-toggle="modal" data-target="#exampleModal" href="" class="" onClick="return false;">Remove Ads</a></h3>
+                        <h3>Ads <a data-toggle="modal" data-target="#exampleModal" href="" class="" onClick="return false;">Remove Ads</a></h3>
                     </div>
                     <div class="cardBottom">
-
+                        <?php if(env('APP_ENV') === 'production'){ ?>
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({
+                                    google_ad_client: "ca-pub-1374725956270952",
+                                    enable_page_level_ads: true
+                                });
+                            </script>
+                        <?php } ?>
                     </div>
                 </div>
                 <?php
