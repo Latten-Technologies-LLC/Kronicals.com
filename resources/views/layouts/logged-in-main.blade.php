@@ -62,6 +62,7 @@ $.ajaxSetup({
     gtag('config', 'UA-115069808-1');
 </script>
 
+
 @yield('scripts')
 
 </body>

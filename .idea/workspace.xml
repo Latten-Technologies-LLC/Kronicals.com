@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/logged-out-main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/logged-out-main.blade.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -148,7 +147,7 @@
                 <entry file="file://$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="421">
-                      <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+                      <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
                       <folding />
                     </state>
                   </provider>
@@ -1224,12 +1223,12 @@
       <workItem from="1517003696657" duration="6242000" />
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="26990000" />
-      <workItem from="1520044021841" duration="18658000" />
+      <workItem from="1520044021841" duration="19000000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142361000" />
+    <option name="totallyTimeSpent" value="142703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="177" width="1920" height="1080" extended-state="0" />
@@ -1727,7 +1726,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="421">
-          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
