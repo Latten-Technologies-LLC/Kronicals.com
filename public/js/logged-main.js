@@ -199,6 +199,39 @@ $(document).ready(function()
         }
     });
 
+    // Confess anon
+    $(document).on('click', '.confessAnon', function()
+    {
+        if(busy == false)
+        {
+            busy = true;
+
+            //e.preventDefault();
+
+            var id = $(this).data('id');
+            var token = $(this).data('token');
+
+            var href = $(this).attr('href');
+
+            if (id != "" && token != "")
+            {
+                $.post(href, {id: id}, function (data) {
+                    var obj = jQuery.parseJSON(data);
+
+                    if (obj.code == 1) {
+                        alert(obj.status);
+                    } else {
+                        alert(obj.status);
+                    }
+
+                    busy = false;
+                });
+            }
+
+            return false;
+        }
+    });
+
     // Reply to anon
     $(document).on('click', '.anonActionBtn', function(e){
         e.preventDefault();

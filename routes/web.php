@@ -43,12 +43,14 @@ Route::get('/incog/{username}', 'IncogController@index');
 Route::post('/incog/message/send', 'IncogController@send')->name('incog.message_send');
 Route::post('/incog/message/hide', 'IncogController@hide')->name('incog.hide');
 Route::post('/incog/message/reply', 'IncogController@reply')->name('incog.reply');
+Route::post('/incog/message/confess', 'IncogController@confess')->name('incog.confess');
 
 // Profiles
 Route::get('/p/{username}', 'ProfileController@index');
 
 // Braintree
 Route::get('/generate/token', 'BraintreeController@token')->name('braintree.token');
+Route::post('/ads/disable', 'BraintreeController@disableAds')->name('braintree.disablead');
 
 // Search
 Route::post('/search/live', 'SearchController@live')->name('search.live');

@@ -1,6 +1,7 @@
 <?php
 namespace App\Libraries;
 
+use App\Mail\IncogConfess;
 use App\Mail\IncogReceived;
 use App\Mail\IncogReply;
 
@@ -178,5 +179,30 @@ class IncogMessages
     public function displayIncogMessageReplies($data)
     {
         return DB::table('incog_reply')->where('incog_id', $data['id'])->get();
+    }
+
+    public function confessAnon($data)
+    {
+        // Make sure it exists
+        $check = DB::table('incog_messages')->where('id', $data['id'])->get();
+
+        if(count($check) == 1)
+        {
+            // Just update
+            DB::table('incog_messages')->where('id', $data['id'])->update(['anonymous' => '0']);
+
+            // Alert user to
+            $notify = $this->notifications->make(['user_to' => $check[0]->user_id, 'from' => $check[0]->from_id, 'type' => 'incog-confess', 'message' => 'Confessed to this message <a href="' . url('/') . '/timeline/?m=' . $data['id'] . '">here!</a>']);
+
+            // Email
+            $email = DB::table('users')->where('unique_salt_id', $check[0]->user_id)->get();
+            Mail::to($email[0]->email)->send(new IncogConfess(['fullname' => $email[0]->name, 'url' => url('/') . '/timeline?m=' . $data['id']]));
+
+            // Response
+            return json_encode(['code' => 1, 'status' => 'You have confessed to this message']);
+        }else{
+            // Response
+            return json_encode(['code' => 0, 'status' => 'This message does not exist!']);
+        }
     }
 }

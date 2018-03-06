@@ -43,26 +43,26 @@ function time_elapsed_string($datetime, $full = false) {
                         <li class="active"><a href="{{ route('timeline.sent') }}"><h3>Sent</h3></a></li>
                     </ul>
                 </div>
+                <div class="bottom card-columns">
                     <?php
                     $response = json_decode($sentmessages, true);
 
                     if($response['code'] == 1)
                     {
-                    // Loop through all the messages
-                    foreach($response['messages'] as $message)
-                    {
-                // Replies
-                $replies = $incog->displayIncogMessageReplies(['id' => $message['id']]);
-                    if($message['hide'] == null or $message['hide'] != 1)
-                    {
-                    if($message['from_id'] != "")
-                    {
-                        $from = DB::table('users')->where('unique_salt_id', $message['from_id'])->get()[0];
-                    }
-                    ?>
-                <div class="bottom card-columns">
+                        // Loop through all the messages
+                        foreach($response['messages'] as $message)
+                        {
+                            // Replies
+                            $replies = $incog->displayIncogMessageReplies(['id' => $message['id']]);
 
-                <div class="message card" id="message<?php echo $message['id']; ?>">
+                            if($message['hide'] == null or $message['hide'] != 1)
+                            {
+                            if($message['from_id'] != "")
+                            {
+                                $from = DB::table('users')->where('unique_salt_id', $message['from_id'])->get()[0];
+                        }
+                    ?>
+                    <div class="message card" id="message<?php echo $message['id']; ?>">
                         <div class="innerMessage">
                             <div class="topMessage">
                                 <div class="leftProfile">
@@ -82,7 +82,14 @@ function time_elapsed_string($datetime, $full = false) {
                                         <?php if($message['from_id'] != ""){ ?>
                                         <li><a data-anonid="<?php echo $message['id']; ?>" data-action="showReplyBox" class="anonActionBtn" href=""><i class="fas fa-reply"></i> Reply</a></li>
                                         <?php } ?>
-                                        <li><a class="hideAnon" href="{{ route('incog.hide') }}" data-id="<?php echo $message['id']; ?>" data-t="{{ csrf_token() }}"><i class="far fa-eye-slash"></i> Hide</a></li>
+
+                                        <?php if($message['from_id'] != auth()->user()->unique_salt_id){ ?>
+                                            <li><a class="hideAnon" href="{{ route('incog.hide') }}" data-id="<?php echo $message['id']; ?>" data-t="{{ csrf_token() }}"><i class="far fa-eye-slash"></i> Hide</a></li>
+                                        <?php } else { ?>
+                                            <?php if($message['anonymous'] == 1){ ?>
+                                                <li><a class="confessAnon" href="{{ route('incog.confess') }}" data-id="<?php echo $message['id']; ?>" data-t="{{ csrf_token() }}"><i class="fas fa-user-secret"></i> Confess</a></li>
+                                            <?php } ?>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -126,7 +133,6 @@ function time_elapsed_string($datetime, $full = false) {
                             </div>
                         </div>
                     </div>
-                </div>
                     <?php
                     }
                     }
@@ -139,6 +145,7 @@ function time_elapsed_string($datetime, $full = false) {
                     <?php
                     }
                     ?>
+                </div>
             </div>
 
             <!-- Right sidebar -->
@@ -212,7 +219,18 @@ function time_elapsed_string($datetime, $full = false) {
                         <h3>Ad <a data-toggle="modal" data-target="#exampleModal" href="" class="" onClick="return false;">Remove Ads</a></h3>
                     </div>
                     <div class="cardBottom">
-
+                        <?php if(env('APP_ENV') === 'production'){ ?>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Main Ad -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-1374725956270952"
+                             data-ad-slot="1691788953"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                        <?php } ?>
                     </div>
                 </div>
                 <?php

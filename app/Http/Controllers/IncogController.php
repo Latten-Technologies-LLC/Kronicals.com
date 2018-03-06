@@ -76,6 +76,24 @@ class IncogController extends Controller
             echo json_encode($this->response);
         }
     }
+
+    public function confess(Request $request)
+    {
+        // Validate
+        $validation = $request->validate([
+            'id' => 'required',
+        ]);
+
+        // Call method
+        if(isset($_POST))
+        {
+            $confess = $this->incog->confessAnon(['id' => $request->id]);
+            echo $confess;
+        }else{
+            $this->response = array('code' => 0, 'Invalid Request');
+            echo json_encode($this->response);
+        }
+    }
     
     public function send(Request $request)
     {

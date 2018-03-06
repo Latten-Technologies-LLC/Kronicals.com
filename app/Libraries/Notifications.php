@@ -34,6 +34,6 @@ class Notifications
 
     public function get($unique_id)
     {
-        return DB::table('notifications')->where('user_to', $unique_id)->get();
+        return DB::table('notifications')->where('user_to', $unique_id)->orderBy('id', 'desc')->get();
     }
 }

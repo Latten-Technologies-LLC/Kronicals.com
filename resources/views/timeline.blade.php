@@ -51,6 +51,7 @@ function time_elapsed_string($datetime, $full = false) {
                         <li><a href="{{ route('timeline.sent') }}"><h3>Sent</h3></a></li>
                     </ul>
                 </div>
+                <div class="bottom card-columns">
                     <?php
                         $response = json_decode($messages, true);
 
@@ -69,7 +70,6 @@ function time_elapsed_string($datetime, $full = false) {
                                         $from = DB::table('users')->where('unique_salt_id', $message['from_id'])->get()[0];
                                     }
                                     ?>
-                                    <div class="bottom card-columns">
                                         <div class="message card" id="message<?php echo $message['id']; ?>">
                                             <div class="innerMessage">
                                                 <div class="topMessage">
@@ -150,7 +150,6 @@ function time_elapsed_string($datetime, $full = false) {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     <?php
                                 }
                             }
@@ -163,6 +162,7 @@ function time_elapsed_string($datetime, $full = false) {
                             <?php
                         }
                     ?>
+                </div>
             </div>
 
             <!-- Right sidebar -->
@@ -276,18 +276,21 @@ function time_elapsed_string($datetime, $full = false) {
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" style="padding: 15px;">
-                        <div class="mainBody" style="border-bottom: 1px solid #eee;">
-                            <p>Ads support us and keeps us going! You can still support us even if you want to remove the ads</p>
-                            <b><h4>Price: $1</h4></b>
-                        </div><br />
-                        <h4>Payment Methods</h4><br />
-                        <div class="payment" id="payment"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Remove Ads</button>
-                    </div>
+                    <form action="<?php echo route('braintree.disablead'); ?>" method="post">
+                        <div class="modal-body" style="padding: 15px;">
+                            <div class="mainBody" style="border-bottom: 1px solid #eee;">
+                                <p>Ads support us and keeps us going! You can still support us even if you want to remove the ads</p>
+                                <b><h4>Price: $1</h4></b>
+                            </div><br />
+                            <h4>Payment Methods</h4><br />
+                            <div class="payment" id="payment"></div>
+                        </div>
+                        <div class="modal-footer">
+                            {{ csrf_field() }}
+                            <a type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+                            <input type="submit" class="btn btn-primary" value="Remove Ads">
+                        </div>
+                    </form>
                 </div>
             </form>
         </div>
@@ -312,7 +315,8 @@ function time_elapsed_string($datetime, $full = false) {
                 $('html, body').animate({
                     scrollTop: $("#message<?php echo $_GET['m']; ?>").offset().top
                 }, 2000, function(){
-                    alert("ok");
+                    $("#message<?php echo $_GET['m']; ?>").addClass('replyActive');
+                    $("#replyBox<?php echo $_GET['m']; ?>").fadeIn('fast');
                 });
 
             <?php

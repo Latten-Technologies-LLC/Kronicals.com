@@ -16,4 +16,9 @@ class BraintreeController extends Controller
             )
         );
     }
+    
+    public function disableAds()
+    {
+        
+    }
 }
