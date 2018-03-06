@@ -33,7 +33,7 @@ class IncogReceived extends Mailable
      */
     public function build()
     {
-        return $this->markdown('templates.emails.IncogReceived')->with([
+        return $this->subject('New message!')->markdown('templates.emails.IncogReceived')->with([
             'name' => $this->name,
             'url' => url('/')
         ]);

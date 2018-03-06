@@ -32,7 +32,7 @@ class IncogReply extends Mailable
      */
     public function build()
     {
-        return $this->markdown('templates.emails.IncogReply')->with([
+        return $this->subject('New reply!')->markdown('templates.emails.IncogReply')->with([
             'name' => $this->name,
             'url' => $this->url
         ]);

@@ -32,7 +32,7 @@ class IncogConfess extends Mailable
      */
     public function build()
     {
-        return $this->markdown('templates.emails.IncogConfess')->with([
+        return $this->subject('New confession!')->markdown('templates.emails.IncogConfess')->with([
             'name' => $this->name,
             'url' => $this->url
         ]);
