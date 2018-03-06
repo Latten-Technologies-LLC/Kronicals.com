@@ -41,7 +41,7 @@ class IncogMessages
     {
         if(!empty($user_salt))
         {
-            $messages = DB::table('incog_messages')->where('user_id', $user_salt)->get();
+            $messages = DB::table('incog_messages')->where('user_id', $user_salt)->orderBy('id', 'desc')->get();
 
             if(count($messages) > 0)
             {
@@ -59,7 +59,7 @@ class IncogMessages
     {
         if(!empty($user_salt))
         {
-            $messages = DB::table('incog_messages')->where('from_id', $user_salt)->get();
+            $messages = DB::table('incog_messages')->where('from_id', $user_salt)->orderBy('id', 'desc')->get();
 
             if(count($messages) > 0)
             {
