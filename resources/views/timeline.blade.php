@@ -45,6 +45,16 @@ function time_elapsed_string($datetime, $full = false) {
                         <a href="<?php url('/'); ?>/p/<?php echo auth()->user()->username; ?>"><span>anonuss.com/p/<?php echo auth()->user()->username; ?></span></a>
                     </div>
                 </div>
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div><br />
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div><br />
+                @endif
                 <div class="top">
                     <ul>
                         <li class="active"><a href="{{ route('timeline.index') }}"><h3>Anons</h3></a></li>
@@ -268,31 +278,32 @@ function time_elapsed_string($datetime, $full = false) {
     <!-- Stuff -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <form action="" method="post">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Remove Ads</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form action="<?php echo route('braintree.disablead'); ?>" method="post">
-                        <div class="modal-body" style="padding: 15px;">
-                            <div class="mainBody" style="border-bottom: 1px solid #eee;">
-                                <p>Ads support us and keeps us going! You can still support us even if you want to remove the ads</p>
-                                <b><h4>Price: $1</h4></b>
-                            </div><br />
-                            <h4>Payment Methods</h4><br />
-                            <div class="payment" id="payment"></div>
-                        </div>
-                        <div class="modal-footer">
-                            {{ csrf_field() }}
-                            <a type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
-                            <input type="submit" class="btn btn-primary" value="Remove Ads">
-                        </div>
-                    </form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Remove Ads</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </form>
+                <form action="<?php echo route('braintree.disablead'); ?>" method="post">
+                    <div class="modal-body" style="padding: 15px;">
+                        <div class="mainBody" style="border-bottom: 1px solid #eee;">
+                            <p>Ads support us and keeps us going! You can still support us even if you want to remove the ads</p>
+                            <b><h5>Price: $2</h5></b>
+                        </div><br />
+                        <h5>Payment Methods</h5><br />
+                        <div class="payment" id="payment"></div>
+
+                       <!-- <br />
+                        <h5>Billing Address</h5> -->
+                    </div>
+                    <div class="modal-footer">
+                        {{ csrf_field() }}
+                        <a type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Remove Ads">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     @endsection

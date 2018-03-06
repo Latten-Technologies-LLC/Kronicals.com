@@ -251,14 +251,14 @@ function time_elapsed_string($datetime, $full = false) {
     <!-- Stuff -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <form action="" method="post">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Remove Ads</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Remove Ads</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?php echo route('braintree.disablead'); ?>" method="post">
                     <div class="modal-body" style="padding: 15px;">
                         <div class="mainBody" style="border-bottom: 1px solid #eee;">
                             <p>Ads support us and keeps us going! You can still support us even if you want to remove the ads</p>
@@ -268,11 +268,12 @@ function time_elapsed_string($datetime, $full = false) {
                         <div class="payment" id="payment"></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Remove Ads</button>
+                        {{ csrf_field() }}
+                        <a type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Remove Ads">
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
     @endsection

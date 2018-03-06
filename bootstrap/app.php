@@ -26,6 +26,19 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
+if(env('APP_ENV') == "local" or env('APP_ENV') == "development")
+{
+    Braintree_Configuration::environment(env('BTREE_ENVIRONMENT'));
+    Braintree_Configuration::merchantId(env('BTREE_MERCHANT_ID'));
+    Braintree_Configuration::publicKey(env('BTREE_PUBLIC_KEY'));
+    Braintree_Configuration::privateKey(env('BTREE_PRIVATE_KEY'));
+}else{
+    Braintree_Configuration::environment(env('PBTREE_ENVIRONMENT'));
+    Braintree_Configuration::merchantId(env('PBTREE_MERCHANT_ID'));
+    Braintree_Configuration::publicKey(env('PBTREE_PUBLIC_KEY'));
+    Braintree_Configuration::privateKey(env('PBTREE_PRIVATE_KEY'));
+}
+
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
     App\Http\Kernel::class
