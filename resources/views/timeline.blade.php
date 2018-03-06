@@ -243,7 +243,7 @@ function time_elapsed_string($datetime, $full = false) {
                 ?>
                 <div class="card ads">
                     <div class="cardTop">
-                        <h3>Ads <a data-toggle="modal" data-target="#exampleModal" href="" class="" onClick="return false;">Remove Ads</a></h3>
+                        <h3>Ads <a style="display: none;" data-toggle="modal" data-target="#exampleModal" href="" class="" onClick="return false;">Remove Ads</a></h3>
                     </div>
                     <div class="cardBottom">
                         <?php if(env('APP_ENV') === 'production'){ ?>
