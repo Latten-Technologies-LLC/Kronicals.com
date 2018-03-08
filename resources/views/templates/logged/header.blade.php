@@ -4,7 +4,7 @@ use App\Libraries\Notifications;
 <div class="header logged-header absolute-top transparent container-fluid">
     <div class="inner-header container">
         <div class="left-branding pull-left">
-            <h3 class=""><a href="<?php echo url('/'); ?>">Anonuss</a></h3>
+            <h3 class=""><a href="<?php echo url('/'); ?>">Anonuss <?php if(env('APP_STATUS') == "Beta"){ ?><span style="font-weight: 500;position: relative;top: -3px;font-size: .4em;" class="badge badge-pill badge-light"><?php echo env('APP_STATUS'); ?> v<?php echo env('APP_VERSION'); ?></span><?php } ?></a></h3>
         </div>
         <div class="right-navigation pull-right">
             <div class="inner-navigation">
