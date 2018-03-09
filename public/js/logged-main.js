@@ -16,6 +16,12 @@ $(document).ready(function()
         noteBox.fadeIn('fast');
         $(".boxOverlay").fadeIn('fast');
         $("html, body").css('overflow-y', 'hidden');
+        
+        // Now do the ajax stuff
+        var action = $(this).attr('href');
+        $.post(action, {_token: $(this).data('token')}, function(data){
+            $(".notePill").fadeOut('fast');
+        });
     });
 
     // Mobile : Search box (Close)
@@ -321,5 +327,88 @@ $(document).ready(function()
                busy = false;
            }
        }
+    });
+
+    // Follow system
+    $(document).on('click', '.followBtn', function(e){
+       e.preventDefault();
+        
+       if(busy == false)
+       {
+           busy = true;
+
+           // Var
+           var t = $(this);
+
+           var action = t.attr('href');
+           var uid = t.data('id');
+           var token = t.data('token');
+
+           // Run
+           if(action != "" && uid != "")
+           {
+               $.post(action, {_token: token, uid: uid}, function(data){
+                   var obj = jQuery.parseJSON(data);
+
+                   if(obj.code == 1)
+                   {
+                       // Reload
+                       location.reload();
+                   }else{
+                       alert(obj.status);
+
+                       busy = false;
+                       return false;
+                   }
+               });
+           }else{
+               alert('Error occurred');
+
+               busy = false;
+               return false;
+           }
+       }
+       return false;
+    });
+
+    $(document).on('click', '.unfollowBtn', function(e){
+        e.preventDefault();
+
+        if(busy == false)
+        {
+            busy = true;
+
+            // Var
+            var t = $(this);
+
+            var action = t.attr('href');
+            var uid = t.data('id');
+            var token = t.data('token');
+
+            // Run
+            if(action != "" && uid != "")
+            {
+                $.post(action, {_token: token, uid: uid}, function(data){
+                    var obj = jQuery.parseJSON(data);
+
+                    if(obj.code == 1)
+                    {
+                        // Reload
+                        location.reload();
+                    }else{
+                        alert(obj.status);
+
+                        busy = false;
+                        return false;
+                    }
+                });
+            }else{
+                alert('Error occurred');
+
+                busy = false;
+                return false;
+            }
+        }
+        return false;
     });
 });

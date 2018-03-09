@@ -205,4 +205,20 @@ class IncogMessages
             return json_encode(['code' => 0, 'status' => 'This message does not exist!']);
         }
     }
+    
+    public function unreadCount($user_salt)
+    {
+        if(!empty($user_salt))
+        {
+            return DB::table('incog_messages')->where(['user_id' => $user_salt, 'read' => '0'])->get();
+        }
+    }
+
+    public function markAllRead($user_salt)
+    {
+        if(!empty($user_salt))
+        {
+            return DB::table('incog_messages')->where(['user_id' => $user_salt, 'read' => '0'])->update(['read' => '1']);
+        }
+    }
 }

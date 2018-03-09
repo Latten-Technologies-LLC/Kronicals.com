@@ -1,5 +1,5 @@
 <?php
-
+use App\Libraries\Notifications;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +22,8 @@ Route::get('/about_us', 'AboutController@index')->name('about_us.index');
 
 // Timeline
 Route::get('/timeline', 'TimelineController@index')->name('timeline.index');
+
+Route::get('/timeline/anons', 'TimelineController@anons')->name('timeline.anons');
 Route::get('/timeline/sent', 'TimelineController@sent')->name('timeline.sent');
 
 // User Image Finder
@@ -54,3 +56,14 @@ Route::post('/ads/disable', 'BraintreeController@disableAds')->name('braintree.d
 
 // Search
 Route::post('/search/live', 'SearchController@live')->name('search.live');
+
+// Following system
+Route::post('/follow/subscribe', 'FollowController@subscribe')->name('follow.subscribe');
+Route::post('/follow/unsubscribe', 'FollowController@unsubscribe')->name('follow.unsubscribe');
+
+// Notifications
+Route::post('/notifications/read', function()
+{
+    $n = new Notifications();
+    $n->markAllRead(auth()->user()->unique_salt_id);
+})->name('notifications.read');

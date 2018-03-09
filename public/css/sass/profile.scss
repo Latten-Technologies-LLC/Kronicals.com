@@ -1,5 +1,10 @@
 @import 'main';
 
+// Reset
+.header .inner-header .left-branding h3 a{
+  color: $darkPrimaryFont;
+}
+
 .profile{
 
   .userProfileTop{

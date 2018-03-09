@@ -32,6 +32,15 @@ class TimelineController extends Controller
         return view('timeline', ['no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'messages' => $this->incog->getMessages(auth()->user()->unique_salt_id), 'incog' => $this->incog]);
     }
 
+    public function anons()
+    {
+        // Mark all read
+        $this->incog->markAllRead(auth()->user()->unique_salt_id);
+
+        // Load view
+        return view('timeline.anons', ['no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'messages' => $this->incog->getMessages(auth()->user()->unique_salt_id), 'incog' => $this->incog]);
+    }
+
     public function sent()
     {
         return view('timeline.sent', ['no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'sentmessages' => $this->incog->getSentMessages(auth()->user()->unique_salt_id), 'incog' => $this->incog]);

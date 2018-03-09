@@ -254,6 +254,21 @@ Table of contents
 
             a{
 
+              .notePill {
+                position: absolute;
+                left: 5px;
+                top: -14px;
+
+                font-size: 60%;
+                font-weight: 400;
+
+                border: 3px solid #efefef;
+              }
+
+              .notePill.hidden{
+                display: none;
+              }
+
               .logged-pp{
                 height: 40px;
                 width: 40px;

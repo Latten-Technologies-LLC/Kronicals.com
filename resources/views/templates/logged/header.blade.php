@@ -1,5 +1,7 @@
 <?php
 use App\Libraries\Notifications;
+
+$n = new Notifications();
 ?>
 <div class="header logged-header absolute-top transparent container-fluid">
     <div class="inner-header container">
@@ -12,7 +14,7 @@ use App\Libraries\Notifications;
                     <div class="mobileHide">
                         <li ><a href="<?php echo url("/"); ?>/settings">Settings</a></li>
                     </div>
-                    <li><a href="" class="notificationOpen nav-icon"><i class="far fa-bell"></i></a></li>
+                    <li><a href="{{ route('notifications.read') }}" data-token="{{ csrf_token() }}" class="notificationOpen nav-icon"><i class="far fa-bell"></i> <span class="<?php if(count($n->unreadNotifications(auth()->user()->unique_salt_id)) == 0){ ?>hidden<?php } ?> notePill badge badge-pill badge-danger"><?php echo count($n->unreadNotifications(auth()->user()->unique_salt_id)); ?></span></a></li>
                     <li><a href="" class="searchOpen nav-icon"><i class="fas fa-search"></i></a></li>
                     <li class="logged-pp-hold"><a href="<?php url('/'); ?>/p/<?php echo auth()->user()->username; ?>"><div class="logged-pp" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo auth()->user()->unique_salt_id; ?>/profile_picture);"></div></a></li>
                     <li class="mobileSidebarOpen"><i class="fas fa-bars" aria-hidden="true"></i></li>
@@ -44,8 +46,6 @@ use App\Libraries\Notifications;
             </div>
             <div class="bottomContent">
                 <?php
-                $n = new Notifications();
-
                 $notifications = $n->get(auth()->user()->unique_salt_id);
 
                 foreach($notifications as $notification)

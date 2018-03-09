@@ -2,7 +2,12 @@
 $stylesheet = "profile";
 
 use Illuminate\Support\Facades\DB;
+
 use App\Libraries\User;
+use App\Libraries\FollowSystem;
+
+// Follow system
+$follow = new FollowSystem();
 
 // Find user
 $exists = User::exists($user[0]->id);
@@ -44,7 +49,16 @@ if(count($exists) == 1)
                         <h3><?php echo $profile->name; ?></h3>
                         <h4>@<?php echo $profile->username; ?></h4>
                         <p><?php echo $info->user_bio; ?></p>
-                        <a class="btn btn-success" href="<?php echo url('/'); ?>/incog/<?php echo $profile->username; ?>">Send Anon</a>
+                        <?php if(auth()->user()->unique_salt_id != $profile->unique_salt_id){ ?>
+                            <?php if(count($follow->check($profile->unique_salt_id)) == 0){ ?>
+                                <a href="{{ route('follow.subscribe') }}" data-token="{{ csrf_token() }}" data-id="<?php echo $profile->unique_salt_id; ?>" class="followBtn btn btn-primary">Follow</a>
+                            <?php } else { ?>
+                                <a href="{{ route('follow.unsubscribe') }}" data-token="{{ csrf_token() }}" data-id="<?php echo $profile->unique_salt_id; ?>" class="unfollowBtn btn btn-danger">Unfollow</a>
+                            <?php } ?>
+                            <a class="btn btn-success" href="<?php echo url('/'); ?>/incog/<?php echo $profile->username; ?>">Send Anon</a>
+                        <?php } else { ?>
+                            <a class="btn btn-success" href="{{ route('settings.index') }}">Settings</a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

@@ -36,4 +36,18 @@ class Notifications
     {
         return DB::table('notifications')->where('user_to', $unique_id)->orderBy('id', 'desc')->get();
     }
+    
+    public function unreadNotifications($unique_id)
+    {
+        return DB::table('notifications')->where(['user_to' => $unique_id, 'read' => '0'])->get();
+
+    }
+
+    public function markAllRead($user_salt)
+    {
+        if(!empty($user_salt))
+        {
+            return DB::table('notifications')->where(['user_to' => $user_salt, 'read' => '0'])->update(['read' => '1']);
+        }
+    }
 }
