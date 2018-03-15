@@ -42,7 +42,7 @@ $stylesheet = "index";
                     </div>
                     <div class="box">
                         <h3>Security</h3>
-                        <p>You won't have to worry about your FBI guy sneaking and looking at your messages and info. Every message is thoroughly encrypted and secure so you wont have to worry about anyone hacking in and viewing your stuff</p>
+                        <p>Every message is thoroughly encrypted and secure so you wont have to worry about anyone hacking in and viewing your stuff</p>
                     </div>
                     <div class="box">
                         <h3>Confessing</h3>
