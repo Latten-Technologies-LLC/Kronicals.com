@@ -13,7 +13,12 @@ class FollowController extends Controller
     
     public function __construct()
     {
-        $this->_followSystem = new FollowSystem();
+        if(!is_null(Auth::check()))
+        {
+            $this->_followSystem = new FollowSystem();
+        }else{
+            echo json_encode(['code' => 0, 'message' => 'Access denied']);
+        }
     }
 
     //
@@ -25,7 +30,7 @@ class FollowController extends Controller
         ]);
         
         // Call
-        if(Auth::check())
+        if(!is_null(Auth::check()))
         {
             echo json_encode($this->_followSystem->follow(['followee' => $request->uid]));
         }else{
@@ -41,7 +46,7 @@ class FollowController extends Controller
         ]);
 
         // Call
-        if(Auth::check())
+        if(!is_null(Auth::check()))
         {
             echo json_encode($this->_followSystem->unfollow(['followee' => $request->uid]));
         }else{

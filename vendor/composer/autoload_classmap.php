@@ -41,6 +41,7 @@ return array(
     'App\\Libraries\\Notifications' => $baseDir . '/app/Libraries/Notifications.php',
     'App\\Libraries\\Settings' => $baseDir . '/app/Libraries/Settings.php',
     'App\\Libraries\\User' => $baseDir . '/app/Libraries/User.php',
+    'App\\Mail\\FollowNew' => $baseDir . '/app/Mail/FollowNew.php',
     'App\\Mail\\IncogConfess' => $baseDir . '/app/Mail/IncogConfess.php',
     'App\\Mail\\IncogReceived' => $baseDir . '/app/Mail/IncogReceived.php',
     'App\\Mail\\IncogReply' => $baseDir . '/app/Mail/IncogReply.php',

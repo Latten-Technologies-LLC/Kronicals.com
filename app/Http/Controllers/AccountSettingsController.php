@@ -24,10 +24,15 @@ class AccountSettingsController extends Controller
 
     public function __construct()
     {
-        $this->middleware("auth");
+        if(!is_null(Auth::check())) 
+        {
+            $this->middleware("auth");
 
-        // Instance
-        $this->settings = new Settings();
+            // Instance
+            $this->settings = new Settings();
+        }else{
+            echo json_encode(['code' => 0, 'message' => 'Access denied']);
+        }
     }
 
     //

@@ -109,9 +109,12 @@ class FollowSystem
         }
     }
 
-    public function get()
+    public function following($unique_id)
     {
-
+        if(!empty($unique_id))
+        {
+            return DB::table("followings")->where('follower_id', $unique_id)->get();
+        }
     }
 
     public function check($id)

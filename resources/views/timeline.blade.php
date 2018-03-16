@@ -10,17 +10,17 @@ function time_elapsed_string($datetime, $full = false) {
     $diff->d -= $diff->w * 7;
 
     $string = array(
-            'y' => 'year',
-            'm' => 'month',
-            'w' => 'week',
-            'd' => 'day',
-            'h' => 'hour',
-            'i' => 'minute',
-            's' => 'second',
+            'y' => 'y',
+            'm' => 'm',
+            'w' => 'w',
+            'd' => 'd',
+            'h' => 'h',
+            'i' => 'm',
+            's' => 's',
     );
     foreach ($string as $k => &$v) {
         if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+            $v = $diff->$k . '' . $v . ($diff->$k > 1 ? '' : '');
         } else {
             unset($string[$k]);
         }
@@ -70,14 +70,178 @@ function time_elapsed_string($datetime, $full = false) {
                 </div>
                 <!-- Beta 1.1: <div class="bottom card-columns"> -->
                 <div class="bottom" style="column-count: 1;">
-                    <div class="card" style="padding: 25px;border: none;box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);">
-                        <h3 style="text-align: center;margin: 0px;">Coming soon in beta 1.2</h3>
-                    </div>
                     <div class="topPostingStation">
-
+                        <div class="innerPostingStation">
+                            <form action="{{ route('posting.new') }}" method="post" enctype="multipart/form-data" id="postingStation">
+                                <div class="topArea">
+                                    <div class="innerArea clearfix">
+                                        <div class="profilePicLeft">
+                                            <div class="pp" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo auth()->user()->unique_salt_id; ?>/profile_picture);"></div>
+                                        </div>
+                                        <div class="userInfo">
+                                            <h3><?php echo ucwords(auth()->user()->name); ?></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="middleArea">
+                                    <div class="innerMiddleArea">
+                                        <div class="input-group">
+                                            <textarea class="input-field" name="Textfield" id="postingStationText" placeholder="Write something meaningful"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottomArea hidden clearfix">
+                                    <div class="leftPostTypeArea">
+                                        <div class="privacyList pull-right">
+                                            <div id="dd" class="wrapper-dropdown-1" tabindex="1">
+                                                <div class="wrapper-drop-head openPrivTab">
+                                                    <span class="currentSetting" style="color: #333;font-weight: 400;"><i class="fas fa-newspaper"></i> Post</span> <span class="priv-carrot"><i class="fa fa-caret-down"></i></span>
+                                                </div>
+                                                <ul class="dropdown hidden privacyDrop">
+                                                    <li class="privTabSetting privActive" data-priv="1" data-val="<i class='fas fa-newspaper'></i> Post">
+                                                        <h3><i class="fas fa-newspaper"></i> Post</h3>
+                                                        <div>Everyone can see this</div>
+                                                    </li>
+                                                    <li class="privTabSetting" data-priv="2" data-val="<i class='fas fa-align-left'></i> Thoughts">
+                                                        <h3><i class="fas fa-align-left"></i> Thoughts</h3>
+                                                        <div>When you're feeling a little poetic</div>
+                                                    </li>
+                                                    <li class="privTabSetting" data-priv="3" data-val="<i class='fas fa-book'></i> Diary">
+                                                        <h3><i class="fas fa-book"></i> Diary</h3>
+                                                        <div>This will be added to your personal diary. Only you can see it!</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rightAction">
+                                        <input type="submit" class="btn btn-success" value="Post" />
+                                    </div>
+                                </div>
+                                <input type="hidden" name="Privacy" id="def-privacy" value="1" />
+                                {{ csrf_field() }}
+                            </form>
+                        </div>
                     </div>
                     <div class="bottomTimelineFeed">
+                        <?php
+                            if(count($feed) > 0)
+                            {
+                                foreach(json_decode($feed) as $post)
+                                {
+                                    // User info
+                                    $user = DB::table('users')->where('unique_salt_id', $post->user_id)->get()[0];
+                                    ?>
+                                    <div id="post<?php echo $post->id; ?>" class="post <?php if($post->type == '2'){ ?>thought<?php }else if($post->type == '3'){ ?>diary <?php } ?>">
+                                        <div class="topPost clearfix">
+                                            <div class="innerTopPost">
+                                                <div class="left">
+                                                    <div class="pp" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo $user->unique_salt_id; ?>/profile_picture);"></div>
+                                                </div>
+                                                <div class="right">
+                                                    <h3><a href="<?php echo url('/'); ?>/p/<?php echo $user->username; ?>"><?php echo ucwords($user->name); ?></a></h3>
+                                                    <?php if($post->type == '2'){ ?>
+                                                        <h4 class="subType">Shared a thought &middot; <?php echo time_elapsed_string($post->date); ?></h4>
+                                                    <?php }else if($post->type == '3'){ ?>
+                                                        <h4 class="subType"><i class="fas fa-book"></i> Private diary &middot; <?php echo time_elapsed_string($post->date); ?> &middot;
+                                                            <?php if(auth()->user()->unique_salt_id == $post->user_id){ ?>
+                                                                <li style="display: inline;" data-token="{{ csrf_token() }}" data-type="delete" data-pid="<?php echo $post->id; ?>" class="postAction"><a style="color: #acacad" href="{{ route('posting.action.delete') }}"><i class="fas fa-trash-alt"></i></a></li>
+                                                            <?php } ?>
+                                                        </h4>
+                                                    <?php } else { ?>
+                                                        <h4 class="subType">Shared a post &middot; <?php echo time_elapsed_string($post->date); ?></h4>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="middlePost">
+                                            <div class="innerMiddlePost">
+                                                <div class="topMiddle">
+                                                    <p><?php echo Crypt::decrypt($post->text); ?></p>
+                                                </div>
+                                                <div class="bottomMiddle">
+                                                    <?php if($post->type != 3){ ?>
+                                                    <ul>
+                                                        <span class="likeHolder">
+                                                            <?php if(count($postingsystem->check($post->id)) == 0){ ?>
+                                                                <li data-token="{{ csrf_token() }}" data-type="like" data-pid="<?php echo $post->id; ?>" class="postAction"><a href="{{ route('posting.action.like') }}"><span class="count"><?php echo $postingsystem->count($post->id); ?></span> <i class="far fa-heart"></i> Like</a></li>
+                                                                <li data-token="{{ csrf_token() }}" data-type="unlike" data-pid="<?php echo $post->id; ?>" class="postAction unlike hidden"><a href="{{ route('posting.action.unlike') }}"><span class="count"><?php echo $postingsystem->count($post->id); ?></span> <i class="fas fa-heart"></i> Unlike</a></li>
+                                                            <?php } else { ?>
+                                                                <li data-token="{{ csrf_token() }}" data-type="like" data-pid="<?php echo $post->id; ?>" class="postAction hidden"><a href="{{ route('posting.action.like') }}"><span class="count"><?php echo $postingsystem->count($post->id); ?></span> <i class="far fa-heart"></i> Like</a></li>
+                                                                <li data-token="{{ csrf_token() }}" data-type="unlike" data-pid="<?php echo $post->id; ?>" class="postAction unlike"><a href="{{ route('posting.action.unlike') }}"><span class="count"><?php echo $postingsystem->count($post->id); ?></span> <i class="fas fa-heart"></i> Unlike</a></li>
+                                                            <?php } ?>
+                                                        </span>
+                                                        <li data-token="{{ csrf_token() }}" data-type="reply" data-pid="<?php echo $post->id; ?>" class="postAction"><a href="">Reply</a></li>
+                                                        <?php if(auth()->user()->unique_salt_id == $post->user_id){ ?>
+                                                            <li data-token="{{ csrf_token() }}" data-type="delete" data-pid="<?php echo $post->id; ?>" class="postAction" style="float: right"><a href="{{ route('posting.action.delete') }}"><i class="fas fa-trash-alt"></i></a></li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php if($post->type != 3){ ?>
+                                            <div class="bottomPost hidden" id="postReplyBox<?php echo $post->id; ?>">
+                                                <div class="innerBottomPost">
+                                                    <div class="commentsHold" id="postReplyBoxHold<?php echo $post->id; ?>">
+                                                        <div class="row">
+                                                            <?php
+                                                            $replies = $postingsystem->replies($post->id);
 
+                                                            // Change stuff
+                                                            foreach($replies as $reply)
+                                                            {
+                                                            // Get user info
+                                                            $user = DB::table('users')->where('unique_salt_id', $reply->user_id)->get();
+                                                            ?>
+                                                            <div class="reply">
+                                                                <div class="leftProfile">
+                                                                    <div class="innerPP" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo $user[0]->unique_salt_id; ?>/profile_picture);"></div>
+                                                                </div>
+                                                                <div class="rightProfile">
+                                                                    <h3><a href="<?php echo url('/'); ?>/p/<?php echo $user[0]->username; ?>"><?php echo ucwords($user[0]->name); ?></a> &middot; <span><?php echo time_elapsed_string($reply->date); ?></span></h3>
+                                                                    <p><?php echo Crypt::decrypt($reply->message); ?></p>
+                                                                </div>
+                                                            </div>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="commentMaker">
+                                                        <form action="{{ route('posting.action.comment') }}" method="post" class="postReplyMakerForm" data-id="<?php echo $post->id; ?>">
+                                                            <div class="row">
+                                                                <div class="pp">
+                                                                    <div class="mainpphold" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo auth()->user()->unique_salt_id; ?>/profile_picture);"></div>
+                                                                </div>
+                                                                <div class="input">
+                                                                    <input type="text" class="replyInput" data-id="<?php echo $post->id; ?>" id="postReplyInput<?php echo $post->id; ?>" placeholder="Press enter or return to comment" />
+                                                                    <input type="hidden" class="replyId" id="pid" value="<?php echo $post->id; ?>" />
+                                                                    <input type="hidden" class="replyToken" value="{{ csrf_token() }}" />
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <?php
+                                }
+                            } else {
+                        ?>
+                            <style>
+                                .bottomTimelineFeed{
+                                    column-count: 1 !important;
+                                }
+                            </style>
+                            <div class="message error">
+                                <h1 style="text-align: center;color: #aaa;"><i class="far fa-frown"></i></h1>
+                                <h4 style="text-align: center;">Your timeline is empty. Post something now or follow someone!</h4>
+                            </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -101,7 +265,7 @@ function time_elapsed_string($datetime, $full = false) {
                     <div class="modal-body" style="padding: 15px;">
                         <div class="mainBody" style="border-bottom: 1px solid #eee;">
                             <p>Ads support us and keeps us going! You can still support us even if you want to remove the ads</p>
-                            <b><h5>Price: $2</h5></b>
+                            <b><h5>Price: $2.95</h5></b>
                         </div><br />
                         <h5>Payment Methods</h5><br />
                         <div class="payment" id="payment"></div>

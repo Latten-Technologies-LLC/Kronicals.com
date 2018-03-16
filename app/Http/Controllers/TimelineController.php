@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Libraries\FollowSystem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -9,8 +10,9 @@ use Illuminate\Support\Facades\Crypt;
 
 use App\Libraries\IncogMessages as IncogMessages;
 use App\Libraries\Notifications as Notifications;
+use App\Libraries\PostingSystem as PostingSystem;
 
-
+use App\Events\NewUserSignup;
 
 class TimelineController extends Controller
 {
@@ -21,15 +23,21 @@ class TimelineController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        if(!is_null(Auth::check()))
+        {
+            $this->middleware('auth');
 
-        $this->incog = new IncogMessages();
-        $this->notifications = new Notifications();
+            $this->incog = new IncogMessages();
+            $this->notifications = new Notifications();
+            $this->postingSystem = new PostingSystem();
+        }else{
+            echo json_encode(['code' => 0, 'message' => 'Access denied']);
+        }
     }
     
     public function index()
     {
-        return view('timeline', ['no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'messages' => $this->incog->getMessages(auth()->user()->unique_salt_id), 'incog' => $this->incog]);
+        return view('timeline', ['feed' => $this->postingSystem->feed(auth()->user()->unique_salt_id), 'no_footer' => false, 'notifications' => $this->notifications->get(auth()->user()->unique_salt_id), 'messages' => $this->incog->getMessages(auth()->user()->unique_salt_id), 'incog' => $this->incog, 'postingsystem' => $this->postingSystem]);
     }
 
     public function anons()

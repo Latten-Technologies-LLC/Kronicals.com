@@ -26,7 +26,8 @@ class Notifications
             'user_from' => $data['from'],
             'type' => $data['type'],
             'message' => $data['message'],
-            'date' => date('Y-m-d H:i:s')
+            'date' => date('Y-m-d H:i:s'),
+            'read' => '0'
         ]);
 
         return $insert;

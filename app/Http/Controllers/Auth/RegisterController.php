@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\NewUserSignup;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -114,6 +115,9 @@ class RegisterController extends Controller
                 'unique_salt_id' => $this->_newUserSalt,
                 'user_bio' => 'Hi! Welcome to my profile'
             ]);
+
+            // Alert everyone
+            event(new NewUserSignup());
 
             return $user;
         }

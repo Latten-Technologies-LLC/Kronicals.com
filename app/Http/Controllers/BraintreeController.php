@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\DB;
 
 class BraintreeController extends Controller
 {
+    public function __construct()
+    {
+        if(!is_null(Auth::check()))
+        {
+            // Do nothing
+        }else{
+            echo json_encode(['code' => 0, 'message' => 'Access denied']);
+        }
+    }
+
     //
     public function token ()
     {
@@ -51,7 +61,7 @@ class BraintreeController extends Controller
 
                 // Make the purchase
                 $result = Braintree_Transaction::sale([
-                    'amount' => 2,
+                    'amount' => 2.95,
                     'paymentMethodNonce' => $request->payment_method_nonce,
                     'options' => [
                         'submitForSettlement' => True

@@ -10,9 +10,11 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class NewUserSignup extends Event implements ShouldBroadcast
+class NewUserSignup implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public $username;
 
     /**
      * Create a new event instance.
@@ -22,6 +24,7 @@ class NewUserSignup extends Event implements ShouldBroadcast
     public function __construct()
     {
         //
+        //$this->username = $username;
     }
 
     /**
@@ -31,6 +34,7 @@ class NewUserSignup extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new channel('channelDemoEvent');
+        \Log::info('Event fired');
+        return new Channel('test-channel');
     }
 }

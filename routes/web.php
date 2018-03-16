@@ -67,3 +67,10 @@ Route::post('/notifications/read', function()
     $n = new Notifications();
     $n->markAllRead(auth()->user()->unique_salt_id);
 })->name('notifications.read');
+
+// Posting system
+Route::post('/posting/new', 'PostsController@make')->name('posting.new');
+Route::post('/posting/action/like', 'PostsController@like')->name('posting.action.like');
+Route::post('/posting/action/unlike', 'PostsController@unlike')->name('posting.action.unlike');
+Route::post('/posting/action/delete', 'PostsController@delete')->name('posting.action.delete');
+Route::post('/posting/action/comment', 'PostsController@comment')->name('posting.action.comment');

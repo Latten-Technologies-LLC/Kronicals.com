@@ -1,3 +1,12 @@
+$(function(){
+    //var socket = io('http://anonuss.dev:3000');
+
+    //socket.on("userSignupChannel:App\\Events\\NewUserSignup", function(message){
+        // increase the power everytime we load test route
+    //    alert('OK');
+    //});
+});
+
 // Onload
 $(document).ready(function()
 {
@@ -410,5 +419,246 @@ $(document).ready(function()
             }
         }
         return false;
+    });
+
+    // For privacy settings on timeline page
+    $(document).on('click', '.openPrivTab', function(){
+        var privDrop = $(".privacyDrop");
+
+        if(privDrop.hasClass("hidden"))
+        {
+            privDrop.removeClass('hidden');
+        }else{
+            privDrop.addClass('hidden');
+        }
+    });
+
+    $(document).on('click', '.privTabSetting', function(){
+        var t = $(this);
+
+        var currentPriv = $("#def-privacy").val();
+        var thisPriv = t.data('priv');
+
+        if(thisPriv != "")
+        {
+            $(".currentSetting").html(t.data('val'));
+            $("#def-privacy").val(thisPriv);
+
+            $(".privTabSetting").removeClass("privActive");
+            t.addClass("privActive");
+
+            $(".privacyDrop").addClass('hidden');
+        }
+    });
+
+    // Posting from the timeline
+    $(document).on('click', '.innerPostingStation', function(event){
+        var p = $("#postingStationText");
+        var bottom = $(".bottomArea");
+
+        if(bottom.hasClass('hidden'))
+        {
+            // Resize
+            p.animate({'height':'120px'}, function(){
+                bottom.removeClass('hidden');
+            });
+        }
+
+        event.stopPropagation();
+    });
+
+    $(document).click(function(){
+        var p = $("#postingStationText");
+        var bottom = $(".bottomArea");
+
+        if(!bottom.hasClass('hidden'))
+        {
+            // Resize
+            p.animate({'height':'50px'}, '', '', function(){
+                bottom.addClass('hidden');
+            });
+        }
+    });
+
+    $(document).on('submit', '#postingStation', function(e){
+        if(busy == false)
+        {
+            busy = true;
+            e.preventDefault();
+
+            // Var
+            var text = $("#postingStationText");
+            var type = $("#def-privacy");
+            var action = $(this).attr('action');
+            
+            if(text.val() != "" && type.val() != "")
+            {
+                $.post(action, {text: text.val(), type: type.val()}, function(data){
+                    var obj = jQuery.parseJSON(data);
+                    
+                    if(obj.code == 1)
+                    {
+                        text.val("");
+                        location.reload();
+                    }else{
+                        alert(obj.message);
+                        busy = false;
+                    }
+                });
+            }else{
+                busy = false;
+            }
+        }
+        return false;
+    });
+
+    // Post actions
+    $(document).on('click', '.postAction', function(e)
+    {
+        e.preventDefault();
+
+        if(busy == false)
+        {
+            busy = true;
+
+            // Var
+            var t = $(this);
+            var href = t.children('a');
+            var sibling = t.siblings();
+
+            var type = t.data('type');
+            var pid = t.data('pid');
+            var token = t.data('token');
+
+            var action = href.attr('href');
+
+            var count = href.children('.count');
+            var scount = sibling.children('a').children('.count');
+
+            if(type == "like" || type == "unlike")
+            {
+                if(pid != "")
+                {
+                    // Call method
+                    $.post(action, {pid: pid, _token: token}, function(data)
+                    {
+                        var obj = jQuery.parseJSON(data);
+
+                        if(obj.code == 1)
+                        {
+                            // We're in business
+                            count.html(obj.count);
+                            scount.html(obj.count);
+
+                            t.addClass('hidden');
+                            sibling.removeClass('hidden');
+
+                            busy = false;
+                        }else{
+                            alert(obj.message);
+                            busy = false;
+                        }
+                    });
+                }else{
+                    alert("Invalid request");
+                    busy = false;
+                }
+            }else if(type == "delete")
+            {
+                if(pid != "")
+                {
+                    var post = $("#post" + pid);
+
+                    $.post(action, {pid: pid, _token: token}, function(data)
+                    {
+                        var obj = jQuery.parseJSON(data);
+
+                        if(obj.code == 1)
+                        {
+                            // We're in business
+                            post.fadeOut('slow');
+
+                            busy = false;
+                        }else{
+                            alert(obj.message);
+                            busy = false;
+                        }
+                    });
+                }else{
+                    alert("Invalid request");
+                    busy = false;
+                }
+            } else if(type == "reply")
+            {
+                // Toggle stuff
+                $("#postReplyBox" + pid).toggleClass('hidden');
+                $("#postReplyInput" + pid).focus();
+                busy = false;
+            }
+        }
+    });
+    
+    // Make post reply
+    $(document).on('submit', '.postReplyMakerForm', function(e){
+        e.preventDefault();
+
+        if(busy == false)
+        {
+            busy = true;
+
+            // Vars
+            var form = $(this);
+            var mid = form.data('id');
+            var action = form.attr('action');
+
+            var replyInput = form.find('.replyInput');
+            replyInput.css('border', 'none');
+
+            var replyId = form.find('.replyId');
+
+            var replyBoxHold = $("#postReplyBoxHold" + mid);
+
+            var token = form.find('.replyToken');
+
+            // Validation
+            if(replyInput.val() != "" && replyId.val() != "")
+            {
+                $.post(action, {_token: token.val(), pid: replyId.val(), message: replyInput.val()}, function(data){
+                    var obj = jQuery.parseJSON(data);
+
+                    if(obj.code == 1)
+                    {
+                        // Init temp
+                        var temp = "";
+
+                        // Create temp
+                        temp += "<div class='reply'>";
+                        temp += "<div class='leftProfile'>";
+                        temp += "<div class='innerPP' style='background-image: url("+ obj.data.url +"/user/"+obj.data.usi+"/profile_picture);'></div>";
+                        temp += "</div>";
+                        temp += "<div class='rightProfile'>";
+                        temp += "<h3><a href='" + obj.data.url + "/p/"+ obj.data.username +"'>" + obj.data.name + "</a> &middot; <span>Just now</span></h3>";
+                        temp += "<p>" + obj.data.message + "</p>";
+                        temp += "</div>";
+                        temp += "</div>";
+
+                        // Append
+                        replyBoxHold.children('.row').append(temp);
+                        replyBoxHold.children('.row').last().focus();
+
+                        // Empty box
+                        replyInput.val("");
+
+                        busy = false;
+                    }else{
+                        alert(obj.message);
+                        busy = false;
+                    }
+                });
+            }else{
+                replyInput.css('border', '2px solid #d63031');
+                busy = false;
+            }
+        }
     });
 });

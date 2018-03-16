@@ -379,6 +379,7 @@ class ComposerStaticInita5d2260616e7fd5275f306b8ae339df9
         'App\\Libraries\\Notifications' => __DIR__ . '/../..' . '/app/Libraries/Notifications.php',
         'App\\Libraries\\Settings' => __DIR__ . '/../..' . '/app/Libraries/Settings.php',
         'App\\Libraries\\User' => __DIR__ . '/../..' . '/app/Libraries/User.php',
+        'App\\Mail\\FollowNew' => __DIR__ . '/../..' . '/app/Mail/FollowNew.php',
         'App\\Mail\\IncogConfess' => __DIR__ . '/../..' . '/app/Mail/IncogConfess.php',
         'App\\Mail\\IncogReceived' => __DIR__ . '/../..' . '/app/Mail/IncogReceived.php',
         'App\\Mail\\IncogReply' => __DIR__ . '/../..' . '/app/Mail/IncogReply.php',
