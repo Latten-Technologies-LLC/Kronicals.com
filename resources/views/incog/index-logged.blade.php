@@ -33,7 +33,7 @@ if(count($exists) == 1)
             </ul>
         </div>
         @endif
-                <!-- Top Profile (with banner) -->
+        <!-- Top Profile (with banner) -->
         <div class="userProfileTop">
             <div class="cover">
                 <div class="bannerMain" style="background: url(<?php echo url('/'); ?>/user/<?php echo $profile->unique_salt_id; ?>/banner_picture);"></div>
