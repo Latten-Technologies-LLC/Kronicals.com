@@ -92,7 +92,8 @@ class IncogMessages
                         'from_id' => auth()->user()->unique_salt_id,
                         'message' => Crypt::encrypt($data['message']),
                         'date' => date('y-m-d H:i:s'),
-                        'anonymous' => $data['anonymous']
+                        'anonymous' => $data['anonymous'],
+                        'ip_address' => $_SERVER['REMOTE_ADDR']
                     ]);
 
                     $notify = $this->notifications->make(['user_to' => $data['usi'], 'from' => auth()->user()->unique_salt_id, 'type' => 'incog', 'message' => 'New anonymous message!']);

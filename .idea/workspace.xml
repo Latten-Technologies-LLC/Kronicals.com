@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Libraries/IncogMessages.php" afterPath="$PROJECT_DIR$/app/Libraries/IncogMessages.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,8 +94,8 @@
               <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/resources/views/templates/logged/header.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="186">
-                      <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+                    <state relative-caret-position="138">
+                      <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
                       <folding />
                     </state>
                   </provider>
@@ -233,11 +233,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="IncogMessages.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="IncogMessages.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Libraries/IncogMessages.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="113">
-                  <caret line="132" column="13" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
+                <state relative-caret-position="369">
+                  <caret line="95" column="63" selection-start-line="95" selection-start-column="63" selection-end-line="95" selection-end-column="63" />
                   <folding />
                 </state>
               </provider>
@@ -255,7 +255,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="timeline.scss" pinned="false" current-in-tab="true">
+          <file leaf-file-name="timeline.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/css/sass/timeline.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="478">
@@ -285,7 +285,6 @@
         <option value="$PROJECT_DIR$/resources/views/profile/index-not-logged.blade.php" />
         <option value="$PROJECT_DIR$/public/css/sass/profile.scss" />
         <option value="$PROJECT_DIR$/public/css/sass/includes/_Config.scss" />
-        <option value="$PROJECT_DIR$/app/Libraries/IncogMessages.php" />
         <option value="$PROJECT_DIR$/resources/views/timeline/anons.blade.php" />
         <option value="$PROJECT_DIR$/public/css/sass/Main.scss" />
         <option value="$PROJECT_DIR$/resources/views/profile/index-logged.blade.php" />
@@ -326,6 +325,7 @@
         <option value="$PROJECT_DIR$/public/css/sass/timeline.scss" />
         <option value="$PROJECT_DIR$/resources/views/timeline/sent.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" />
+        <option value="$PROJECT_DIR$/app/Libraries/IncogMessages.php" />
       </list>
     </option>
   </component>
@@ -1180,12 +1180,12 @@
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="26990000" />
       <workItem from="1520044021841" duration="67333000" />
-      <workItem from="1520974065412" duration="27286000" />
+      <workItem from="1520974065412" duration="27883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218322000" />
+    <option name="totallyTimeSpent" value="218919000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="200" width="1920" height="1057" extended-state="6" />
@@ -1466,14 +1466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Libraries/IncogMessages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="132" column="13" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/templates/emails/IncogReply.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -1654,14 +1646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/sass/timeline.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="767" column="33" selection-start-line="767" selection-start-column="33" selection-end-line="767" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/timeline/sent.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1672,8 +1656,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/templates/logged/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        <state relative-caret-position="138">
+          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/sass/timeline.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="767" column="33" selection-start-line="767" selection-start-column="33" selection-end-line="767" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Libraries/IncogMessages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="95" column="63" selection-start-line="95" selection-start-column="63" selection-end-line="95" selection-end-column="63" />
           <folding />
         </state>
       </provider>
