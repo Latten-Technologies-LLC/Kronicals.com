@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/sass/timeline.scss" afterPath="$PROJECT_DIR$/public/css/sass/timeline.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/timeline.css" afterPath="$PROJECT_DIR$/public/css/timeline.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/incog/templates/base.blade.php" afterPath="$PROJECT_DIR$/resources/views/incog/templates/base.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/timeline/sent.blade.php" afterPath="$PROJECT_DIR$/resources/views/timeline/sent.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,11 +81,21 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="sent.blade.php" pinned="false" current-in-tab="true">
+              <file leaf-file-name="sent.blade.php" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/resources/views/timeline/sent.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="224">
-                      <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+                    <state relative-caret-position="208">
+                      <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/resources/views/templates/logged/header.blade.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="208">
+                      <caret line="52" column="49" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
                       <folding />
                     </state>
                   </provider>
@@ -154,16 +160,6 @@
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="42">
                       <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/.env">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="32">
-                      <caret line="2" column="2" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="7" />
                       <folding />
                     </state>
                   </provider>
@@ -291,7 +287,6 @@
         <option value="$PROJECT_DIR$/public/css/sass/includes/_Config.scss" />
         <option value="$PROJECT_DIR$/app/Libraries/IncogMessages.php" />
         <option value="$PROJECT_DIR$/resources/views/timeline/anons.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" />
         <option value="$PROJECT_DIR$/public/css/sass/Main.scss" />
         <option value="$PROJECT_DIR$/resources/views/profile/index-logged.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/emails/FollowNew.blade.php" />
@@ -330,6 +325,7 @@
         <option value="$PROJECT_DIR$/resources/views/incog/templates/base.blade.php" />
         <option value="$PROJECT_DIR$/public/css/sass/timeline.scss" />
         <option value="$PROJECT_DIR$/resources/views/timeline/sent.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" />
       </list>
     </option>
   </component>
@@ -607,6 +603,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anonuss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anonuss" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logged" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -1158,12 +1180,12 @@
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="26990000" />
       <workItem from="1520044021841" duration="67333000" />
-      <workItem from="1520974065412" duration="26799000" />
+      <workItem from="1520974065412" duration="27129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217835000" />
+    <option name="totallyTimeSpent" value="218165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="200" width="1920" height="1057" extended-state="6" />
@@ -1211,13 +1233,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="114" column="28" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/queue.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-725">
@@ -1649,8 +1664,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/timeline/sent.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+        <state relative-caret-position="208">
+          <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/templates/logged/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="52" column="49" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
           <folding />
         </state>
       </provider>
