@@ -50,9 +50,9 @@ $n = new Notifications();
 
                 foreach($notifications as $notification)
                 {
-                if($notification->user_from != null)
+                if($notification->user_from != 'null')
                 {
-                //$from = DB::table('users')->where('unique_salt_id', $notification->user_from)->get()[0];
+                $from = DB::table('users')->where('unique_salt_id', $notification->user_from)->get()[0];
                 }
                 ?>
                 <div class="note">
