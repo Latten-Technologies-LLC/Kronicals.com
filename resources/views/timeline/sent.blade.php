@@ -67,9 +67,13 @@ function time_elapsed_string($datetime, $full = false) {
                             if($message['from_id'] != "")
                             {
                                 $from = DB::table('users')->where('unique_salt_id', $message['from_id'])->get()[0];
-                        }
+                            }
+                    $to = DB::table('users')->where('unique_salt_id', $message['user_id'])->get()[0];
                     ?>
                     <div class="message card" id="message<?php echo $message['id']; ?>">
+                        <div class="sentTo">
+                            <p>Sent to <a class="hrefPrimaryColor" href="<?php echo url('/'); ?>/p/<?php echo $to->username; ?>"><?php echo ucwords($to->name); ?></a></p>
+                        </div>
                         <div class="innerMessage">
                             <div class="topMessage">
                                 <div class="leftProfile">

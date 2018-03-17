@@ -9,7 +9,7 @@
             </div>
                 <div class="form-group a-check">
                     <input type="submit" class="btn btn-success" value="Send" />
-                    
+
                     <?php if(Auth::check()){ ?>
                         <input type="checkbox" name="anonymous" id="anonymous" value="Anonymous" checked> Share anonymously?
                     <?php } ?>
