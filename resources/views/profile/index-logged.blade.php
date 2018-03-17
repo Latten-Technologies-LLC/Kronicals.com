@@ -63,5 +63,10 @@ if(count($exists) == 1)
                 </div>
             </div>
         </div>
+
+        <!-- Bottom profile -->
+        <div class="bottomContainer">
+            
+        </div>
     </div>
 @endsection
