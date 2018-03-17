@@ -28,7 +28,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
 
     <!-- Ads -->
-    <?php if(env('APP_ENV') === 'production'){ ?>
+    <?php if(env('APP_ENV') === 'production' && auth()->user()->remove_ads == 0){ ?>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({
