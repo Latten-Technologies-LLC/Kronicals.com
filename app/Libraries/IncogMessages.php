@@ -105,6 +105,8 @@ class IncogMessages
                         'from_id' => '',
                         'message' => Crypt::encrypt($data['message']),
                         'date' => date('y-m-d H:i:s'),
+                        'anonymous' => $data['anonymous'],
+                        'ip_address' => $_SERVER['REMOTE_ADDR']
                     ]);
 
                     // Notify
