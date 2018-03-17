@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/sass/settings.scss" afterPath="$PROJECT_DIR$/public/css/sass/settings.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/index-logged.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/index-logged.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +31,11 @@
         <splitter split-orientation="vertical" split-proportion="0.5">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="false">
+              <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="864">
-                      <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+                    <state relative-caret-position="112">
+                      <caret line="7" column="110" selection-start-line="7" selection-start-column="110" selection-end-line="7" selection-end-column="110" />
                       <folding>
                         <element signature="n#style#0;n#ins#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
                       </folding>
@@ -54,7 +53,7 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="settings.scss" pinned="false" current-in-tab="true">
+              <file leaf-file-name="settings.scss" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/public/css/sass/settings.scss">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="64">
@@ -286,7 +285,6 @@
         <option value="$PROJECT_DIR$/app/Libraries/PostingSystem.php" />
         <option value="$PROJECT_DIR$/app/Mail/postReply.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/emails/PostReply.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/bootstrap/app.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/incog/index-logged.blade.php" />
@@ -299,6 +297,7 @@
         <option value="$PROJECT_DIR$/app/Libraries/IncogMessages.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/index-logged.blade.php" />
         <option value="$PROJECT_DIR$/public/css/sass/settings.scss" />
+        <option value="$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php" />
       </list>
     </option>
   </component>
@@ -1153,12 +1152,12 @@
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="26990000" />
       <workItem from="1520044021841" duration="67333000" />
-      <workItem from="1520974065412" duration="29212000" />
+      <workItem from="1520974065412" duration="29357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220248000" />
+    <option name="totallyTimeSpent" value="220393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="200" width="1920" height="1057" extended-state="6" />
@@ -1587,14 +1586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/timeline/sent.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1627,16 +1618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#ins#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profile/index-logged.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1650,6 +1631,24 @@
         <state relative-caret-position="64">
           <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="110" selection-start-line="7" selection-start-column="110" selection-end-line="7" selection-end-column="110" />
+          <folding>
+            <element signature="n#style#0;n#ins#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

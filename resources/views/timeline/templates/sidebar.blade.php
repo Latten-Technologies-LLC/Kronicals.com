@@ -2,10 +2,10 @@
 <div class="rightSidebar col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12">
     <div class="card profileLink d-none d-sm-block">
         <div class="cardTop" style="padding: 10px;">
-            <h3><i class="fas fa-link"></i> Profile Link</h3>
+            <h3><i class="fas fa-link"></i> Share your link</h3>
         </div>
         <div class="cardBottom">
-            <a href="<?php url('/'); ?>/p/<?php echo auth()->user()->username; ?>"><span>anonuss.com/p/<?php echo auth()->user()->username; ?></span></a>
+            <a href="<?php url('/'); ?>/incog/<?php echo auth()->user()->username; ?>"><span>anonuss.com/incog/<?php echo auth()->user()->username; ?></span></a>
         </div>
     </div><br />
     <div class="card userMod d-none d-sm-block">
