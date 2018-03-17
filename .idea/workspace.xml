@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/templates/emails/PostReply.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/NewUserSignup.php" afterPath="$PROJECT_DIR$/app/Events/NewUserSignup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountSettingsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountSettingsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/BraintreeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/BraintreeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TimelineController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TimelineController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Libraries/FollowSystem.php" afterPath="$PROJECT_DIR$/app/Libraries/FollowSystem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Libraries/Notifications.php" afterPath="$PROJECT_DIR$/app/Libraries/Notifications.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/package.json" afterPath="$PROJECT_DIR$/node_modules/express/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/sass/timeline.scss" afterPath="$PROJECT_DIR$/public/css/sass/timeline.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/timeline.css" afterPath="$PROJECT_DIR$/public/css/timeline.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/logged-main.js" afterPath="$PROJECT_DIR$/public/js/logged-main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/timeline.blade.php" afterPath="$PROJECT_DIR$/resources/views/timeline.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/app.php" afterPath="$PROJECT_DIR$/bootstrap/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,10 +43,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="timeline.blade.php" pinned="false" current-in-tab="true">
+              <file leaf-file-name="timeline.blade.php" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/resources/views/timeline.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="170">
+                    <state relative-caret-position="-950">
                       <caret line="218" column="148" selection-start-line="218" selection-start-column="148" selection-end-line="218" selection-end-column="148" />
                       <folding>
                         <element signature="e#7951#8064#0#HTML" expanded="true" />
@@ -101,6 +81,48 @@
                   </provider>
                 </entry>
               </file>
+              <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="1008">
+                      <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+                      <folding>
+                        <element signature="n#style#0;n#ins#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="BraintreeController.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BraintreeController.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="464">
+                      <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="42">
+                      <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/.env">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="32">
+                      <caret line="2" column="2" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="7" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
               <file leaf-file-name="anons.blade.php" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/resources/views/timeline/anons.blade.php">
                   <provider selected="true" editor-type-id="text-editor">
@@ -114,8 +136,18 @@
               <file leaf-file-name="FollowController.php" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FollowController.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="234">
+                    <state relative-caret-position="-22">
                       <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="FollowSystem.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/app/Libraries/FollowSystem.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="225">
+                      <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
                       <folding />
                     </state>
                   </provider>
@@ -150,7 +182,7 @@
               <file leaf-file-name="logged-main.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="242">
+                    <state relative-caret-position="8768">
                       <caret line="594" column="51" selection-start-line="594" selection-start-column="51" selection-end-line="594" selection-end-column="51" />
                       <folding>
                         <marker date="1521243233000" expanded="true" signature="2816:2896" placeholder="..." />
@@ -237,7 +269,6 @@
         <option value="$PROJECT_DIR$/app/Mail/IncogReceived.php" />
         <option value="$PROJECT_DIR$/app/Mail/IncogReply.php" />
         <option value="$PROJECT_DIR$/app/Mail/IncogConfess.php" />
-        <option value="$PROJECT_DIR$/bootstrap/app.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/logged-out-main.blade.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -256,7 +287,6 @@
         <option value="$PROJECT_DIR$/resources/views/profile/index-logged.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/emails/FollowNew.blade.php" />
         <option value="$PROJECT_DIR$/app/Mail/FollowNew.php" />
-        <option value="$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
@@ -284,6 +314,8 @@
         <option value="$PROJECT_DIR$/app/Libraries/PostingSystem.php" />
         <option value="$PROJECT_DIR$/app/Mail/postReply.php" />
         <option value="$PROJECT_DIR$/resources/views/templates/emails/PostReply.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/bootstrap/app.php" />
       </list>
     </option>
   </component>
@@ -914,6 +946,24 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Exceptions" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anonuss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anonuss" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Events" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -1024,12 +1074,12 @@
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="26990000" />
       <workItem from="1520044021841" duration="67333000" />
-      <workItem from="1520974065412" duration="22869000" />
+      <workItem from="1520974065412" duration="24310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213905000" />
+    <option name="totallyTimeSpent" value="215346000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="200" width="1920" height="1057" extended-state="6" />
@@ -1200,13 +1250,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="32" column="21" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="158" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AnonsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1271,22 +1314,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="0" selection-end-line="48" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1303,30 +1330,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BraintreeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TimelineController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="35" />
           <folding>
             <element signature="e#40#71#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Libraries/FollowSystem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="51" column="53" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#32#55#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1387,17 +1396,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FollowController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="8768">
           <caret line="594" column="51" selection-start-line="594" selection-start-column="51" selection-end-line="594" selection-end-column="51" />
           <folding>
             <marker date="1521243233000" expanded="true" signature="2816:2896" placeholder="..." />
@@ -1405,42 +1406,6 @@
             <marker date="1521243233000" expanded="true" signature="2848:2895" placeholder="..." />
             <marker date="1521243233000" expanded="true" signature="9348:9428" placeholder="..." />
             <marker date="1521243233000" expanded="true" signature="18838:18918" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/timeline.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="218" column="148" selection-start-line="218" selection-start-column="148" selection-end-line="218" selection-end-column="148" />
-          <folding>
-            <element signature="e#7951#8064#0#HTML" expanded="true" />
-            <element signature="e#9069#9093#0#HTML" expanded="true" />
-            <element signature="e#9203#9225#0#HTML" expanded="true" />
-            <element signature="e#12740#12760#0#HTML" expanded="true" />
-            <marker date="1521243023000" expanded="true" signature="8193:8274" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="9946:13189" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="10020:13142" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="10092:10249" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="10324:13091" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="10464:10846" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="10464:12973" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="13378:17402" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="17672:17860" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="17725:17824" placeholder="{...}" />
-            <marker date="1521243023000" expanded="true" signature="17916:18192" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="17961:17992" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="18071:18090" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="18664:20096" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="18702:19090" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="18745:19042" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="18925:19019" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="19200:19746" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="19286:19504" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="19660:19717" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="19793:20051" placeholder="..." />
-            <marker date="1521243023000" expanded="true" signature="20307:20352" placeholder="{...}" />
-            <marker date="1521243023000" expanded="true" signature="20307:20362" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1510,6 +1475,92 @@
           <folding>
             <element signature="e#32#68#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FollowController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Libraries/FollowSystem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/timeline.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-950">
+          <caret line="218" column="148" selection-start-line="218" selection-start-column="148" selection-end-line="218" selection-end-column="148" />
+          <folding>
+            <element signature="e#7951#8064#0#HTML" expanded="true" />
+            <element signature="e#9069#9093#0#HTML" expanded="true" />
+            <element signature="e#9203#9225#0#HTML" expanded="true" />
+            <element signature="e#12740#12760#0#HTML" expanded="true" />
+            <marker date="1521243023000" expanded="true" signature="8193:8274" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="9946:13189" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="10020:13142" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="10092:10249" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="10324:13091" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="10464:10846" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="10464:12973" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="13378:17402" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="17672:17860" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="17725:17824" placeholder="{...}" />
+            <marker date="1521243023000" expanded="true" signature="17916:18192" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="17961:17992" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="18071:18090" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="18664:20096" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="18702:19090" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="18745:19042" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="18925:19019" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="19200:19746" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="19286:19504" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="19660:19717" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="19793:20051" placeholder="..." />
+            <marker date="1521243023000" expanded="true" signature="20307:20352" placeholder="{...}" />
+            <marker date="1521243023000" expanded="true" signature="20307:20362" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BraintreeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/timeline/templates/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#ins#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
