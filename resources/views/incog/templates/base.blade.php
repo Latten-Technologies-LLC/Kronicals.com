@@ -7,12 +7,13 @@
             <div class="form-group">
                 <textarea placeholder="Say something nice :)" class="form-control" id="message" name="message" rows="3"></textarea>
             </div>
-            <?php if(Auth::check()){ ?>
                 <div class="form-group a-check">
                     <input type="submit" class="btn btn-success" value="Send" />
-                    <input type="checkbox" name="anonymous" id="anonymous" value="Anonymous" checked> Share anonymously?
+                    
+                    <?php if(Auth::check()){ ?>
+                        <input type="checkbox" name="anonymous" id="anonymous" value="Anonymous" checked> Share anonymously?
+                    <?php } ?>
                 </div>
-            <?php } ?>
             <input type="hidden" id="usi" name="usi" value="<?php echo $profile->unique_salt_id; ?>" />
             {{ csrf_field() }}
             <input type="hidden" id="token" name="token" value="{{ csrf_token() }}" />

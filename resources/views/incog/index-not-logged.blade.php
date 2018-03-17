@@ -20,7 +20,7 @@ if(count($exists) == 1)
 
 @section('content')
     <br /><br /><br /><br />
-
+    <div class="profile container">
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -31,21 +31,22 @@ if(count($exists) == 1)
         </div>
     @endif
     <!-- Top Profile (with banner) -->
-    <div class="userProfileTop">
-        <div class="cover">
-
-            <div class="mainProfileHold">
-                <div class="profileImage">
-                    <img src="<?php echo url('/'); ?>/user/<?php echo $profile->unique_salt_id; ?>/profile_picture" />
-                </div>
-                <div class="rightInfo">
-                    <h3><?php echo $profile->name; ?></h3>
-                    <h4>@<?php echo $profile->username; ?></h4>
+        <div class="userProfileTop">
+            <div class="cover">
+                <div class="bannerMain" style="background: url(<?php echo url('/'); ?>/user/<?php echo $profile->unique_salt_id; ?>/banner_picture);"></div>
+                <div class="mainProfileHold">
+                    <div class="profileImage">
+                        <img src="<?php echo url('/'); ?>/user/<?php echo $profile->unique_salt_id; ?>/profile_picture" />
+                    </div>
+                    <div class="rightInfo">
+                        <h3><?php echo $profile->name; ?></h3>
+                        <h4>@<?php echo $profile->username; ?></h4>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Main system -->
     @include('incog.templates.base')
+    </div>
 @endsection
