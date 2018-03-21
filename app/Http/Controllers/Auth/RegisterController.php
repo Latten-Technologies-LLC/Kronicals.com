@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Events\NewUserSignup;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Libraries\TutorialSystem;
 
 class RegisterController extends Controller
 {
@@ -79,7 +79,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'unique_salt_id' => $unique_id,
             'profile_picture' => 'default_pic.jpg',
-            'banner_picture' => 'default_banner.jpg'
+            'banner_picture' => 'default_banner.jpg',
+            'remove_ads' => '0',
+            'tutorial' => "" . json_encode(TutorialSystem::init()) . ""
         ]);
 
         // See if it works
@@ -117,7 +119,7 @@ class RegisterController extends Controller
             ]);
 
             // Alert everyone
-            event(new NewUserSignup());
+            //event(new NewUserSignup());
 
             return $user;
         }

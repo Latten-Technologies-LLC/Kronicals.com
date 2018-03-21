@@ -96,6 +96,7 @@ class IncogMessages
                         'ip_address' => $_SERVER['REMOTE_ADDR']
                     ]);
 
+                    // Notify
                     $notify = $this->notifications->make(['user_to' => $data['usi'], 'from' => auth()->user()->unique_salt_id, 'type' => 'incog', 'message' => 'New anonymous message!']);
 
                 }else{

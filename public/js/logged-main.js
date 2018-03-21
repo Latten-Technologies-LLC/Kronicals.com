@@ -661,4 +661,79 @@ $(document).ready(function()
             }
         }
     });
+
+    // Tutorial system
+    $(document).on('click', '.tutorial_next_btn', function(){
+       if(busy == false)
+       {
+           busy = true;
+
+           // Var
+           var current = $(this).data('current');
+           var next = $(this).data('next');
+
+           if(next != "")
+           {
+               // Hide all of them
+               $(".tutorial_page").each(function(){
+                  $(this).addClass('hidden');
+               });
+
+               // Now show the new one
+               $("#tutorial_page" + next).removeClass('hidden');
+
+               busy = false;
+           }
+       }
+    });
+
+    $(document).on('click', '.tutorial_skip_btn', function(){
+        if(busy == false)
+        {
+            busy = true;
+
+            // Var
+            var tut = $(this).data('tut');
+
+            if(tut != "")
+            {
+                $.post('/tutorials/update', {tut: tut}, function(data){
+                    var obj = jQuery.parseJSON(data);
+
+                    if(obj.code == 1)
+                    {
+                        $(".tutorial_overlay").fadeOut('fast');
+                        $(".tutorial_main_hold").fadeOut('fast');
+                    }
+                });
+
+                busy = false;
+            }
+        }
+    });
+
+    $(document).on('click', '.tutorial_finished_btn', function(){
+        if(busy == false)
+        {
+            busy = true;
+
+            // Var
+            var tut = $(this).data('tut');
+
+            if(tut != "")
+            {
+                $.post('/tutorials/update', {tut: tut}, function(data){
+                    var obj = jQuery.parseJSON(data);
+
+                    if(obj.code == 1)
+                    {
+                        $(".tutorial_overlay").fadeOut('fast');
+                        $(".tutorial_main_hold").fadeOut('fast');
+                    }
+                });
+
+                busy = false;
+            }
+        }
+    });
 });

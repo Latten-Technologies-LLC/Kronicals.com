@@ -29,10 +29,23 @@ function time_elapsed_string($datetime, $full = false) {
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
+
+// Tutorials
+use App\Libraries\TutorialSystem;
+
+$tutorials = TutorialSystem::parse('timeline', 'feed');
+$validate = TutorialSystem::validate($tutorials);
 ?>
 @extends('layouts.logged-in-main')
 
 @section('content')
+    <?php
+    if($validate > 0)
+    {
+        // Show
+        TutorialSystem::display($tutorials, $validate, 'timeline', 'feed');
+    }
+    ?>
     <div class="container timelineMiddle">
         <div class="inner row">
             <!-- Left main feed -->

@@ -1,5 +1,8 @@
 <?php
 use App\Libraries\Notifications;
+use App\Libraries\TutorialSystem;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,3 +77,10 @@ Route::post('/posting/action/like', 'PostsController@like')->name('posting.actio
 Route::post('/posting/action/unlike', 'PostsController@unlike')->name('posting.action.unlike');
 Route::post('/posting/action/delete', 'PostsController@delete')->name('posting.action.delete');
 Route::post('/posting/action/comment', 'PostsController@comment')->name('posting.action.comment');
+
+// Tutorial system
+Route::post('/tutorials/update', function(Request $request)
+{
+    $t = new TutorialSystem();
+    $t->update($request->tut);
+})->name('tutorials.update');
