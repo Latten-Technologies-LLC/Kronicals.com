@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\NewUserSignup;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -81,7 +82,7 @@ class RegisterController extends Controller
             'profile_picture' => 'default_pic.jpg',
             'banner_picture' => 'default_banner.jpg',
             'remove_ads' => '0',
-            'tutorial' => "" . json_encode(TutorialSystem::init()) . ""
+            'tutorial' => json_encode(TutorialSystem::init())
         ]);
 
         // See if it works
@@ -119,7 +120,7 @@ class RegisterController extends Controller
             ]);
 
             // Alert everyone
-            //event(new NewUserSignup());
+            event(new NewUserSignup($user));
 
             return $user;
         }

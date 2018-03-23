@@ -5,9 +5,8 @@ namespace App\Listeners;
 use App\Events\NewUserSignup;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use \Log;
 
-class TestListener
+class NewUserSignupNotification
 {
     /**
      * Create the event listener.
@@ -28,6 +27,5 @@ class TestListener
     public function handle(NewUserSignup $event)
     {
         //
-        Log::info('handler called.');
     }
 }

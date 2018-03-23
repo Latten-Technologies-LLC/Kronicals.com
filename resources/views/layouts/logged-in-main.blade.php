@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
     <link rel="alternate" hreflang="en" href="https://anonuss.com/" />
 
     <!-- Favicon -->
@@ -64,6 +63,19 @@ $.ajaxSetup({
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
 <script src="{{ asset('js/logged-main.js') }}" type="application/javascript" language="JavaScript"></script>
+
+<!-- Connecting -->
+<script>
+    $(function(){
+        var socket = io('http://127.0.0.1:3000');
+
+        socket.on("new-user-signup:App\\Events\\NewUserSignup", function(message){
+            alert('okay');
+            console.log(message);
+            console.log('Okay');
+        });
+    });
+</script>
 
 <?php if(env('APP_ENV') === 'production'){ ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->

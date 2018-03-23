@@ -26,7 +26,10 @@ class TutorialSystem
                 'sent' => array('name' => 'Sent anons', 'desc' => 'This is where you can view your sent messages', 'read' => 0)
             ),
             'profile',
-            'incog',
+            'incog' => array(
+                'incog' => array('name' => 'Sending Anons', 'desc' => 'This is where you can send messages to your friends. You have the option to make them anonymous by default!', 'read' => 0),
+                'confessing' => array('name' => 'Confessing', 'desc' => 'You can also confess to your anonymous messages from your timeline!', 'read' => 0)
+            ),
         ];
     }
 
@@ -41,7 +44,12 @@ class TutorialSystem
             $tutorial = json_decode(auth()->user()->tutorial);
 
             // Parse it
-            return $tutorial->$page->$sub;
+            if($deep_sub == "")
+            {
+                return $tutorial->$page->$sub;
+            }else{
+                return $tutorial->$page->$sub->$deep_sub;
+            }
         }
     }
 

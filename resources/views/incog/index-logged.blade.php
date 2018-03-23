@@ -3,6 +3,7 @@ $stylesheet = "incog";
 
 use Illuminate\Support\Facades\DB;
 use App\Libraries\User;
+use App\Libraries\TutorialSystem;
 
 // Find user
 $exists = User::exists($user[0]->id);
@@ -14,6 +15,9 @@ if(count($exists) == 1)
     $profile = $user[0];
     $info = DB::table('user_info')->where('unique_salt_id', $profile->unique_salt_id)->get()[0];
 
+    // Tutorials
+    $tutorials = TutorialSystem::parse('incog', 'incog');
+    $validate = TutorialSystem::validate($tutorials, true);
 }else{
     redirect('/');
 }
@@ -22,7 +26,13 @@ if(count($exists) == 1)
 
 @section('content')
     <br /><br /><br /><br />
-
+    <?php
+    if($validate > 0)
+    {
+        // Show
+        TutorialSystem::display($tutorials, $validate, 'incog', 'incog');
+    }
+    ?>
     <div class="profile container">
         @if ($errors->any())
         <div class="alert alert-danger">

@@ -11,6 +11,9 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+use Illuminate\Support\Facades\Auth;
+
+// User signup
+Broadcast::channel('new-user-signup', function () {
+    return Auth::check() === true;
 });

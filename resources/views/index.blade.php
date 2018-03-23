@@ -1,5 +1,8 @@
 <?php
 $stylesheet = "index";
+
+use App\Events\NewUserSignup;
+event(new NewUserSignup(array('user')));
 ?>
 @extends('layouts.logged-out-main')
 
