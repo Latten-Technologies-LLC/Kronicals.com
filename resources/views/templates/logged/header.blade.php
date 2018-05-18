@@ -12,7 +12,8 @@ $n = new Notifications();
             <div class="inner-navigation">
                 <ul class="inner-navigation-list">
                     <div class="mobileHide">
-                        <li ><a href="<?php echo url("/"); ?>/settings">Settings</a></li>
+                        <li><a href="{{ route('diary.index') }}">Diary</a></li>
+                        <li><a href="{{ route('settings.index') }}">Settings</a></li>
                     </div>
                     <li><a href="{{ route('notifications.read') }}" data-token="{{ csrf_token() }}" class="notificationOpen nav-icon"><i class="far fa-bell"></i> <span class="<?php if(count($n->unreadNotifications(auth()->user()->unique_salt_id)) == 0){ ?>hidden<?php } ?> notePill badge badge-pill badge-danger"><?php echo count($n->unreadNotifications(auth()->user()->unique_salt_id)); ?></span></a></li>
                     <li><a href="" class="searchOpen nav-icon"><i class="fas fa-search"></i></a></li>

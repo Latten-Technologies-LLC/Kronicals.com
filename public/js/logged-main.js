@@ -441,13 +441,31 @@ $(document).ready(function()
 
         if(thisPriv != "")
         {
-            $(".currentSetting").html(t.data('val'));
-            $("#def-privacy").val(thisPriv);
+            if(thisPriv == 3) {
+                $(".currentSetting").html(t.data('val'));
+                $("#def-privacy").val(thisPriv);
 
-            $(".privTabSetting").removeClass("privActive");
-            t.addClass("privActive");
+                $(".privTabSetting").removeClass("privActive");
+                t.addClass("privActive");
 
-            $(".privacyDrop").addClass('hidden');
+                $(".privacyDrop").addClass('hidden');
+
+                // Hide main textarea
+                $(".normal_entry").addClass('hidden');
+                $(".diary_entry").removeClass('hidden');
+            }else {
+                $(".currentSetting").html(t.data('val'));
+                $("#def-privacy").val(thisPriv);
+
+                $(".privTabSetting").removeClass("privActive");
+                t.addClass("privActive");
+
+                $(".privacyDrop").addClass('hidden');
+
+                // Hide main textarea
+                $(".normal_entry").removeClass('hidden');
+                $(".diary_entry").addClass('hidden');
+            }
         }
     });
 
@@ -480,6 +498,18 @@ $(document).ready(function()
         }
     });
 
+    var toolbarOptions = [[{ 'header': [1, 2, 3, 4, 5, 6, false] }],[{ 'list': 'ordered'}, { 'list': 'bullet' }], ['bold', 'italic', 'underline', 'strike'], [{ 'align': [] }], ['image','link','blockquote']];
+
+    // Main editor
+    var editor = new Quill('.main_diary_entry', {
+        modules: {
+            toolbar: toolbarOptions,    // Snow includes toolbar by default
+        },
+        placeholder: 'Whats on your mind?',
+        height: '100px',
+        theme: 'snow'
+    });
+
     $(document).on('submit', '#postingStation', function(e){
         if(busy == false)
         {
@@ -490,22 +520,56 @@ $(document).ready(function()
             var text = $("#postingStationText");
             var type = $("#def-privacy");
             var action = $(this).attr('action');
-            
+
             if(text.val() != "" && type.val() != "")
             {
-                $.post(action, {text: text.val(), type: type.val()}, function(data){
-                    var obj = jQuery.parseJSON(data);
-                    
-                    if(obj.code == 1)
+                if(type.val() == 3)
+                {
+
+                    return false;
+                }else {
+                    $.post(action, {text: text.val(), type: type.val()}, function (data)
                     {
-                        text.val("");
-                        location.reload();
-                    }else{
-                        alert(obj.message);
-                        busy = false;
-                    }
-                });
-            }else{
+                        var obj = jQuery.parseJSON(data);
+
+                        if (obj.code == 1)
+                        {
+                            text.val("");
+                            location.reload();
+                        } else {
+                            alert(obj.message);
+                            busy = false;
+                        }
+                    });
+                }
+            }else if(type.val() == 3)
+            {
+                // Put text in var
+                var htmlText = editor.root.innerHTML;
+
+                alert(htmlText);
+
+                if(htmlText != "" && htmlText != "<p></p>")
+                {
+                    $.post(action, {text: htmlText, type: type.val()}, function (data)
+                    {
+                        var obj = jQuery.parseJSON(data);
+
+                        if (obj.code == 1)
+                        {
+                            //htmlText.html("");
+                            location.reload();
+                        } else {
+                            alert(obj.message);
+                            busy = false;
+                        }
+                    });
+                }else{
+                    busy = false;
+                }
+                return false;
+            } else
+            {
                 busy = false;
             }
         }

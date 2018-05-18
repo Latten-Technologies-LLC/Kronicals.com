@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Crypt;
 use App\Libraries\User;
 use App\Libraries\Notifications as Notifications;
 use App\Libraries\FollowSystem as FollowSystem;
+use App\Libraries\DiarySystem as DiarySystem;
 
 class PostingSystem
 {
@@ -81,9 +82,21 @@ class PostingSystem
             if(in_array($this->_type, $types))
             {
                 // Now lets insert the post
-                $insert = DB::table('timeline_posts')->insertGetId(['user_id' => auth()->user()->unique_salt_id, 'text' => Crypt::encrypt($this->_text), 'type' => $this->_type, 'date' => date('y-m-d H:i:s'), 'removed' => '0']);
+                if($this->type == "3")
+                {
+                    // First make the main post
+                    $insert = DB::table('timeline_posts')->insertGetId(['user_id' => auth()->user()->unique_salt_id, 'text' => Crypt::encrypt($this->_text), 'type' => $this->_type, 'date' => date('y-m-d H:i:s'), 'removed' => '0']);
 
-                // Beta 1.3 send even to followers
+                    // This is a diary post, make the entry second
+                    $data['parent_id'] = $insert;
+
+                    // Process
+                    return DiarySystem::makeEntry($data);
+                }else {
+                    $insert = DB::table('timeline_posts')->insertGetId(['user_id' => auth()->user()->unique_salt_id, 'text' => Crypt::encrypt($this->_text), 'type' => $this->_type, 'date' => date('y-m-d H:i:s'), 'removed' => '0']);
+                }
+
+                // Beta 1.3 send event to followers
 
                 // Return info
                 return json_encode(['code' => 1, 'message' => 'Posted successfully!', 'post' => [

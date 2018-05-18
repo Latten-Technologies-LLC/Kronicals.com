@@ -316,6 +316,32 @@
 
                 .innerMiddleArea{
 
+                  .diary_entry{
+                    height: 280px;
+
+                    .ql-toolbar{
+                      border: none;
+                      border-bottom: 1px solid #eee;
+                    }
+
+                    .main_diary_entry{
+                      box-shadow: none;
+                      border: none;
+
+                      height: 75%;
+
+                      padding-top: 10px;
+                    }
+                  }
+
+                  .diary_entry.hidden{
+                    display: none;
+                  }
+
+                  .normal_entry.hidden{
+                    display: none;
+                  }
+
                   .input-group{
                     padding-top: 10px;
 

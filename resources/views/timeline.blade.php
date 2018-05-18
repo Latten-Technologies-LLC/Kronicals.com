@@ -98,8 +98,11 @@ $validate = TutorialSystem::validate($tutorials);
                                 </div>
                                 <div class="middleArea">
                                     <div class="innerMiddleArea">
-                                        <div class="input-group">
+                                        <div class="normal_entry input-group">
                                             <textarea class="input-field" name="Textfield" id="postingStationText" placeholder="Write something meaningful"></textarea>
+                                        </div>
+                                        <div class="hidden diary_entry">
+                                            <div class="main_diary_entry"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -296,32 +299,44 @@ $validate = TutorialSystem::validate($tutorials);
         </div>
     </div>
     @endsection
+
+    @section('stylesheets')
+        <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    @endsection
+
     @section('scripts')
-    <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            // Get token
-            $.get("{{ route('braintree.token') }}", function(data){
-                var obj = jQuery.parseJSON(data);
-                braintree.setup(obj.token, 'dropin', {
-                    container: 'payment'
-                });
+        <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+        {{--<script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+        <script src="{{ asset('js/quill/imageresize.js') }}"></script>--}}
+        <script type="text/javascript">
+            $(document).ready(function(){
+
             });
 
-            <?php
-            if(isset($_GET['m'])){
-            ?>
-                // Scroll to message
-                $('html, body').animate({
-                    scrollTop: $("#message<?php echo $_GET['m']; ?>").offset().top
-                }, 2000, function(){
-                    $("#message<?php echo $_GET['m']; ?>").addClass('replyActive');
-                    $("#replyBox<?php echo $_GET['m']; ?>").fadeIn('fast');
+            $(function () {
+                // Get token
+                $.get("{{ route('braintree.token') }}", function(data){
+                    var obj = jQuery.parseJSON(data);
+                    braintree.setup(obj.token, 'dropin', {
+                        container: 'payment'
+                    });
                 });
 
-            <?php
-            }
-            ?>
-        });
-    </script>
+                <?php
+                if(isset($_GET['m'])){
+                ?>
+                    // Scroll to message
+                    $('html, body').animate({
+                        scrollTop: $("#message<?php echo $_GET['m']; ?>").offset().top
+                    }, 2000, function(){
+                        $("#message<?php echo $_GET['m']; ?>").addClass('replyActive');
+                        $("#replyBox<?php echo $_GET['m']; ?>").fadeIn('fast');
+                    });
+
+                <?php
+                }
+                ?>
+            });
+        </script>
     @endsection

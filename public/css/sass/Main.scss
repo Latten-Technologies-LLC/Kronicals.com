@@ -47,6 +47,13 @@ Table of contents
 
         a {
           color: white;
+
+          letter-spacing: .3em;
+          text-transform: uppercase;
+
+          span{
+            letter-spacing: normal;
+          }
         }
       }
     }
@@ -242,6 +249,13 @@ Table of contents
       .inner-navigation{
 
         .inner-navigation-list{
+
+          .mobileHide
+          {
+            li{
+              margin-left: 0px;
+            }
+          }
 
           li{
             display: inline;

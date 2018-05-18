@@ -84,3 +84,7 @@ Route::post('/tutorials/update', function(Request $request)
     $t = new TutorialSystem();
     $t->update($request->tut);
 })->name('tutorials.update');
+
+// Diary
+Route::get('/diary', 'DiaryController@index')->name('diary.index');
+Route::get('/diary/view/{entry_id}', 'DiaryController@view')->name('diary.view');

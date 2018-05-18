@@ -31,7 +31,7 @@ class PostsController extends Controller
     {
         // Validate
         $validation = $request->validate([
-            'text' => 'required|max:1000',
+            'text' => 'required',
             'type' => 'required'
         ]);
 
