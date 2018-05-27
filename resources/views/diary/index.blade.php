@@ -75,6 +75,7 @@ $entries = DiarySystem::fetchDiary(auth()->user()->unique_salt_id);
                             <div class="entry" onClick="window.location.assign('<?php echo url('/'); ?>/diary/view/<?php echo $entry->id; ?>');">
                                 <div class="innerEntry">
                                     <div class="topMainText">
+                                        <h4><strong style="font-weight: 400;"><?php echo $entry->entry_title; ?></strong></h4>
                                         <p><?php echo $text; ?></p>
                                     </div>
                                     <div class="bottomMainInfo">

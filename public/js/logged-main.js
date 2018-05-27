@@ -525,7 +525,27 @@ $(document).ready(function()
             {
                 if(type.val() == 3)
                 {
+                    // Put text in var
+                    var htmlText = editor.root.innerHTML;
 
+                    if(htmlText != "" && htmlText != "<p></p>")
+                    {
+                        $.post(action, {text: htmlText, type: "3"}, function (data)
+                        {
+                            var obj = jQuery.parseJSON(data);
+
+                            if (obj.code == 1)
+                            {
+                                //htmlText.html("");
+                                location.reload();
+                            } else {
+                                alert(obj.message);
+                                busy = false;
+                            }
+                        });
+                    }else{
+                        busy = false;
+                    }
                     return false;
                 }else {
                     $.post(action, {text: text.val(), type: type.val()}, function (data)
@@ -547,11 +567,9 @@ $(document).ready(function()
                 // Put text in var
                 var htmlText = editor.root.innerHTML;
 
-                alert(htmlText);
-
                 if(htmlText != "" && htmlText != "<p></p>")
                 {
-                    $.post(action, {text: htmlText, type: type.val()}, function (data)
+                    $.post(action, {text: htmlText, type: "3"}, function (data)
                     {
                         var obj = jQuery.parseJSON(data);
 

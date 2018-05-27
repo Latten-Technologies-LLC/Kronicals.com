@@ -32,7 +32,8 @@ function time_elapsed_string($datetime, $full = false) {
 }
 
 // Entry
-$entry = DB::table('timeline_posts')->where(['user_id' => auth()->user()->unique_salt_id, 'type' => '3', 'id' => $entry_id])->get();
+$diary_entry = DB::table('diary_entry')->where(['id' => $entry_id])->get();
+$entry = DB::table('timeline_posts')->where(['user_id' => auth()->user()->unique_salt_id, 'type' => '3', 'id' => $diary_entry[0]->parent_id])->get();
 
 if(count($entry) < 1)
 {
@@ -43,10 +44,11 @@ if(count($entry) < 1)
 
 @section('content')
     <div class="diaryContainer container">
-        <div class="diaryBanner">
+        <div class="diaryBanner diary_view">
             <div class="cover">
                 <div class="innerBanner">
                     <h3>Diary</h3>
+                    <h4><?php echo $diary_entry[0]->entry_title; ?></h4>
                 </div>
             </div>
         </div>

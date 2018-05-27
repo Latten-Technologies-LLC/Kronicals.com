@@ -82,7 +82,7 @@ class PostingSystem
             if(in_array($this->_type, $types))
             {
                 // Now lets insert the post
-                if($this->type == "3")
+                if($this->_type == "3" or $this->_type == 3)
                 {
                     // First make the main post
                     $insert = DB::table('timeline_posts')->insertGetId(['user_id' => auth()->user()->unique_salt_id, 'text' => Crypt::encrypt($this->_text), 'type' => $this->_type, 'date' => date('y-m-d H:i:s'), 'removed' => '0']);
@@ -94,15 +94,15 @@ class PostingSystem
                     return DiarySystem::makeEntry($data);
                 }else {
                     $insert = DB::table('timeline_posts')->insertGetId(['user_id' => auth()->user()->unique_salt_id, 'text' => Crypt::encrypt($this->_text), 'type' => $this->_type, 'date' => date('y-m-d H:i:s'), 'removed' => '0']);
+
+                    // Beta 1.3 send event to followers
+
+                    // Return info
+                    return json_encode(['code' => 1, 'message' => 'Posted successfully!', 'post' => [
+                        'user_data' => ['name' => auth()->user()->name, 'username' => auth()->user()->username, 'user_id' => auth()->user()->unique_salt_id],
+                        'post_data' => ['id' => $insert, 'user_id' => auth()->user()->unique_salt_id, 'text' => $this->_text, 'type' => $this->_type, 'date' => 'Just now']
+                    ]]);
                 }
-
-                // Beta 1.3 send event to followers
-
-                // Return info
-                return json_encode(['code' => 1, 'message' => 'Posted successfully!', 'post' => [
-                    'user_data' => ['name' => auth()->user()->name, 'username' => auth()->user()->username, 'user_id' => auth()->user()->unique_salt_id],
-                    'post_data' => ['id' => $insert, 'user_id' => auth()->user()->unique_salt_id, 'text' => $this->_text, 'type' => $this->_type, 'date' => 'Just now']
-                ]]);
             }else{
                 return json_encode(['code' => 0, 'message' => 'Invalid post type!']);
             }

@@ -2,6 +2,7 @@
 namespace App\Libraries;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use App\Libraries\User;
 
 class DiarySystem
@@ -21,7 +22,10 @@ class DiarySystem
     {
         if(!empty($data))
         {
-            
+            $insert = DB::table('diary_entry')->insertGetId(['parent_id' => $data['parent_id'], 'entry_author' => auth()->user()->unique_salt_id, 'entry_title' => 'Diary Entry', 'entry_text' => Crypt::encrypt($data['text']), 'entry_date' => date('y-m-d H:i:s')]);
+
+            // Return
+            return json_encode(['code' => 1, 'message' => 'Success!']);
         }
         else{
             return json_encode(['code' => 0, 'message' => 'Error occurred, try again!']);

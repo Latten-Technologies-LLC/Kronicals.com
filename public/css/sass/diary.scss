@@ -32,6 +32,23 @@
     }
   }
 
+  .diaryBanner.diary_view{
+    height: 180px;
+
+    .cover{
+      height: 180px;
+
+      .innerBanner{
+
+        h4{
+          font-size: 1.3em;
+          font-weight: 400;
+          color: white;
+        }
+      }
+    }
+  }
+
   .diaryContent{
     padding-top: 40px;
 

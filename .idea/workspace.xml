@@ -2,32 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Libraries/DiarySystem.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/css/sass/diary.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/js/quill/imageresize.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/resources/views/diary/index.blade.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/resources/views/diary/view.blade.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/anonuss.iml" afterPath="$PROJECT_DIR$/.idea/anonuss.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Libraries/DiarySystem.php" afterPath="$PROJECT_DIR$/app/Libraries/DiarySystem.php" />
       <change beforePath="$PROJECT_DIR$/app/Libraries/PostingSystem.php" afterPath="$PROJECT_DIR$/app/Libraries/PostingSystem.php" />
-      <change beforePath="$PROJECT_DIR$/public/css/Main.css" afterPath="$PROJECT_DIR$/public/css/Main.css" />
-      <change beforePath="$PROJECT_DIR$/public/css/forgot_password.css" afterPath="$PROJECT_DIR$/public/css/forgot_password.css" />
-      <change beforePath="$PROJECT_DIR$/public/css/incog.css" afterPath="$PROJECT_DIR$/public/css/incog.css" />
-      <change beforePath="$PROJECT_DIR$/public/css/index.css" afterPath="$PROJECT_DIR$/public/css/index.css" />
-      <change beforePath="$PROJECT_DIR$/public/css/login.css" afterPath="$PROJECT_DIR$/public/css/login.css" />
-      <change beforePath="$PROJECT_DIR$/public/css/profile.css" afterPath="$PROJECT_DIR$/public/css/profile.css" />
-      <change beforePath="$PROJECT_DIR$/public/css/sass/Main.scss" afterPath="$PROJECT_DIR$/public/css/sass/Main.scss" />
-      <change beforePath="$PROJECT_DIR$/public/css/sass/includes/_Config.scss" afterPath="$PROJECT_DIR$/public/css/sass/includes/_Config.scss" />
-      <change beforePath="$PROJECT_DIR$/public/css/sass/timeline.scss" afterPath="$PROJECT_DIR$/public/css/sass/timeline.scss" />
-      <change beforePath="$PROJECT_DIR$/public/css/settings.css" afterPath="$PROJECT_DIR$/public/css/settings.css" />
-      <change beforePath="$PROJECT_DIR$/public/css/signup.css" afterPath="$PROJECT_DIR$/public/css/signup.css" />
-      <change beforePath="$PROJECT_DIR$/public/css/timeline.css" afterPath="$PROJECT_DIR$/public/css/timeline.css" />
+      <change beforePath="$PROJECT_DIR$/public/css/diary.css" afterPath="$PROJECT_DIR$/public/css/diary.css" />
+      <change beforePath="$PROJECT_DIR$/public/css/sass/diary.scss" afterPath="$PROJECT_DIR$/public/css/sass/diary.scss" />
       <change beforePath="$PROJECT_DIR$/public/js/logged-main.js" afterPath="$PROJECT_DIR$/public/js/logged-main.js" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" />
-      <change beforePath="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/templates/logged/header.blade.php" />
-      <change beforePath="$PROJECT_DIR$/resources/views/timeline.blade.php" afterPath="$PROJECT_DIR$/resources/views/timeline.blade.php" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/diary/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/diary/index.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/diary/view.blade.php" afterPath="$PROJECT_DIR$/resources/views/diary/view.blade.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,13 +34,41 @@
     <splitter split-orientation="horizontal" split-proportion="0.63583815">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="DiarySystem.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DiarySystem.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Libraries/DiarySystem.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+                <state relative-caret-position="405">
+                  <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
                   <folding>
                     <element signature="e#31#65#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/views/diary/index.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="589">
+                  <caret line="77" column="76" lean-forward="false" selection-start-line="77" selection-start-column="76" selection-end-line="77" selection-end-column="76" />
+                  <folding>
+                    <element signature="e#2766#2791#0#HTML" expanded="true" />
+                    <marker date="1526775196339" expanded="true" signature="880:904" ph="..." />
+                    <marker date="1526775196339" expanded="true" signature="916:925" ph="..." />
+                    <marker date="1526775196339" expanded="true" signature="3105:3113" ph="·" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="view.blade.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/resources/views/diary/view.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="350">
+                  <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+                  <folding>
+                    <marker date="1527452318986" expanded="true" signature="1063:1087" ph="..." />
+                    <marker date="1527452318986" expanded="true" signature="1099:1108" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -67,14 +77,14 @@
           <file leaf-file-name="logged-main.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="533">
-                  <caret line="559" column="30" lean-forward="false" selection-start-line="559" selection-start-column="30" selection-end-line="559" selection-end-column="30" />
+                <state relative-caret-position="445">
+                  <caret line="539" column="32" lean-forward="false" selection-start-line="539" selection-start-column="32" selection-end-line="539" selection-end-column="32" />
                   <folding>
-                    <marker date="1526614592749" expanded="true" signature="2816:2896" ph="..." />
-                    <marker date="1526614592749" expanded="true" signature="9348:9428" ph="..." />
-                    <marker date="1526614592749" expanded="true" signature="9679:9687" ph="·" />
-                    <marker date="1526614592749" expanded="true" signature="21026:21106" ph="..." />
-                    <marker date="1526614592749" expanded="true" signature="21341:21349" ph="·" />
+                    <marker date="1526774971199" expanded="true" signature="2816:2896" ph="..." />
+                    <marker date="1526774971199" expanded="true" signature="9348:9428" ph="..." />
+                    <marker date="1526774971199" expanded="true" signature="9679:9687" ph="·" />
+                    <marker date="1526774971199" expanded="true" signature="21802:21882" ph="..." />
+                    <marker date="1526774971199" expanded="true" signature="22117:22125" ph="·" />
                   </folding>
                 </state>
               </provider>
@@ -83,11 +93,9 @@
           <file leaf-file-name="PostingSystem.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Libraries/PostingSystem.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="346">
-                  <caret line="89" column="23" lean-forward="false" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#32#68#0#PHP" expanded="true" />
-                  </folding>
+                <state relative-caret-position="-942">
+                  <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="37" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -106,17 +114,17 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="diary.scss" pinned="false" current-in-tab="false">
+          <file leaf-file-name="diary.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/css/sass/diary.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="645">
-                  <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+                <state relative-caret-position="478">
+                  <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="timeline.scss" pinned="false" current-in-tab="true">
+          <file leaf-file-name="timeline.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/css/sass/timeline.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="316">
@@ -186,17 +194,17 @@
         <option value="$PROJECT_DIR$/public/css/sass/includes/_Config.scss" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DiaryController.php" />
-        <option value="$PROJECT_DIR$/resources/views/diary/view.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/sass/diary.scss" />
-        <option value="$PROJECT_DIR$/resources/views/diary/index.blade.php" />
         <option value="$PROJECT_DIR$/public/js/quill/imageresize.js" />
         <option value="$PROJECT_DIR$/public/css/sass/timeline.scss" />
         <option value="$PROJECT_DIR$/resources/views/timeline.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/logged-in-main.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/logged-main.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" />
-        <option value="$PROJECT_DIR$/app/Libraries/DiarySystem.php" />
         <option value="$PROJECT_DIR$/app/Libraries/PostingSystem.php" />
+        <option value="$PROJECT_DIR$/app/Libraries/DiarySystem.php" />
+        <option value="$PROJECT_DIR$/public/js/logged-main.js" />
+        <option value="$PROJECT_DIR$/resources/views/diary/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/diary/view.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/sass/diary.scss" />
       </list>
     </option>
   </component>
@@ -510,12 +518,12 @@
       <workItem from="1517013457134" duration="11772000" />
       <workItem from="1518152283340" duration="9330000" />
       <workItem from="1525314372921" duration="491000" />
-      <workItem from="1525561228829" duration="15006000" />
+      <workItem from="1525561228829" duration="17420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125563000" />
+    <option name="totallyTimeSpent" value="127977000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -656,25 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/diary/view.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <marker date="1525745726315" expanded="true" signature="970:994" ph="..." />
-            <marker date="1525745726315" expanded="true" signature="1006:1015" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/sass/diary.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -706,18 +695,6 @@
         <state relative-caret-position="316">
           <caret line="330" column="34" lean-forward="false" selection-start-line="330" selection-start-column="34" selection-end-line="330" selection-end-column="34" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/diary/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" column="142" lean-forward="false" selection-start-line="80" selection-start-column="142" selection-end-line="80" selection-end-column="142" />
-          <folding>
-            <marker date="1525746630173" expanded="true" signature="880:904" ph="..." />
-            <marker date="1525746630173" expanded="true" signature="916:925" ph="..." />
-            <marker date="1525746630173" expanded="true" signature="2978:2986" ph="·" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,35 +771,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="559" column="30" lean-forward="false" selection-start-line="559" selection-start-column="30" selection-end-line="559" selection-end-column="30" />
+        <state relative-caret-position="445">
+          <caret line="539" column="32" lean-forward="false" selection-start-line="539" selection-start-column="32" selection-end-line="539" selection-end-column="32" />
           <folding>
-            <marker date="1526614592749" expanded="true" signature="2816:2896" ph="..." />
-            <marker date="1526614592749" expanded="true" signature="9348:9428" ph="..." />
-            <marker date="1526614592749" expanded="true" signature="9679:9687" ph="·" />
-            <marker date="1526614592749" expanded="true" signature="21026:21106" ph="..." />
-            <marker date="1526614592749" expanded="true" signature="21341:21349" ph="·" />
+            <marker date="1526774971199" expanded="true" signature="2816:2896" ph="..." />
+            <marker date="1526774971199" expanded="true" signature="9348:9428" ph="..." />
+            <marker date="1526774971199" expanded="true" signature="9679:9687" ph="·" />
+            <marker date="1526774971199" expanded="true" signature="21802:21882" ph="..." />
+            <marker date="1526774971199" expanded="true" signature="22117:22125" ph="·" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Libraries/PostingSystem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="89" column="23" lean-forward="false" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
-          <folding>
-            <element signature="e#32#68#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="-942">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Libraries/DiarySystem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        <state relative-caret-position="405">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="e#31#65#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/diary/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="77" column="76" lean-forward="false" selection-start-line="77" selection-start-column="76" selection-end-line="77" selection-end-column="76" />
+          <folding>
+            <element signature="e#2766#2791#0#HTML" expanded="true" />
+            <marker date="1526775196339" expanded="true" signature="880:904" ph="..." />
+            <marker date="1526775196339" expanded="true" signature="916:925" ph="..." />
+            <marker date="1526775196339" expanded="true" signature="3105:3113" ph="·" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/diary/view.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+          <folding>
+            <marker date="1527452318986" expanded="true" signature="1063:1087" ph="..." />
+            <marker date="1527452318986" expanded="true" signature="1099:1108" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/sass/diary.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
