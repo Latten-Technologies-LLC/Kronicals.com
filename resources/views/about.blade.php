@@ -38,7 +38,11 @@ $stylesheet = "index";
                     <div class="divider"></div><br />
                     <div class="box">
                         <h3>The purpose</h3>
-                        <p>The main purpose of this website is to give people an opportunity to message others securely and anonymously. Also giving people the power to simply message each other and truly express how they feel.</p>
+                        <p>We want to give aspiring poets a platform that allows them to have a voice and to be able to show the world who they are and what they can bring to the table</p>
+                    </div>
+                    <div class="box">
+                        <h3>Messaging</h3>
+                        <p>We've enabled people to have a way to message their favorite poets or their friends in an anonymous way to share valuable feedback to one another</p>
                     </div>
                     <div class="box">
                         <h3>Security</h3>
@@ -50,7 +54,7 @@ $stylesheet = "index";
                     </div>
                     <div class="box">
                         <h3>Our future</h3>
-                        <p>We plan on adding a lot more features to this platform. Feeds, sending pictures, group messages, more profile options and more. But right now we want to focus on the main purpose!</p>
+                        <p>We plan on adding a lot more features to this platform. Feeds, sending pictures, group messages, more profile options and more. But right now we want to focus on the main purposes!</p>
                     </div>
                 </div>
             </div>

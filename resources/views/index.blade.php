@@ -31,7 +31,7 @@ event(new NewUserSignup(array('user')));
             </div>
             <div class="middleArea">
                 <div class="topMessage">
-                    <p>Share your thoughts secretly, and provide valuable feedback to your friends</p>
+                    <p><?php echo config('app.short_description'); ?></p>
                 </div>
                 <div class="divider"></div>
                 <div class="bottomLoginArea">

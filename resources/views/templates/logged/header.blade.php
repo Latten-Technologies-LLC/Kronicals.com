@@ -6,18 +6,27 @@ $n = new Notifications();
 <div class="header logged-header absolute-top transparent container-fluid">
     <div class="inner-header container">
         <div class="left-branding pull-left">
-            <h3 class=""><a href="<?php echo url('/'); ?>">Anonuss <?php if(env('APP_STATUS') == "Beta"){ ?><span style="font-weight: 500;position: relative;top: -3px;font-size: .4em;" class="badge badge-pill badge-light"><?php echo env('APP_STATUS'); ?> v<?php echo env('APP_VERSION'); ?></span><?php } ?></a></h3>
+            <h3 class=""><a href="<?php echo url('/'); ?>"><?php echo config('app.name'); ?> <?php if(env('APP_STATUS') == "Beta"){ ?><span style="font-weight: 500;position: relative;top: -3px;font-size: .4em;" class="badge badge-pill badge-light"><?php echo env('APP_STATUS'); ?> v<?php echo env('APP_VERSION'); ?></span><?php } ?></a></h3>
         </div>
         <div class="right-navigation pull-right">
             <div class="inner-navigation">
-                <ul class="inner-navigation-list">
+                <ul class="inner-navigation-list" <?php if(!Auth::check()){ ?> style="padding-top: 15px; <?php } ?>">
                     <div class="mobileHide">
-                        <li><a href="{{ route('diary.index') }}">Diary</a></li>
-                        <li><a href="{{ route('settings.index') }}">Settings</a></li>
+                        <?php if(Auth::check()){ ?>
+                            <li><a href="{{ route('diary.index') }}">Diary</a></li>
+                            <li><a href="{{ route('settings.index') }}">Settings</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        <?php } ?>
                     </div>
-                    <li><a href="{{ route('notifications.read') }}" data-token="{{ csrf_token() }}" class="notificationOpen nav-icon"><i class="far fa-bell"></i> <span class="<?php if(count($n->unreadNotifications(auth()->user()->unique_salt_id)) == 0){ ?>hidden<?php } ?> notePill badge badge-pill badge-danger"><?php echo count($n->unreadNotifications(auth()->user()->unique_salt_id)); ?></span></a></li>
+                    <?php if(Auth::check()){ ?>
+                        <li><a href="{{ route('notifications.read') }}" data-token="{{ csrf_token() }}" class="notificationOpen nav-icon"><i class="far fa-bell"></i> <span class="<?php if(count($n->unreadNotifications(auth()->user()->unique_salt_id)) == 0){ ?>hidden<?php } ?> notePill badge badge-pill badge-danger"><?php echo count($n->unreadNotifications(auth()->user()->unique_salt_id)); ?></span></a></li>
+                    <?php } ?>
                     <li><a href="" class="searchOpen nav-icon"><i class="fas fa-search"></i></a></li>
-                    <li class="logged-pp-hold"><a href="<?php url('/'); ?>/p/<?php echo auth()->user()->username; ?>"><div class="logged-pp" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo auth()->user()->unique_salt_id; ?>/profile_picture);"></div></a></li>
+                    <?php if(Auth::check()){ ?>
+                        <li class="logged-pp-hold"><a href="<?php url('/'); ?>/p/<?php echo auth()->user()->username; ?>"><div class="logged-pp" style="background-image: url(<?php echo url('/'); ?>/user/<?php echo auth()->user()->unique_salt_id; ?>/profile_picture);"></div></a></li>
+                    <?php } ?>
                     <li class="mobileSidebarOpen"><i class="fas fa-bars" aria-hidden="true"></i></li>
                 </ul>
             </div>
@@ -40,6 +49,7 @@ $n = new Notifications();
                 </div>
             </div>
         </div>
+        <?php if(Auth::check()){ ?>
         <div class="mobileNotificationHold">
             <div class="topName clearfix">
                 <h3>Notifications</h3>
@@ -86,5 +96,6 @@ $n = new Notifications();
                 ?>
             </div>
         </div>
+        <?php } ?>
     </div>
 </div><div class="boxOverlay"></div>

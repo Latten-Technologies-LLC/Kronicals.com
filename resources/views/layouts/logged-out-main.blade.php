@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title><?php echo config('app.name'); ?></title>
+    <title><?php echo config('app.name'); ?> | The premier poetry community</title>
 
     <!-- Meta -->
     <meta charset="UTF-8">

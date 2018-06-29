@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title><?php echo config('app.name'); ?></title>
+    <title><?php echo config('app.name'); ?> | The premier poetry community</title>
 
     <!-- Meta -->
     <meta charset="UTF-8">
@@ -42,9 +42,9 @@
 </head>
 <body>
 <div class="main-website">
-    <div class="website">
+    <div class="website clearfix">
         @include('templates.logged.header')
-        <div class="innerWebsite">
+        <div class="innerWebsite clearfix">
             @yield('content')
         </div>
         @include('templates.logged.footer')

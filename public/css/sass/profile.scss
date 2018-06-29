@@ -6,71 +6,757 @@
 }
 
 .profile{
+  padding-top: 80px;
 
   .userProfileTop{
-    background: white;
     border-radius: 2px;
 
-    box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+    .bannerMain{
+      height: auto;
+      width: 100%;
 
-    .cover{
+      box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.5);
 
-      .bannerMain{
+      .cover {
+        background: rgba(0, 0, 0, .5);
+
+        height: 100%;
         width: 100%;
-        height: 400px;
 
-        @media screen and (max-width: 500px){
-          height: 200px;
+        .mainProfileHold {
+          float: none;
+          margin: 0% auto;
+
+          padding: 150px;
+
+          padding-left: 0px;
+          padding-right: 0px;
+
+          height: 100%;
+
+          .profileImage {
+            float: left;
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            .mainPPImage {
+              width: 280px;
+              height: 280px;
+
+              border-radius: 50%;
+
+              background-size: cover;
+            }
+          }
+
+          .rightInfo {
+            margin-left: 320px;
+
+            .topMain{
+              border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+              padding-bottom: 10px;
+
+              h3{
+                color: white;
+                font-size: 1.3em;
+                font-weight: 400;
+              }
+
+              h4{
+                color: rgba(255, 255, 255, 0.8);
+
+                font-size: 1.0em;
+                font-weight: 400;
+              }
+            }
+
+            .middleDesc{
+              padding-top: 15px;
+              padding-bottom: 15px;
+
+              border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+
+              p{
+                padding: 0px;
+                color: white;
+
+                margin: 0px;
+              }
+            }
+
+            .bottomMiddleStats{
+              padding-top: 15px;
+              padding-bottom: 15px;
+
+              border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+
+              dl{
+                display: inline-block;
+                text-align: center;
+
+                padding-right: 18px;
+
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+
+                a {
+
+                  dt {
+                    color: white;
+
+                    font-weight: 500;
+                  }
+
+                  dd{
+                    color: white;
+
+                    font-size: .9em;
+                    font-weight: 300;
+
+                    margin-bottom: 0px;
+                  }
+                }
+              }
+            }
+
+            .bottomProfile{
+              padding-top: 20px;
+
+              .followBtn, .unfollowBtn{
+                width: 175px;
+              }
+            }
+          }
         }
-
-        background-size: cover;
-
-        border-top-right-radius: 2px;
-        border-top-left-radius: 2px;
-
       }
+    }
+  }
 
-      .mainProfileHold{
-        margin-top: -100px;
+  .bottomContainer{
+    margin-top: 50px;
 
-        .profileImage{
+    .profileNav{
+      //background: white;
+      //box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.5);
+
+      .profileNavInner{
+
+        ul{
           text-align: center;
 
-          img{
-            width: 150px;
-            height: 150px;
+          li{
+            display: inline-block;
+            padding: 20px;
 
-            border-radius: 2px;
+            cursor: pointer;
+
+            a{
+              color: #aaa;
+              font-weight: 500;
+            }
+          }
+
+          li:last-child{
+            display: none;
+          }
+
+          li.active, li:hover{
+            border-bottom: 3px solid #333;
+
+            a{
+              color: #333;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+
+    .followFeedHold{
+      border-top: 3px solid rgba(0,0,0,.1);
+
+      margin-top: -19px;
+      padding-top: 18px;
+
+      padding-bottom: 100px;
+
+      .followBox{
+        background: white;
+        cursor: pointer;
+
+        padding: 20px;
+
+        display: inline-block;
+        width: 100%;
+
+        box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.5);
+
+        .profilePic{
+          width: 150px;
+          height: 150px;
+
+          border-radius: 50%;
+
+          margin: 0% auto;
+
+          .profilePicImage{
+            width: 100%;
+            height: 100%;
+
+            border-radius: 50%;
+            background-size: cover;
           }
         }
 
-        .rightInfo{
-          padding-top: 20px;
-          padding-bottom: 40px;
+        .bottomProfile{
+          padding-top: 25px;
 
           h3{
+            font-size: 1.5em;
+            font-weight: 400;
+
             text-align: center;
-
-            font-weight: 500;
-            font-size: 1.8em;
-
-            color: $primaryColor;
           }
 
           h4{
+            font-size: 1.1em;
+            font-weight: 400;
+
             text-align: center;
 
-            font-weight: 300;
-            font-size: 1.2em;
+            color: #aaa;
+          }
+        }
+      }
+    }
 
-            color: $hrefFontLight;
+    .followFeedHold.full{
+      @media screen and (min-width: 1000px) {
+        column-count: 4;
+      }
+
+      @media screen and (max-width: 999px) {
+        column-count: 1;
+      }
+
+    }
+
+    .poemFeedHold{
+      @media screen and (min-width: 1000px) {
+        column-count: 2;
+      }
+
+      @media screen and (max-width: 999px) {
+        column-count: 1;
+      }
+
+      border-top: 3px solid rgba(0,0,0,.1);
+
+      margin-top: -19px;
+      padding-top: 18px;
+    }
+  }
+}
+
+// Posts
+
+// Thought
+.post.thought{
+  border-top: 4px solid $primaryColor;
+
+  .topPost{
+
+    .innerTopPost{
+
+      .right{
+
+        h3{
+          font-size: 1.2em;
+          font-weight: 500;
+
+          a {
+            color: $primaryColor;
+          }
+          margin-bottom: 3px;
+          padding-top: 0px;
+        }
+
+        .subType{
+          margin-bottom: 0px;
+          padding-bottom: 0px;
+          font-size: .8em;
+        }
+      }
+    }
+  }
+}
+
+// Diary
+.post.diary{
+  border-top: 4px solid #636e72;
+  background: #2d3436;
+
+  .topPost{
+
+    .innerTopPost{
+
+      .right{
+
+        h3{
+          font-size: 1.2em;
+          font-weight: 500;
+
+          a {
+            color: white;
           }
 
-          text-align: center;
+          margin-bottom: 3px;
+          padding-top: 0px;
+        }
+
+        .subType{
+          margin-bottom: 0px;
+          padding-bottom: 0px;
+          font-size: .8em;
+
+        }
+      }
+    }
+  }
+
+  .middlePost{
+
+    .innerMiddlePost{
+      padding: 15px;
+      padding-top: 0px;
+
+      .topMiddle {
+        p {
+          font-size: .9em;
+          line-height: 1.2em;
+
+          color: white;
+          margin-bottom: 0px;
+        }
+      }
+
+      .bottomMiddle{
+
+        ul{
+          margin: 0px;
+          padding: 0px;
+
+          li{
+            display: inline;
+            margin-right: 10px;
+
+            a{
+              color: $hrefFontLight;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Base
+.post{
+  background: white;
+  display: inline-block;
+
+  width: 100%;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+  //box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.5);
+
+  margin-bottom: 20px;
+
+  .topPost{
+    padding: 15px;
+
+    .innerTopPost{
+
+      .left{
+        float: left;
+
+        .pp{
+          width: 40px;
+          height: 40px;
+
+          border-radius: 50%;
+
+          background-size: cover;
+        }
+      }
+
+      .right{
+        margin-left: 50px;
+
+        h3{
+          font-size: 1.2em;
+          font-weight: 500;
+
+          a {
+            color: $primaryColor;
+          }
+          margin-bottom: 3px;
+          //padding-top: 8px;
+        }
+
+        h4{
+          font-size: .8em;
+          font-weight: 400;
+
+          color: $hrefFontLight;
+        }
+      }
+    }
+  }
+
+  .middlePost{
+
+    .innerMiddlePost{
+      padding: 15px;
+      padding-top: 0px;
+
+      .topMiddle {
+        p {
+          font-size: .9em;
+          line-height: 1.2em;
+        }
+      }
+
+      .bottomMiddle{
+
+        ul{
+          margin: 0px;
+          padding: 0px;
+
+          li{
+            display: inline;
+            margin-right: 10px;
+
+            a{
+              color: $hrefFontLight;
+            }
+          }
+
+          li.unlike{
+
+            a{
+              color: #ff7675;
+            }
+          }
+
+          li.hidden{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .bottomPost.hidden{
+    display: none;
+  }
+
+  .bottomPost{
+
+    .innerBottomPost{
+      padding: 15px;
+
+      padding-bottom: 0px;
+      padding-top: 0px;
+
+      .commentsHold{
+
+        .row{
+
+          .reply{
+            width: 100%;
+            border-top: 1px solid rgba(0,0,0,.2);
+
+            background: #F9F9F9;
+
+            .leftProfile{
+              width: 60px;
+              height: 60px;
+
+              float: left;
+
+              padding-right: 10px;
+
+              .innerPP{
+                width: 100%;
+                height: 50px;
+
+                background-size: cover;
+              }
+            }
+
+            .rightProfile{
+              margin-left: 50px;
+
+              padding: 10px;
+
+              h3{
+                font-size: .8em;
+                font-weight: bold;
+
+                span{
+                  color: $hrefFontLight;
+                  font-weight: 400;
+                }
+
+                a{
+                  color: $hrefFontDark;
+                }
+              }
+
+              p{
+                margin-bottom: 0px;
+              }
+            }
+          }
+        }
+      }
+
+      .commentMaker{
+
+        form{
+
+          .row{
+            background: #F9F9F9;
+            border-top: 1px solid rgba(0,0,0,.2);
+
+            .pp{
+              float: left;
+
+              .mainpphold{
+                width: 50px;
+                height: 50px;
+
+                background-size: cover;
+              }
+            }
+
+            .input{
+              width: 100%;
+              margin-left: 50px;
+              margin-top: -50px;
+
+              input[type="text"]{
+                width: 100%;
+                height: 50px;
+
+                border: none;
+                padding: 10px;
+
+                background: transparent;
+
+                outline: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.message.replyActive{
+  padding-bottom: 0px;
+}
+
+.message{
+  padding: 15px;
+  background: white;
+
+  border-radius: 2px;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.14);
+
+  margin-bottom: 20px;
+
+  .sentTo{
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+
+    p{
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+
+  .innerMessage{
+
+    .topMessage{
+
+      .leftProfile{
+        float: left;
+
+        img{
+          height: 55px;
+          width: 55px;
+
+          border-radius: 2px;
+        }
+
+        .pp{
+          height: 55px;
+          width: 55px;
+
+          border-radius: 2px;
+
+          background-size: cover;
+        }
+      }
+
+      .rightProfile{
+        margin-left: 70px;
+        padding-top: 5px;
+
+        h3{
+          font-size: 1.3em;
+          font-weight: 500;
+
+          margin-bottom: 3px;
 
           a{
-            margin-top: 15px;
-            text-align: center;
+            color: $primaryColor;
+          }
+        }
+
+        h4.date{
+          color: $hrefFontLight;
+
+          font-size: 1em;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .innerMessageMain{
+
+      .topText{
+        padding-top: 10px;
+      }
+
+      .bottomText{
+
+        ul{
+          margin-bottom: 0px;
+
+          li{
+            display: inline-block;
+            margin-right: 10px;
+
+            a{
+              color: $hrefFontLight;
+            }
+          }
+        }
+      }
+    }
+
+    .replyBox{
+      margin-top: 10px;
+      display: none;
+
+      .replyMainHold{
+
+        .row{
+
+          .reply{
+            width: 100%;
+            border-top: 1px solid rgba(0,0,0,.2);
+
+            .leftProfile{
+              width: 60px;
+              height: 60px;
+
+              float: left;
+
+              padding-right: 10px;
+
+              .innerPP{
+                width: 100%;
+                height: 50px;
+
+                background-size: cover;
+              }
+            }
+
+            .rightProfile{
+              margin-left: 50px;
+
+              padding: 10px;
+
+              h3{
+                font-size: .8em;
+                font-weight: bold;
+
+                span{
+                  color: $hrefFontLight;
+                  font-weight: 400;
+                }
+
+                a{
+                  color: $hrefFontDark;
+                }
+              }
+
+              p{
+                margin-bottom: 0px;
+              }
+            }
+          }
+        }
+      }
+
+      .replyMaker{
+        background: #F9F9F9;
+
+        form{
+
+          .row{
+            background: #F9F9F9;
+
+            .pp{
+              float: left;
+
+              .mainpphold{
+                width: 50px;
+                height: 50px;
+
+                background-size: cover;
+              }
+            }
+
+            .input{
+              width: 100%;
+              margin-left: 50px;
+              margin-top: -50px;
+
+              input[type="text"]{
+                width: 100%;
+                height: 50px;
+
+                border: none;
+                padding: 10px;
+
+                background: transparent;
+
+                outline: none;
+              }
+            }
           }
         }
       }

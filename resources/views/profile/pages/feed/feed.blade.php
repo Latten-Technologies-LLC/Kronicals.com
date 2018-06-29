@@ -154,13 +154,13 @@ if(count($exists) == 1)
                                     <?php } ?>
                                     <a class="btn btn-primary" href="<?php echo url('/'); ?>/incog/<?php echo $profile->username; ?>">Send Anon</a>
                                     <?php } else { ?>
-                                        <?php if(Auth::check()){ ?>
-                                            <a class="btn btn-primary" href="{{ route('settings.index') }}">Settings</a>
-                                        <?php } ?>
+                                    <?php if(Auth::check()){ ?>
+                                    <a class="btn btn-primary" href="{{ route('settings.index') }}">Settings</a>
+                                    <?php } ?>
                                     <?php } ?>
 
                                     <?php if(!Auth::check()){ ?>
-                                        <a class="btn btn-primary" href="{{ route('login') }}">Login to follow <?php echo $user[0]->name; ?></a>
+                                    <a class="btn btn-primary" href="{{ route('login') }}">Login to follow <?php echo $user[0]->name; ?></a>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -174,8 +174,8 @@ if(count($exists) == 1)
                 <div class="profileNav">
                     <div class="profileNavInner">
                         <uL>
-                            <li class="active"><a href="/p/<?php echo $user[0]->username; ?>">Poems</a></li>
-                            <li><a href="/p/<?php echo $user[0]->username; ?>/feed">Feed</a></li>
+                            <li><a href="/p/<?php echo $user[0]->username; ?>">Poems</a></li>
+                            <li class="active"><a href="/p/<?php echo $user[0]->username; ?>/feed">Feed</a></li>
                             <li><a href="/p/<?php echo $user[0]->username; ?>/followings">Followings</a></li>
                             <li><a href="/p/<?php echo $user[0]->username; ?>/followers">Followers</a></li>
                             <li><a href="/p/<?php echo $user[0]->username; ?>/about">About</a></li>
@@ -185,9 +185,9 @@ if(count($exists) == 1)
 
                 <div class="poemFeedHold">
                     <?php
-                    if(count($poems) > 0)
+                    if(count($posts) > 0)
                     {
-                    foreach($poems as $post)
+                    foreach($posts as $post)
                     {
                     // User info
                     $user = DB::table('users')->where('unique_salt_id', $post->user_id)->get()[0];
@@ -297,7 +297,10 @@ if(count($exists) == 1)
                             column-count: 1 !important;
                         }
                     </style>
-
+                    <div class="message error">
+                        <h1 style="text-align: center;color: #aaa;"><i class="far fa-frown"></i></h1>
+                        <h4 style="text-align: center;">Your timeline is empty. Post something now or follow someone!</h4>
+                    </div>
                     <?php
                     }
                     ?>

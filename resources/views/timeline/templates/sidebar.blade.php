@@ -1,13 +1,13 @@
 <!-- Right sidebar -->
 <div class="rightSidebar col-xl-3 col-lg-3 col-md-3 col-xs-12 col-sm-12">
-    <div class="card profileLink d-none d-sm-block">
+    <div class="card profileLink d-none d-sm-block" style="display: none !important;">
         <div class="cardTop" style="padding: 10px;">
             <h3><i class="fas fa-link"></i> Share your link</h3>
         </div>
         <div class="cardBottom">
             <a href="<?php url('/'); ?>/incog/<?php echo auth()->user()->username; ?>"><span>anonuss.com/incog/<?php echo auth()->user()->username; ?></span></a>
         </div>
-    </div><br />
+    </div>
     <div class="card userMod d-none d-sm-block">
         <div class="leftProfile pull-left">
             <img src="<?php echo url('/'); ?>/user/<?php echo auth()->user()->unique_salt_id; ?>/profile_picture" />

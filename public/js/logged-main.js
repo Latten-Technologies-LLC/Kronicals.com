@@ -453,6 +453,9 @@ $(document).ready(function()
                 // Hide main textarea
                 $(".normal_entry").addClass('hidden');
                 $(".diary_entry").removeClass('hidden');
+
+                // Clear text
+                $("#postingStationText").val("");
             }else {
                 $(".currentSetting").html(t.data('val'));
                 $("#def-privacy").val(thisPriv);
@@ -523,66 +526,46 @@ $(document).ready(function()
 
             if(text.val() != "" && type.val() != "")
             {
-                if(type.val() == 3)
+                $.post(action, {text: text.val(), type: type.val()}, function (data)
                 {
-                    // Put text in var
-                    var htmlText = editor.root.innerHTML;
+                    var obj = jQuery.parseJSON(data);
 
-                    if(htmlText != "" && htmlText != "<p></p>")
+                    if (obj.code == 1)
                     {
-                        $.post(action, {text: htmlText, type: "3"}, function (data)
+                        text.val("");
+                        location.reload();
+                    } else {
+                        alert(obj.message);
+                        busy = false;
+                    }
+                });
+            }else if(type.val() == 3)
+            {
+                // Put text in var
+                var htmlText = editor.root.innerHTML;
+                var title = $("#diary_title_input");
+
+                if(title.val() != "")
+                {
+                    if (htmlText != "" && htmlText != "<p></p>")
+                    {
+                        $.post(action, {text: htmlText, title: title.val(), type: "3"}, function (data)
                         {
                             var obj = jQuery.parseJSON(data);
 
-                            if (obj.code == 1)
-                            {
+                            if (obj.code == 1) {
                                 //htmlText.html("");
-                                location.reload();
+                                window.location.assign('/diary/view/' + obj.id);
                             } else {
                                 alert(obj.message);
                                 busy = false;
                             }
                         });
-                    }else{
+                    } else {
                         busy = false;
                     }
-                    return false;
-                }else {
-                    $.post(action, {text: text.val(), type: type.val()}, function (data)
-                    {
-                        var obj = jQuery.parseJSON(data);
-
-                        if (obj.code == 1)
-                        {
-                            text.val("");
-                            location.reload();
-                        } else {
-                            alert(obj.message);
-                            busy = false;
-                        }
-                    });
-                }
-            }else if(type.val() == 3)
-            {
-                // Put text in var
-                var htmlText = editor.root.innerHTML;
-
-                if(htmlText != "" && htmlText != "<p></p>")
-                {
-                    $.post(action, {text: htmlText, type: "3"}, function (data)
-                    {
-                        var obj = jQuery.parseJSON(data);
-
-                        if (obj.code == 1)
-                        {
-                            //htmlText.html("");
-                            location.reload();
-                        } else {
-                            alert(obj.message);
-                            busy = false;
-                        }
-                    });
                 }else{
+                    alert('Please enter a title');
                     busy = false;
                 }
                 return false;
@@ -814,6 +797,44 @@ $(document).ready(function()
                     }
                 });
 
+                busy = false;
+            }
+        }
+    });
+
+    // Diary functions
+    $(document).on('click', '.diaryActions', function()
+    {
+
+        // Var
+        var t = $(this);
+
+        var type = t.data('type');
+        var pid = t.data('pid');
+        var token = t.data('token');
+
+        var action = t.data('action');
+
+        if(type == "delete")
+        {
+            if (pid != "")
+            {
+                $.post(action, {pid: pid, _token: token}, function (data)
+                {
+                    var obj = jQuery.parseJSON(data);
+
+                    if (obj.code == 1) {
+                        // We're in business
+                        window.location.assign('/diary');
+
+                        busy = false;
+                    } else {
+                        alert(obj.message);
+                        busy = false;
+                    }
+                });
+            } else {
+                alert("Invalid request");
                 busy = false;
             }
         }

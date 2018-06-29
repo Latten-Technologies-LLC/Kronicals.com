@@ -50,7 +50,7 @@ $validate = TutorialSystem::validate($tutorials);
         <div class="inner row">
             <!-- Left main feed -->
             <div class="leftFeed col-xl-9 col-lg-9 col-md-9 col-xs-12 col-sm-12">
-                <div class="card profileLink d-block d-sm-none" style="margin-bottom: 10px;">
+                <div class="card profileLink d-block d-sm-none" style="display: none;margin-bottom: 10px;">
                     <div class="cardTop" style="padding: 10px;">
                         <h3><i class="fas fa-link"></i> Profile Link</h3>
                     </div>
@@ -102,6 +102,9 @@ $validate = TutorialSystem::validate($tutorials);
                                             <textarea class="input-field" name="Textfield" id="postingStationText" placeholder="Write something meaningful"></textarea>
                                         </div>
                                         <div class="hidden diary_entry">
+                                            <div class="diary_title">
+                                                <input type="text" id="diary_title_input" name="diary_title" placeholder="Title" />
+                                            </div>
                                             <div class="main_diary_entry"></div>
                                         </div>
                                     </div>
@@ -119,7 +122,7 @@ $validate = TutorialSystem::validate($tutorials);
                                                         <div>Everyone can see this</div>
                                                     </li>
                                                     <li class="privTabSetting" data-priv="2" data-val="<i class='fas fa-align-left'></i> Thoughts">
-                                                        <h3><i class="fas fa-align-left"></i> Thoughts</h3>
+                                                        <h3><i class="fas fa-align-left"></i> Poem</h3>
                                                         <div>When you're feeling a little poetic</div>
                                                     </li>
                                                     <li class="privTabSetting" data-priv="3" data-val="<i class='fas fa-book'></i> Diary">
@@ -157,7 +160,7 @@ $validate = TutorialSystem::validate($tutorials);
                                                 <div class="right">
                                                     <h3><a href="<?php echo url('/'); ?>/p/<?php echo $user->username; ?>"><?php echo ucwords($user->name); ?></a></h3>
                                                     <?php if($post->type == '2'){ ?>
-                                                        <h4 class="subType">Shared a thought &middot; <?php echo time_elapsed_string($post->date); ?></h4>
+                                                        <h4 class="subType">Created a poem &middot; <?php echo time_elapsed_string($post->date); ?></h4>
                                                     <?php }else if($post->type == '3'){ ?>
                                                         <h4 class="subType"><i class="fas fa-book"></i> Private diary &middot; <?php echo time_elapsed_string($post->date); ?> &middot;
                                                             <?php if(auth()->user()->unique_salt_id == $post->user_id){ ?>

@@ -52,6 +52,11 @@ Route::post('/incog/message/confess', 'IncogController@confess')->name('incog.co
 
 // Profiles
 Route::get('/p/{username}', 'ProfileController@index');
+Route::get('/p/{username}/feed', 'ProfileController@feed');
+Route::get('/p/{username}/followings', 'ProfileController@followings');
+Route::get('/p/{username}/followers', 'ProfileController@followers');
+Route::get('/p/{username}/about', 'ProfileController@about');
+
 
 // Braintree
 Route::get('/generate/token', 'BraintreeController@token')->name('braintree.token');

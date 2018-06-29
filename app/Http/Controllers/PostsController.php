@@ -36,7 +36,12 @@ class PostsController extends Controller
         ]);
 
         // Lets go
-        echo $this->PostingSystem->make(['text' => $request->text, 'type' => $request->type]);
+        if($request->type == '3' or $request->type == 3) 
+        {
+            echo $this->PostingSystem->make(['text' => $request->text, 'title' => $request->title, 'type' => $request->type]);
+        }else{
+            echo $this->PostingSystem->make(['text' => $request->text, 'title' => $request->title, 'type' => $request->type]);
+        }
     }
 
     // Liking posts

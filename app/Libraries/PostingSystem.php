@@ -50,7 +50,7 @@ class PostingSystem
             if(count($ids) > 0)
             {
                 // return
-                return json_encode(DB::table("timeline_posts")->whereIn('user_id', $ids)->orderBy('id', 'desc')->get());
+                return json_encode(DB::table("timeline_posts")->whereIn('user_id', $ids)->where('type', '!=', '3')->orderBy('id', 'desc')->get());
             }else{
                 return json_encode(['code' => 0, 'message' => 'No posts to show']);
             }
@@ -177,10 +177,22 @@ class PostingSystem
                 if($check[0]->user_id == auth()->user()->unique_salt_id)
                 {
                     // Now delete the post
-                    DB::table('timeline_posts')->where(['id' => $data['pid']])->delete();
+                    if($check[0]->type == 3)
+                    {
+                        // Diary entry
+                        DB::table('diary_entry')->where(['parent_id' => $data['pid']])->delete();
 
-                    // Return
-                    return json_encode(['code' => 1, 'message' => 'Deleted successfully']);
+                        // Parent entry
+                        DB::table('timeline_posts')->where(['id' => $data['pid']])->delete();
+
+                        // Return
+                        return json_encode(['code' => 1, 'message' => 'Deleted successfully']);
+                    }else {
+                        DB::table('timeline_posts')->where(['id' => $data['pid']])->delete();
+
+                        // Return
+                        return json_encode(['code' => 1, 'message' => 'Deleted successfully']);
+                    }
                 }else{
                     return json_encode(['code' => 0, 'message' => 'You can not delete a post that isnt yours']);
                 }
