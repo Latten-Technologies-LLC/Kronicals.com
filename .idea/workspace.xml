@@ -139,11 +139,11 @@
             <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="64">
-                  <caret line="104" column="99" selection-start-line="104" selection-start-column="99" selection-end-line="104" selection-end-column="99" />
+                  <caret line="104" column="61" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="61" />
                   <folding>
-                    <marker date="1532137996878" expanded="true" signature="7672:7752" placeholder="..." />
-                    <marker date="1532137996878" expanded="true" signature="14204:14284" placeholder="..." />
-                    <marker date="1532137996878" expanded="true" signature="26071:26151" placeholder="..." />
+                    <marker date="1532138104906" expanded="true" signature="7672:7752" placeholder="..." />
+                    <marker date="1532138104906" expanded="true" signature="14204:14284" placeholder="..." />
+                    <marker date="1532138104906" expanded="true" signature="26071:26151" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -969,12 +969,12 @@
       <workItem from="1530244745468" duration="51000" />
       <workItem from="1530818176599" duration="4344000" />
       <workItem from="1531299959008" duration="702000" />
-      <workItem from="1532037930459" duration="14610000" />
+      <workItem from="1532037930459" duration="14710000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165720000" />
+    <option name="totallyTimeSpent" value="165820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="177" width="1920" height="1080" extended-state="0" />
@@ -1432,11 +1432,11 @@
     <entry file="file://$PROJECT_DIR$/public/js/logged-main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
-          <caret line="104" column="99" selection-start-line="104" selection-start-column="99" selection-end-line="104" selection-end-column="99" />
+          <caret line="104" column="61" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="61" />
           <folding>
-            <marker date="1532137996878" expanded="true" signature="7672:7752" placeholder="..." />
-            <marker date="1532137996878" expanded="true" signature="14204:14284" placeholder="..." />
-            <marker date="1532137996878" expanded="true" signature="26071:26151" placeholder="..." />
+            <marker date="1532138104906" expanded="true" signature="7672:7752" placeholder="..." />
+            <marker date="1532138104906" expanded="true" signature="14204:14284" placeholder="..." />
+            <marker date="1532138104906" expanded="true" signature="26071:26151" placeholder="..." />
           </folding>
         </state>
       </provider>

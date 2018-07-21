@@ -102,7 +102,7 @@ $(function(){
 
     // Notifying people (Post Likes)
     window.channel.bind('App\\Events\\PostLiked', function(data) {
-        if (!("Notification" in window) && Notification.permission === "granted" && !isMobile.any()){
+        if (!("Notification" in window) && !isMobile.any() && Notification.permission === "granted"){
             options.body = data.message;
             options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
             var notification = new Notification(data.sent_from_data[0].name + ' liked your post', options);
@@ -115,7 +115,7 @@ $(function(){
     // Notifying people (Post Comments)
     window.channel.bind('App\\Events\\PostComment', function(data)
     {
-        if (!("Notification" in window) && Notification.permission === "granted" && !isMobile.any()) {
+        if (!("Notification" in window) && !isMobile.any() && Notification.permission === "granted") {
             options.body = data.message;
             options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
             var notification = new Notification(data.sent_from_data[0].name + ' commented on your post', options);
@@ -128,7 +128,7 @@ $(function(){
     // Notifying people (New Follower)
     window.channel.bind('App\\Events\\NewFollower', function(data)
     {
-        if (!("Notification" in window) && Notification.permission === "granted" && !isMobile.any()) {
+        if (!("Notification" in window) && !isMobile.any() && Notification.permission === "granted") {
             options.body = data.message;
             options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
             var notification = new Notification(data.sent_from_data[0].name + ' just followed you!', options);
