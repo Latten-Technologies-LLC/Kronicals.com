@@ -110,6 +110,66 @@ a:hover{
   }
 }
 
+// Main alert
+.body-alert.hidden{
+  display: none;
+}
+
+.body-alert{
+  height: 80px;
+  width: 100%;
+
+  padding: 15px;
+  background: white;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  position: fixed;
+  z-index: 1000001;
+
+  .container{
+
+    .info-center{
+
+      .closeBodyAlert{
+        float: right;
+        background: transparent;
+        border: none;
+
+        font-size: 1.4em;
+
+        margin-top: 6px;
+
+        cursor: pointer;
+      }
+
+      .profilePicture{
+        height: 50px;
+        width: 50px;
+
+        background-size: cover;
+        background-position: center;
+
+        float: left;
+
+        border-radius: 3px;
+      }
+
+      .notificationRight{
+        margin-left: 65px;
+
+        h3{
+          margin: 0px;
+          padding: 0px;
+
+          font-size: 1.2em;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
 // Notes
 .note{
   width: 100%;

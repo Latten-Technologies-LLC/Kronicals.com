@@ -74,6 +74,6 @@
             <li><a href="<?php echo route('settings.index'); ?>">Settings</a></li>
             <!-- <li><a href="<?php //echo route(''); ?>">Logout</a></li> -->
         </ul>
-        <span>&copy; 2018 Annonuss <br />Built by <a href="https://sitelyftstudios.com/">Sitelyft Studios</a></span>
+        <span>&copy; 2018 <?php echo config('app.name'); ?> <br />Built by <a href="https://sitelyftstudios.com/">Sitelyft Studios</a></span>
     </div>
 </div>

@@ -3,6 +3,7 @@ namespace App\Libraries;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Libraries\User;
+use App\Events\PostLiked;
 
 class Notifications
 {
@@ -29,7 +30,7 @@ class Notifications
             'date' => date('Y-m-d H:i:s'),
             'read' => '0'
         ]);
-
+        
         return $insert;
     }
 

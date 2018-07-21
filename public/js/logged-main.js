@@ -1,10 +1,109 @@
 $(function(){
-    //var socket = io('http://anonuss.dev:3000');
+    // Alert box
+    $.fn.Notify = function (title, message, sentBy, type) {
+        var t = $(this);
+        if (message != "" && type != "") {
+            if (t.hasClass('hidden')) {
+                t.removeClass('hidden');
+                if (t.hasClass('slideOutUp')) {
+                    t.removeClass('slideOutUp');
+                }
+                t.addClass('slideInDown');
+            }
+            switch (type) {
+                case 'notification':
+                    // Icon
+                    t.find('.profilePicture').attr('style', 'background-image: url(/user/' + sentBy + '/profile_picture);');
 
-    //socket.on("userSignupChannel:App\\Events\\NewUserSignup", function(message){
-        // increase the power everytime we load test route
-    //    alert('OK');
-    //});
+                    // Title
+                    t.find('.notificationTitle').html(title);
+
+                    // Body
+                    t.find('.notificationBody').html(message);
+
+                    setTimeout(function () {
+                        t.removeClass('global_success');
+                        if (t.hasClass('slideInDown')) {
+                            t.addClass('slideOutUp');
+                            t.addClass('hidden');
+                        }
+                    }, 6000);
+                    break;
+            }
+        }
+    };
+
+    $(".closeBodyAlert").on('click', function(){
+        var t = $(".body-alert");
+
+        t.removeClass('global_success');
+        if (t.hasClass('slideInDown')) {
+            t.addClass('slideOutUp');
+            t.addClass('hidden');
+        }
+    });
+
+    // Setup Browser notifications
+    if (!("Notification" in window))
+    {
+        console.log("This browser does not support desktop notification");
+    }else{
+        // Options
+        var options =
+        {
+            //icon: window.app_icon,
+            title: window.app_name
+        };
+
+        // Check permission
+        if (Notification.permission === "granted")
+        {
+            // Do nothing...
+        }else if (Notification.permission !== "denied")
+        {
+            Notification.requestPermission(function (permission)
+            {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    options = "Awesome! You're now setup to receive notifications through your browser! Enjoy";
+                    var notification = new Notification("Welcome!", options);
+                }
+            });
+        }
+    }
+
+    // Notifying people (Post Likes)
+    window.channel.bind('App\\Events\\PostLiked', function(data)
+    {
+        options.body = data.message;
+        options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
+        var notification = new Notification(data.sent_from_data[0].name + ' liked your post', options);
+
+        // Alert
+        $(".body-alert").Notify(data.sent_from_data[0].name, 'Liked your post!', data.sent_from_data[0].unique_salt_id, 'notification');
+    });
+
+    // Notifying people (Post Comments)
+    window.channel.bind('App\\Events\\PostComment', function(data)
+    {
+        options.body = data.message;
+        options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
+        var notification = new Notification(data.sent_from_data[0].name + ' commented on your post', options);
+
+        // Alert
+        $(".body-alert").Notify(data.sent_from_data[0].name, 'Commented on your post!', data.sent_from_data[0].unique_salt_id, 'notification');
+    });
+
+    // Notifying people (New Follower)
+    window.channel.bind('App\\Events\\NewFollower', function(data)
+    {
+        options.body = data.message;
+        options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
+        var notification = new Notification(data.sent_from_data[0].name + ' just followed you!', options);
+
+        // Alert
+        $(".body-alert").Notify(data.sent_from_data[0].name, 'Followed you!', data.sent_from_data[0].unique_salt_id, 'notification');
+    });
 });
 
 // Onload
@@ -837,6 +936,31 @@ $(document).ready(function()
                 alert("Invalid request");
                 busy = false;
             }
+        }else if(type == "convert")
+        {
+            if (pid != "")
+            {
+                $.post(action, {pid: pid, _token: token}, function (data)
+                {
+                    var obj = jQuery.parseJSON(data);
+
+                    if (obj.code == 1) {
+                        // We're in business
+                        alert(obj.message);
+
+                        busy = false;
+                        return false;
+                    } else {
+                        alert(obj.message);
+                        busy = false;
+                    }
+                });
+            } else {
+                alert("Invalid request");
+                busy = false;
+            }
         }
     });
+    
+    
 });

@@ -33,7 +33,7 @@ function time_elapsed_string($datetime, $full = false) {
 
 // Entry
 $diary_entry = DB::table('diary_entry')->where(['id' => $entry_id])->get();
-$entry = DB::table('timeline_posts')->where(['user_id' => auth()->user()->unique_salt_id, 'type' => '3', 'id' => $diary_entry[0]->parent_id])->get();
+$entry = DB::table('timeline_posts')->where(['user_id' => auth()->user()->unique_salt_id, 'id' => $diary_entry[0]->parent_id])->get();
 
 if(count($entry) < 1)
 {
@@ -80,7 +80,7 @@ if(count($entry) < 1)
                         <div class="box actions clearfix">
                             <h3>Actions</h3>
                             <div class="leftItems col-lg-12">
-                                <button class="col-lg-6 convert btn btn-success">Poem</button>
+                                <button data-action="{{ route('diary.convert') }}" data-type="convert" data-token="{{ csrf_token() }}" data-pid="<?php echo $diary_entry[0]->id; ?>" class="col-lg-6 diaryActions convert btn btn-success">Poem</button>
                                 <button title="Coming soon" disabled class="col-lg-6 edit btn btn-disabled">Edit</button>
                             </div><br /><br />
                             <div class="secondary">

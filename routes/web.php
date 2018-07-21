@@ -76,6 +76,11 @@ Route::post('/notifications/read', function()
     $n->markAllRead(auth()->user()->unique_salt_id);
 })->name('notifications.read');
 
+Route::get('/notifications/notify', function(){
+    event(new App\Events\PostLiked('3'));
+    return 'sent message';
+});
+
 // Posting system
 Route::post('/posting/new', 'PostsController@make')->name('posting.new');
 Route::post('/posting/action/like', 'PostsController@like')->name('posting.action.like');
@@ -93,3 +98,4 @@ Route::post('/tutorials/update', function(Request $request)
 // Diary
 Route::get('/diary', 'DiaryController@index')->name('diary.index');
 Route::get('/diary/view/{entry_id}', 'DiaryController@view')->name('diary.view');
+Route::post('/diary/convert', 'DiaryController@convert')->name('diary.convert');

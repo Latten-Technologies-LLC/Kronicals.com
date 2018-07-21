@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Crypt;
 use App\Libraries\User;
 use App\Libraries\Notifications;
 
+use App\Events\NewFollower;
 
 class FollowSystem
 {
@@ -50,6 +51,11 @@ class FollowSystem
 
                         // Notify
                         $notify = $this->notifications->make(['user_to' => $check[0]->unique_salt_id, 'from' => auth()->user()->unique_salt_id, 'type' => 'follow', 'message' => 'Has followed you!']);
+                        
+                        // Event
+                        event(new NewFollower(array('name' => "NewFollower", 'user_to' => $data['followee'])));
+
+                        // Mail
                         Mail::to($check[0]->email)->send(new FollowNew(['fullname' => $check[0]->name, 'url' => url('/') . '/timeline']));
 
                         // Return

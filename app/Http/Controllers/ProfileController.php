@@ -17,7 +17,7 @@ class ProfileController extends Controller
         if(count($user) == 1)
         {
             // See if they're logged in
-            if (Auth::check())
+            if (!Auth::guest())
             {
                 return view('profile/index-logged', ['user' => $user]);
             }else{
@@ -36,7 +36,7 @@ class ProfileController extends Controller
         if(count($user) == 1)
         {
             // See if they're logged in
-            if (Auth::check())
+            if (!Auth::guest())
             {
                 return view('profile/pages/feed/logged-feed', ['user' => $user]);
             }else{
@@ -55,7 +55,7 @@ class ProfileController extends Controller
         if(count($user) == 1)
         {
             // See if they're logged in
-            if (Auth::check())
+            if (!Auth::guest())
             {
                 return view('profile/pages/followings/logged-followings', ['user' => $user]);
             }else{
@@ -74,7 +74,7 @@ class ProfileController extends Controller
         if(count($user) == 1)
         {
             // See if they're logged in
-            if (Auth::check())
+            if (!Auth::guest())
             {
                 return view('profile/pages/followers/logged-followers', ['user' => $user]);
             }else{

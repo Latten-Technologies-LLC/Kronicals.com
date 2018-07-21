@@ -70,7 +70,7 @@ if(count($exists) == 1)
     redirect('/');
 }
 ?>
-@extends('layouts.logged-in-main')
+@extends('layouts.logged-out-main')
 
 @section('content')
     <div class="profile container">

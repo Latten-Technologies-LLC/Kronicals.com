@@ -11,6 +11,11 @@ use App\Libraries\Notifications as Notifications;
 use App\Libraries\FollowSystem as FollowSystem;
 use App\Libraries\DiarySystem as DiarySystem;
 
+use App\Mail\postReply;
+
+use App\Events\PostLiked;
+use App\Events\PostComment;
+
 class PostingSystem
 {
     // make() function vars
@@ -128,6 +133,9 @@ class PostingSystem
                 if(auth()->user()->unique_salt_id != $check[0]->user_id)
                 {
                     $notify = $this->notifications->make(['user_to' => $check[0]->user_id, 'from' => auth()->user()->unique_salt_id, 'type' => 'post-like', 'message' => 'Has liked your post!']);
+
+                    // Fire event
+                    event(new PostLiked(array('name' => "PostLiked", 'pid' => $data['pid'])));
                 }
 
                 // Return
@@ -261,6 +269,9 @@ class PostingSystem
                     if (auth()->user()->unique_salt_id != $check[0]->user_id)
                     {
                         $notify = $this->notifications->make(['user_to' => $check[0]->user_id, 'from' => auth()->user()->unique_salt_id, 'type' => 'post-reply', 'message' => 'New reply to your post']);
+
+                        // Fire event
+                        event(new PostComment(array('name' => "PostLiked", 'pid' => $data['pid'])));
 
                         // Email
                         $email = DB::table('users')->where('unique_salt_id', $check[0]->user_id)->get();

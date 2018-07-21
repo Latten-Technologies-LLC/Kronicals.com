@@ -31,4 +31,12 @@ class DiarySystem
             return json_encode(['code' => 0, 'message' => 'Error occurred, try again!']);
         }
     }
+
+    static public function convertToPoem($entry_id)
+    {
+        if(!empty($entry_id))
+        {
+            
+        }
+    }
 }

@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="alternate" hreflang="en" href="https://anonuss.com/" />
+    <link rel="alternate" hreflang="en" href="https://<?php echo config('app.name'); ?>.com/" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href=""/>
@@ -43,6 +43,9 @@
 <body>
 <div class="main-website">
     <div class="website clearfix">
+        <!-- Notification alert -->
+        @include('templates.alert')
+
         @include('templates.logged.header')
         <div class="innerWebsite clearfix">
             @yield('content')
@@ -61,12 +64,37 @@ $.ajaxSetup({
     }
 });
 </script>
+
 <script src="{{ asset('js/materialize.js') }}" type="application/javascript" language="JavaScript"></script>
 <script src="{{ asset('js/bootstrap.js') }}" type="application/javascript" language="JavaScript"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
 <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
 <script src="{{ asset('js/quill/imageresize.js') }}"></script>
+
+<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+<script>
+$(function(){
+    // Global PHP variables
+    window.app_name = "<?php echo env('APP_NAME'); ?>";
+    window.app_env = "<?php echo env('APP_ENV'); ?>";
+    window.app_status = "<?php echo env('APP_STATUS'); ?>";
+    window.app_version = "<?php echo env('APP_VERSION'); ?>";
+    window.app_url = "<?php echo env('APP_URL'); ?>";
+    window.app_icon = "";
+
+    // Enable pusher logging - don't include this in production
+    <?php if(env('APP_ENV') !== 'production'){ ?>
+        Pusher.logToConsole = true;
+    <?php } ?>
+
+    var pusher = new Pusher("<?php echo env('PUSHER_APP_KEY'); ?>", {
+        cluster: '<?php echo env('PUSHER_APP_CLUSTER'); ?>',
+        encrypted: true
+    });
+
+    window.channel = pusher.subscribe('notify.user.<?php echo auth()->user()->unique_salt_id; ?>');
+});
+</script>
+
 <script src="{{ asset('js/logged-main.js') }}" type="application/javascript" language="JavaScript"></script>
 
 <?php if(env('APP_ENV') === 'production'){ ?>

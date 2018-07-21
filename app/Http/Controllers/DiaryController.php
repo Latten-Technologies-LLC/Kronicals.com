@@ -52,4 +52,34 @@ class DiaryController extends Controller
             echo json_encode(['code' => 0, 'message' => 'Access denied']);
         }
     }
+
+    public function convert(Request $request)
+    {
+        $pid = $request->pid;
+
+        if(!is_null(Auth::check()))
+        {
+            $entry = DB::table('diary_entry')->where(['id' => $pid])->get();
+
+            if(count($entry) == 1)
+            {
+                if (Auth()->user()->unique_salt_id == $entry[0]->entry_author)
+                {
+                    // Insert
+                    $insert = DB::table('timeline_posts')->insertGetId(['user_id' => auth()->user()->unique_salt_id, 'text' => $entry[0]->entry_text, 'type' => '2', 'data' => '', 'date' => date('y-m-d H:i:s'), 'removed' => '0']);
+
+                    // Update
+                    DB::table('diary_entry')->where('id', $entry[0]->id)->update(['parent_id' => $insert]);
+
+                    echo json_encode(['code' => 1, 'message' => 'Entry has been converted!']);
+                } else {
+                    echo json_encode(['code' => 0, 'message' => 'Access denied']);
+                }
+            }else{
+                echo json_encode(['code' => 0, 'message' => 'Entry does not exist']);
+            }
+        }else{
+            echo json_encode(['code' => 0, 'message' => 'Access denied']);
+        }
+    }
 }
