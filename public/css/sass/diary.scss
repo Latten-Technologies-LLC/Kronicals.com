@@ -71,6 +71,12 @@
         float: left;
         padding-left: 0px;
 
+        @media screen and (max-width: 500px)
+        {
+          float: none;
+          padding: 0px !important;
+        }
+
         .innerLeftDiaryEntry{
           background: white;
           padding: 20px;
@@ -104,6 +110,12 @@
       .rightDiaryEntry{
         float: right;
         padding-right: 0px;
+
+        @media screen and (max-width: 500px)
+        {
+          padding-left: 0px;
+          float: none;
+        }
 
         .innerRightDiaryEntry{
 

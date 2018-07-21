@@ -54,7 +54,7 @@ if(count($entry) < 1)
         </div>
         <div class="diaryContent">
             <div class="innerContent">
-                <div class="leftDiaryEntry col-lg-8 col-md-8">
+                <div class="leftDiaryEntry col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     <div class="innerLeftDiaryEntry">
                         <div class="topEntry">
                             <h3><?php echo $diary_entry[0]->entry_title; ?></h3>
@@ -67,7 +67,7 @@ if(count($entry) < 1)
                         </div>
                     </div>
                 </div>
-                <div class="rightDiaryEntry col-lg-4 col-md-4">
+                <div class="rightDiaryEntry col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="innerRightDiaryEntry">
                         <div class="box user_info">
                             <div class="profilePic">

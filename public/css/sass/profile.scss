@@ -29,6 +29,11 @@
 
           padding: 150px;
 
+          @media screen and (max-width: 840px)
+          {
+            padding-bottom: 25px;
+          }
+
           padding-left: 0px;
           padding-right: 0px;
 
@@ -41,6 +46,14 @@
             top: 50%;
             transform: translateY(-50%);
 
+            @media screen and (max-width: 840px)
+            {
+              float: none;
+              position: static;
+
+              margin: 0% auto;
+            }
+
             .mainPPImage {
               width: 280px;
               height: 280px;
@@ -48,11 +61,25 @@
               border-radius: 50%;
 
               background-size: cover;
+
+              @media screen and (max-width: 840px) {
+                width: 150px;
+                height: 150px;
+
+                margin: 0% auto;
+              }
             }
           }
 
           .rightInfo {
             margin-left: 320px;
+
+            @media screen and (max-width: 840px)
+            {
+              margin-left: 0px;
+              padding-left: 20px;
+              padding-right: 20px;
+            }
 
             .topMain{
               border-bottom: 1px solid rgba(255, 255, 255, 0.8);
@@ -62,6 +89,10 @@
                 color: white;
                 font-size: 1.3em;
                 font-weight: 400;
+
+                @media screen and (max-width: 840px){
+                  font-weight: 600;
+                }
               }
 
               h4{
@@ -136,6 +167,11 @@
 
   .bottomContainer{
     margin-top: 50px;
+
+    @media screen and (max-width: 840px)
+    {
+      margin-top: 25px;
+    }
 
     .profileNav{
       //background: white;

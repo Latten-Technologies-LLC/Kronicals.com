@@ -52,6 +52,11 @@ Table of contents
           text-transform: uppercase;
 
           span{
+            @media screen and (max-width: 840px)
+            {
+              display: none;
+            }
+
             letter-spacing: normal;
           }
         }

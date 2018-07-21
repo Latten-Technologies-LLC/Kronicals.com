@@ -3,8 +3,9 @@
         <div class="bottomMenu">
             <ul itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement' role='navigation'>
                 <?php if(Auth::check()){ ?>
+                    <li itemprop='url' title="Diary"><a itemprop='name' href="{{ route('diary.index') }}">Diary</a></li>
                     <li itemprop='url' title="Settings"><a itemprop='name' href="<?php echo url("/"); ?>/settings">Settings</a></li>
-                    <li itemprop='url' title="Learn about our services that we provide"><a itemprop='name' href="<?php echo url("/"); ?>/p/<?php echo auth()->user()->username; ?>">Profile</a></li>
+                    <li itemprop='url' title="Profile"><a itemprop='name' href="<?php echo url("/"); ?>/p/<?php echo auth()->user()->username; ?>">Profile</a></li>
                     <li class="special">
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
