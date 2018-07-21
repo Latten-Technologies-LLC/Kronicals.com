@@ -1,4 +1,10 @@
 $(function(){
+    var options =
+    {
+        //icon: window.app_icon,
+        title: window.app_name
+    };
+
     // Alert box
     $.fn.Notify = function (title, message, sentBy, type) {
         var t = $(this);
@@ -49,7 +55,7 @@ $(function(){
         console.log("This browser does not support desktop notification");
     }else{
         // Options
-        var options =
+        options =
         {
             //icon: window.app_icon,
             title: window.app_name
