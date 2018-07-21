@@ -5,6 +5,28 @@ $(function(){
         title: window.app_name
     };
 
+    // Mobile rendering
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
     // Alert box
     $.fn.Notify = function (title, message, sentBy, type) {
         var t = $(this);
@@ -80,7 +102,7 @@ $(function(){
 
     // Notifying people (Post Likes)
     window.channel.bind('App\\Events\\PostLiked', function(data) {
-        if (!("Notification" in window) && Notification.permission === "granted"){
+        if (!("Notification" in window) && Notification.permission === "granted" && !isMobile.any()){
             options.body = data.message;
             options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
             var notification = new Notification(data.sent_from_data[0].name + ' liked your post', options);
@@ -93,7 +115,7 @@ $(function(){
     // Notifying people (Post Comments)
     window.channel.bind('App\\Events\\PostComment', function(data)
     {
-        if (!("Notification" in window) && Notification.permission === "granted") {
+        if (!("Notification" in window) && Notification.permission === "granted" && !isMobile.any()) {
             options.body = data.message;
             options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
             var notification = new Notification(data.sent_from_data[0].name + ' commented on your post', options);
@@ -106,7 +128,7 @@ $(function(){
     // Notifying people (New Follower)
     window.channel.bind('App\\Events\\NewFollower', function(data)
     {
-        if (!("Notification" in window) && Notification.permission === "granted") {
+        if (!("Notification" in window) && Notification.permission === "granted" && !isMobile.any()) {
             options.body = data.message;
             options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
             var notification = new Notification(data.sent_from_data[0].name + ' just followed you!', options);
