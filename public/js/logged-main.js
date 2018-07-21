@@ -79,11 +79,12 @@ $(function(){
     }
 
     // Notifying people (Post Likes)
-    window.channel.bind('App\\Events\\PostLiked', function(data)
-    {
-        options.body = data.message;
-        options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
-        var notification = new Notification(data.sent_from_data[0].name + ' liked your post', options);
+    window.channel.bind('App\\Events\\PostLiked', function(data) {
+        if (!("Notification" in window)){
+            options.body = data.message;
+            options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
+            var notification = new Notification(data.sent_from_data[0].name + ' liked your post', options);
+        }
 
         // Alert
         $(".body-alert").Notify(data.sent_from_data[0].name, 'Liked your post!', data.sent_from_data[0].unique_salt_id, 'notification');
@@ -92,9 +93,11 @@ $(function(){
     // Notifying people (Post Comments)
     window.channel.bind('App\\Events\\PostComment', function(data)
     {
-        options.body = data.message;
-        options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
-        var notification = new Notification(data.sent_from_data[0].name + ' commented on your post', options);
+        if (!("Notification" in window)) {
+            options.body = data.message;
+            options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
+            var notification = new Notification(data.sent_from_data[0].name + ' commented on your post', options);
+        }
 
         // Alert
         $(".body-alert").Notify(data.sent_from_data[0].name, 'Commented on your post!', data.sent_from_data[0].unique_salt_id, 'notification');
@@ -103,10 +106,11 @@ $(function(){
     // Notifying people (New Follower)
     window.channel.bind('App\\Events\\NewFollower', function(data)
     {
-        options.body = data.message;
-        options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
-        var notification = new Notification(data.sent_from_data[0].name + ' just followed you!', options);
-
+        if (!("Notification" in window)) {
+            options.body = data.message;
+            options.icon = '/user/' + data.sent_from_data[0].unique_salt_id + '/profile_picture';
+            var notification = new Notification(data.sent_from_data[0].name + ' just followed you!', options);
+        }
         // Alert
         $(".body-alert").Notify(data.sent_from_data[0].name, 'Followed you!', data.sent_from_data[0].unique_salt_id, 'notification');
     });
