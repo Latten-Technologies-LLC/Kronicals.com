@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f6352f-57f1-4ee9-a4b4-5bdeccff80df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/Main.css" afterPath="$PROJECT_DIR$/public/css/Main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/diary.css" afterPath="$PROJECT_DIR$/public/css/diary.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/forgot_password.css" afterPath="$PROJECT_DIR$/public/css/forgot_password.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/incog.css" afterPath="$PROJECT_DIR$/public/css/incog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/index.css" afterPath="$PROJECT_DIR$/public/css/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/login.css" afterPath="$PROJECT_DIR$/public/css/login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/profile.css" afterPath="$PROJECT_DIR$/public/css/profile.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/sass/Main.scss" afterPath="$PROJECT_DIR$/public/css/sass/Main.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/sass/diary.scss" afterPath="$PROJECT_DIR$/public/css/sass/diary.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/sass/profile.scss" afterPath="$PROJECT_DIR$/public/css/sass/profile.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/settings.css" afterPath="$PROJECT_DIR$/public/css/settings.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/signup.css" afterPath="$PROJECT_DIR$/public/css/signup.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/timeline.css" afterPath="$PROJECT_DIR$/public/css/timeline.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/diary/view.blade.php" afterPath="$PROJECT_DIR$/resources/views/diary/view.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/templates/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/templates/sidebar.blade.php" />
     </list>
     <ignored path="anonuss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -162,8 +150,8 @@
           <file leaf-file-name="diary.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/css/sass/diary.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="619">
-                  <caret line="115" column="22" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="22" />
+                <state relative-caret-position="587">
+                  <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
@@ -1047,12 +1035,12 @@
       <workItem from="1530244745468" duration="51000" />
       <workItem from="1530818176599" duration="4344000" />
       <workItem from="1531299959008" duration="702000" />
-      <workItem from="1532037930459" duration="17352000" />
+      <workItem from="1532037930459" duration="17667000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168462000" />
+    <option name="totallyTimeSpent" value="168777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="177" width="1920" height="1080" extended-state="0" />
@@ -1513,8 +1501,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/sass/diary.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="115" column="22" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="22" />
+        <state relative-caret-position="587">
+          <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
           <folding />
         </state>
       </provider>
