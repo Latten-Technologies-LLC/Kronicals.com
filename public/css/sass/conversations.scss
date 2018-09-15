@@ -1,0 +1,89 @@
+@import "Main";
+
+.conversationsContainer{
+  padding-top: 80px;
+
+  .conversationsBanner{
+    width: 100%;
+
+    height: 140px;
+
+    box-shadow: 0 37.125px 70px -12.125px rgba(0,0,0,0.5);
+
+    background-image: url(https://images.unsplash.com/photo-1532297539532-5bb652c0e49f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=537fdc567f9e1928a2463123c34c9810&auto=format&fit=crop&w=1350&q=80);
+    background-size: cover;
+    background-position: center;
+
+    .cover{
+      width: 100%;
+      height: 140px;
+
+      background: rgba(0,0,0,.4);
+      padding: 30px;
+
+      padding-top: 85px;
+
+      .innerBanner{
+
+        h3{
+          color: white;
+        }
+      }
+    }
+  }
+
+  .conversationsBanner.diary_view{
+    height: 180px;
+
+    .cover{
+      height: 180px;
+
+      .innerBanner{
+
+        h4{
+          font-size: 1.3em;
+          font-weight: 400;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .conversationsContent {
+    padding-top: 40px;
+
+    .leftConversations{
+      float: left;
+      padding-left: 0px;
+
+      .innerContent{
+        background: white;
+        box-shadow: 0 37.125px 70px -12.125px rgba(0,0,0,0.5);
+
+        padding: 20px;
+
+        .topContent{
+
+          h4{
+            color: #aaa;
+
+            font-size: 1.2em;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .rightConversations{
+      float: right;
+      padding-right: 0px;
+
+      .innerContent{
+        background: white;
+        box-shadow: 0 37.125px 70px -12.125px rgba(0,0,0,0.5);
+
+        padding: 20px;
+      }
+    }
+  }
+}

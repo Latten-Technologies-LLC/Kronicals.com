@@ -99,3 +99,6 @@ Route::post('/tutorials/update', function(Request $request)
 Route::get('/diary', 'DiaryController@index')->name('diary.index');
 Route::get('/diary/view/{entry_id}', 'DiaryController@view')->name('diary.view');
 Route::post('/diary/convert', 'DiaryController@convert')->name('diary.convert');
+
+// Conversations
+Route::get('/conversations', 'ConversationsController@index')->name('conversations.index');
