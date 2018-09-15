@@ -120,7 +120,7 @@ class RegisterController extends Controller
             ]);
 
             // Alert everyone
-            event(new NewUserSignup($user));
+            //event(new NewUserSignup($user));
 
             return $user;
         }
