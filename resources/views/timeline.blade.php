@@ -309,7 +309,7 @@ $validate = TutorialSystem::validate($tutorials);
     @endsection
 
     @section('scripts')
-        <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+        <!-- <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
         {{--<script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
         <script src="{{ asset('js/quill/imageresize.js') }}"></script>--}}
         <script type="text/javascript">
@@ -327,19 +327,19 @@ $validate = TutorialSystem::validate($tutorials);
                 });
 
                 <?php
-                if(isset($_GET['m'])){
+                //if(isset($_GET['m'])){
                 ?>
                     // Scroll to message
                     $('html, body').animate({
-                        scrollTop: $("#message<?php echo $_GET['m']; ?>").offset().top
+                        scrollTop: $("#message<?php //echo $_GET['m']; ?>").offset().top
                     }, 2000, function(){
-                        $("#message<?php echo $_GET['m']; ?>").addClass('replyActive');
-                        $("#replyBox<?php echo $_GET['m']; ?>").fadeIn('fast');
+                        $("#message<?php //echo $_GET['m']; ?>").addClass('replyActive');
+                        $("#replyBox<?php //echo $_GET['m']; ?>").fadeIn('fast');
                     });
 
                 <?php
-                }
+                //}
                 ?>
             });
-        </script>
+        </script> -->
     @endsection
