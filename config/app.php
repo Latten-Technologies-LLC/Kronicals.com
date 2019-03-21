@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Kronikals'),
+    'name' => env('APP_NAME', 'Kronicals'),
     'short_description' => 'Share your poetry & thoughts to the world, and provide feedback to your friends',
     'description' => "The premier community for aspiring poets to share their voice and get valuable feedback from their followers and friends",
     'keywords' => 'anonuss, social, mental health, social network, mobile responsive',

@@ -144,7 +144,7 @@ $validate = TutorialSystem::validate($tutorials);
                     </div>
                     <div class="bottomTimelineFeed">
                         <?php
-                            if(count($feed) > 0)
+                            if(is_array(json_decode($feed)) && count(json_decode($feed)) > 0)
                             {
                                 foreach(json_decode($feed) as $post)
                                 {

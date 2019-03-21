@@ -95,6 +95,8 @@ $(function(){
 });
 </script>
 
+@yield('external_javascript')
+
 <script src="{{ asset('js/logged-main.js') }}" type="application/javascript" language="JavaScript"></script>
 
 <?php if(env('APP_ENV') === 'production'){ ?>
