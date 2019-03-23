@@ -79,6 +79,7 @@ $validate = TutorialSystem::validate($tutorials);
                             <li><a href="{{ route('timeline.anons') }}"><h3>Anons <?php if($count > 0){ ?><span style="position: relative;top: -1px;" class="badge badge-pill badge-danger"><?php echo $count; ?></span><?php } ?></h3></a></li>
                             <li><a href="{{ route('timeline.sent') }}"><h3>Sent</h3></a></li>
                         </div>
+                        
                     </ul>
                 </div>
                 <!-- Beta 1.1: <div class="bottom card-columns"> -->
