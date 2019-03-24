@@ -17,6 +17,9 @@ use Illuminate\Http\Request;
 // Auth
 Auth::routes();
 
+// Sitemap 
+Route::get('/sitemap', 'SitemapController@index')->name('sitemap.index');
+
 // Index
 Route::get('/', 'IndexController@index')->name('index');
 
