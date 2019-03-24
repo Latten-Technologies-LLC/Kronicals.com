@@ -79,7 +79,7 @@ $validate = TutorialSystem::validate($tutorials);
                             <li><a href="{{ route('timeline.anons') }}"><h3>Anons <?php if($count > 0){ ?><span style="position: relative;top: -1px;" class="badge badge-pill badge-danger"><?php echo $count; ?></span><?php } ?></h3></a></li>
                             <li><a href="{{ route('timeline.sent') }}"><h3>Sent</h3></a></li>
                         </div>
-                        
+
                     </ul>
                 </div>
                 <!-- Beta 1.1: <div class="bottom card-columns"> -->
@@ -285,7 +285,7 @@ $validate = TutorialSystem::validate($tutorials);
                     <div class="modal-body" style="padding: 15px;">
                         <div class="mainBody" style="border-bottom: 1px solid #eee;">
                             <p>Ads support us and keeps us going! You can still support us even if you want to remove the ads</p>
-                            <b><h5>Price: $2.95</h5></b>
+                            <b><h5>Price: $3</h5></b>
                         </div><br />
                         <h5>Payment Methods</h5><br />
                         <div class="payment" id="payment"></div>
@@ -310,7 +310,7 @@ $validate = TutorialSystem::validate($tutorials);
     @endsection
 
     @section('scripts')
-        <!-- <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+        <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
         {{--<script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
         <script src="{{ asset('js/quill/imageresize.js') }}"></script>--}}
         <script type="text/javascript">
@@ -342,5 +342,5 @@ $validate = TutorialSystem::validate($tutorials);
                 //}
                 ?>
             });
-        </script> -->
+        </script> 
     @endsection

@@ -43,7 +43,7 @@
         </div>
     </div><br />
     <?php
-    if(auth()->user()->remove_ads == 0 && 1 == 2)
+    if(auth()->user()->remove_ads == 0)
     {
     ?>
     <div class="card ads">
