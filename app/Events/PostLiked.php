@@ -46,7 +46,7 @@ class PostLiked implements ShouldBroadcast
 
         // Plug var
         $this->send_to = $post[0]->user_id;
-        $this->sent_to_data = DB::table('users')->select('name', 'username', 'unique_salt_id', 'profile_picture')->where('unique_salt_id', $post[0]->user_id)->get();
+        $this->sent_to_data = DB::table('users')->select('name', 'username', 'profile_picture')->where('unique_salt_id', $post[0]->user_id)->get();
 
 
         // Create message
