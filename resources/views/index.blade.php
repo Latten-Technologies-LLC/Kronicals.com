@@ -91,7 +91,7 @@ $stylesheet = "index";
         </div>
         <div class="bottomArea">
             <h3 class="defaultFontColor">Copyright &copy; 20<?php echo date('y'); ?></h3>
-            <h4 class="defaultFontColor">Site built and designed by <a class="hrefPrimaryColor" href="https://sitelyftstudios.com">Sitelyft Studios</a></h4>
+            <h4 class="defaultFontColor" style="display: none;">Site built and designed by <a class="hrefPrimaryColor" href="https://sitelyftstudios.com">Sitelyft Studios</a></h4>
         </div>
     </div>
 </div>
