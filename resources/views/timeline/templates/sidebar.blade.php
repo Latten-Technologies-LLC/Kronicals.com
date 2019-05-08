@@ -43,7 +43,7 @@
         </div>
     </div><br />
     <?php
-    if(auth()->user()->remove_ads == 0 && 1 == 2)
+    if(auth()->user()->remove_ads == 0)
     {
     ?>
     <div class="card ads">
@@ -53,15 +53,16 @@
         <div class="cardBottom">
             <?php if(env('APP_ENV') === 'production'){ ?>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Main Ad -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1374725956270952"
-                     data-ad-slot="1691788953"
-                     data-ad-format="auto"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+<!-- Kronikals -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4631696789933007"
+     data-ad-slot="7355481076"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
             <?php } ?>
         </div>
     </div>

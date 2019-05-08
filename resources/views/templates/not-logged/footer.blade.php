@@ -21,7 +21,6 @@ if(!isset($no_footer) or $no_footer == false){
         </div>
         <div class="bottomBottomFooter">
             <h3 class="copyright">Copyright &copy; 2017</h3>
-            <h3 class="builtBy">Site built and designed by <a href="https://sitelyftstudios.com">Sitelyft Studios</a></h3>
         </div>
     </div>
 </div>

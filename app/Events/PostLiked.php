@@ -39,14 +39,14 @@ class PostLiked implements ShouldBroadcast
         $this->post_id = $data['pid'];
 
         $this->sent_from = auth()->user()->unique_salt_id;
-        $this->sent_from_data = DB::table('users')->where('unique_salt_id', auth()->user()->unique_salt_id)->get();
+        $this->sent_from_data = DB::table('users')->select('name', 'username', 'unique_salt_id', 'profile_picture')->where('unique_salt_id', auth()->user()->unique_salt_id)->get();
 
         // Find post
         $post = DB::table('timeline_posts')->where('id', $this->post_id)->get();
 
         // Plug var
         $this->send_to = $post[0]->user_id;
-        $this->sent_to_data = DB::table('users')->where('unique_salt_id', $post[0]->user_id)->get();
+        $this->sent_to_data = DB::table('users')->select('name', 'username', 'profile_picture')->where('unique_salt_id', $post[0]->user_id)->get();
 
 
         // Create message

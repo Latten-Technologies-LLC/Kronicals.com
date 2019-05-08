@@ -7,6 +7,7 @@ use App\Libraries\User;
 
 class ConversationsSystem
 {
+<<<<<<< HEAD
     private $db;
     private $response;
 
@@ -172,4 +173,7 @@ class ConversationsSystem
     {
 
     }
+=======
+    
+>>>>>>> 20cea8c09a28d0183f88266570b7b391649a06e4
 }
