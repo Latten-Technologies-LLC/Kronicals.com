@@ -5,20 +5,18 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.0.0",
-        "braintree/braintree_php": "^3.28",
-        "fideloper/proxy": "~3.3",
-        "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0",
-        "predis/predis": "^1.1",
-        "pusher/pusher-php-server": "^3.1",
-        "vinkla/pusher": "^4.1"
+        "php": "^7.1|^8.1",
+        "braintree/braintree_php": "^6.10",
+        "fideloper/proxy": "^4.4",
+        "laravel/framework": "^9.2",
+        "laravel/helpers": "^1.5",
+        "laravel/ui": "^4.1",
+        "pusher/pusher-php-server": "^7.2"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
-        "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~9.0"
     },
     "autoload": {
         "classmap": [
